@@ -88,6 +88,7 @@ const GD = {
     cp: createWithKeyName("cp", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
     net: createWithKeyName("net", GENERAL.number()),
 
+    gamemode: createWithKeyName("gamemode", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     cubeID: createWithKeyName("cubeID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     shipID: createWithKeyName("shipID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     ballID: createWithKeyName("ballID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),

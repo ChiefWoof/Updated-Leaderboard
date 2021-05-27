@@ -118,14 +118,15 @@ exports.UserRequest = exports.StatsObject.clone()
         20: PRESETS.accountID,
         21: PRESETS.playerID,
         22: PRESETS.username,
-        23: PRESETS.cubeID,
-        24: PRESETS.shipID,
-        25: PRESETS.ballID,
-        26: PRESETS.ufoID,
-        27: PRESETS.dartID,
-        28: PRESETS.robotID,
-        29: PRESETS.spiderID,
-        30: PRESETS.dm
+        23: PRESETS.gamemode,
+        24: PRESETS.cubeID,
+        25: PRESETS.shipID,
+        26: PRESETS.ballID,
+        27: PRESETS.ufoID,
+        28: PRESETS.dartID,
+        29: PRESETS.robotID,
+        30: PRESETS.spiderID,
+        31: PRESETS.dm
     });
 
 exports.StatNotificationUserEntry = new PList({

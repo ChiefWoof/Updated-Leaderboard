@@ -257,6 +257,13 @@ class UserRequest extends StatsObject {
          */
 
         this.spiderID = "spiderID" in data ? data.spiderID : 1n;
+
+        /**
+         * @description Whether the sender should be direct messaged upon successfully accepted request
+         * @type {boolean}
+         */
+
+        this.dm = "dm" in data ? data.dm : false;
         
         return this;
     }
@@ -424,6 +431,13 @@ class UserRequest extends StatsObject {
      */
 
     setSpiderID(value=1n) { return this; }
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setDM(value=false) { return this; }
 
 }
 

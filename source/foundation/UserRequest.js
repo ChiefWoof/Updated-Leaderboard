@@ -133,6 +133,20 @@ class UserRequest extends StatsObject {
         this.linkedDisTag = "linkedDisTag" in data ? data.linkedDisTag : null;
 
         /**
+         * @description ID representation of the admin that manually set the sender
+         * @type {BigInt}
+         */
+
+        this.overriderDisID = "linkedDisID" in data ? data.linkedDisID : 0n;
+
+        /**
+         * @description Discord tag of the admin that manually set the sender
+         * @type {?string}
+         */
+
+        this.overriderDisTag = "linkedDisTag" in data ? data.linkedDisTag : null;
+
+        /**
          * @description ID representation of the guild the request was sent from
          * @type {BigInt}
          */
@@ -284,6 +298,20 @@ class UserRequest extends StatsObject {
      */
 
     setLinkedDisTag(value=null) { return this; }
+
+    /**
+     * @default 0n
+     * @param {?number|string|BigInt} [value=0n]
+     */
+
+    setOverriderDisID(value=0n) { return this; }
+
+    /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setOverriderDisTag(value=null) { return this; }
 
     /**
      * @default 0n

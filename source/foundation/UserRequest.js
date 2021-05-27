@@ -210,6 +210,13 @@ class UserRequest extends StatsObject {
         this.username = "username" in data ? data.username : null;
 
         /**
+         * @description The user's main GD icon
+         * @type {BigInt}
+         */
+
+        this.gamemode = "gamemode" in data ? data.gamemode : 0n;
+
+        /**
          * @description The GD Cube ID of the requested player
          * @type {BigInt}
          */
@@ -382,6 +389,13 @@ class UserRequest extends StatsObject {
      */
 
     setUsername(value=null) { return this; }
+
+    /**
+     * @default 1n
+     * @param {?number|string|BigInt} [value=1n]
+     */
+
+    setGamemode(value=1n) { return this; }
 
     /**
      * @default 1n

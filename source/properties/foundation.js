@@ -124,7 +124,8 @@ exports.UserRequest = exports.StatsObject.clone()
         26: PRESETS.ufoID,
         27: PRESETS.dartID,
         28: PRESETS.robotID,
-        29: PRESETS.spiderID
+        29: PRESETS.spiderID,
+        30: PRESETS.dm
     });
 
 exports.StatNotificationUserEntry = new PList({

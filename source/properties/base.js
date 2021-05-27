@@ -45,11 +45,6 @@ const IDENTIFICATION = {
     name: createWithKeyName("name", STRING_BASE64),
     time: GENERAL.Date(),
 
-    guildID: createWithKeyName("guildID", GENERAL.BigInt()),
-    guildName: createWithKeyName("guildName", STRING_BASE64),
-    disID: createWithKeyName("disID", GENERAL.BigInt()),
-    disTag: createWithKeyName("disTag", STRING_BASE64),
-
     inSG: createWithKeyName("inSG", GENERAL.boolean()),
     gdServerStaff: createWithKeyName("gdServerStaff", GENERAL.boolean()),
 
@@ -58,6 +53,14 @@ const IDENTIFICATION = {
         decoding: ({ source }={}, d) => d ? new URL(source === "SET" ? d : Buffer.from(d, "base64").toString("utf-8")) : null
     })
 };
+
+const DISCORD = {
+    guildID: createWithKeyName("guildID", GENERAL.BigInt()),
+    guildName: createWithKeyName("guildName", STRING_BASE64),
+    disID: createWithKeyName("disID", GENERAL.BigInt()),
+    disTag: createWithKeyName("disTag", STRING_BASE64),
+    dm: createWithKeyName("dm", GENERAL.boolean()),
+}
 
 const BOT_LEVELS = {
     blocked: createWithKeyName("blocked", GENERAL.boolean()),
@@ -158,6 +161,7 @@ module.exports = {
     setFunctionOverrides: {
         ufo: "UFO",
         ufoID: "UFOID",
+        dm: "DM",
         cp: "CP",
         ytVid: "YTVid",
         gdbPerPage: "GDBPerPage",
@@ -166,6 +170,7 @@ module.exports = {
 
     PRESETS: {
         ...IDENTIFICATION,
+        ...DISCORD,
         ...GD,
         ...COLLECTIONS,
         ...BOT_LEVELS,

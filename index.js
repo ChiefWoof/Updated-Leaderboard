@@ -19,13 +19,25 @@ module.exports = {
             BaseManagerArray: require("./source/managers/BaseManagerArray"),
             BaseManagerCollection: require("./source/managers/BaseManagerCollection"),
             
-
         },
 
         properties: {
             base: require("./source/properties/base"),
             foundation: require("./source/properties/foundation")
         },
+
+        structures: {
+            
+        },
+
+        util: {
+            
+            
+            
+            
+            
+            
+        }
 
     }
 

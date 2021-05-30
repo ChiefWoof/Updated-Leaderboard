@@ -74,21 +74,53 @@ const BOT_LEVELS = {
 
 const GD = {
     username: createWithKeyName("username", STRING_BASE64),
-    accountID: createWithKeyName("accountID",  GENERAL.BigInt((details, d) => d > 0 ? d : null)),
-    playerID: createWithKeyName("playerID", GENERAL.BigInt((details, d) => d > 0 ? d : null)),
-    mod: createWithKeyName("mod", GENERAL.BigInt((details, d) => d > 0 && d <= 2 ? d : 0n)),
+    accountID: createWithKeyName("accountID",  GENERAL.BigInt()),
+    playerID: createWithKeyName("playerID", GENERAL.BigInt()),
+    mod: createWithKeyName("mod", GENERAL.BigInt()),
 
-    levelID: createWithKeyName("levelID", GENERAL.BigInt((details, d) => d > 0 ? d : null)),
+    youtube: createWithKeyName("youtube", STRING_BASE64),
+    twitter: createWithKeyName("twitter", STRING_BASE64),
+    twitch: createWithKeyName("twitch", STRING_BASE64),
 
-    stars: createWithKeyName("stars", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    diamonds: createWithKeyName("diamonds", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    scoins: createWithKeyName("scoins", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    ucoins: createWithKeyName("ucoins", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    demons: createWithKeyName("demons", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    cp: createWithKeyName("cp", GENERAL.integer((details, d) => d >= 0 ? d : 0)),
-    net: createWithKeyName("net", GENERAL.number()),
+    timelyID: createWithKeyName("timelyID", GENERAL.BigInt()),
+    levelID: createWithKeyName("levelID", GENERAL.BigInt()),
 
-    gamemode: createWithKeyName("gamemode", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
+    levelName: createWithKeyName("name", STRING_BASE64),
+    songName: createWithKeyName("songName", STRING_BASE64),
+    songPublisherName: createWithKeyName("songPublisherName", STRING_BASE64),
+    
+    difficultyFace: createWithKeyName("difficultyFace", GENERAL.BigInt()),
+    difficultyDemon: createWithKeyName("difficultyDemon", GENERAL.BigInt()),
+    isDemon: createWithKeyName("isDemon", GENERAL.boolean()),
+    isAuto: createWithKeyName("isAuto", GENERAL.boolean()),
+    epic: createWithKeyName("epic", GENERAL.boolean()),
+    featured: createWithKeyName("featured", GENERAL.boolean()),
+
+    ucoinsVerified: createWithKeyName("ucoinsVerified", GENERAL.boolean()),
+    highObjects: createWithKeyName("highObjects", GENERAL.boolean()),
+
+    downloads: createWithKeyName("downloads", GENERAL.BigInt()),
+    likes: createWithKeyName("likes", GENERAL.BigInt()),
+    levelLength: createWithKeyName("length", {...GENERAL.BigInt(),
+        typeDefault: 0,
+        types: {
+            0: "TINY",
+            1: "SHORT",
+            2: "MEDIUM",
+            3: "LONG",
+            4: ["XL", "EXTRA LONG"]
+        }
+    }),
+
+    stars: createWithKeyName("stars", GENERAL.BigInt()),
+    diamonds: createWithKeyName("diamonds", GENERAL.BigInt()),
+    scoins: createWithKeyName("scoins", GENERAL.BigInt()),
+    ucoins: createWithKeyName("ucoins", GENERAL.BigInt()),
+    demons: createWithKeyName("demons", GENERAL.BigInt()),
+    cp: createWithKeyName("cp", GENERAL.BigInt()),
+    net: createWithKeyName("net", GENERAL.BigInt()),
+
+    gamemode: createWithKeyName("gamemode", GENERAL.BigInt()),
     cubeID: createWithKeyName("cubeID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     shipID: createWithKeyName("shipID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     ballID: createWithKeyName("ballID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
@@ -97,7 +129,15 @@ const GD = {
     robotID: createWithKeyName("robotID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     spiderID: createWithKeyName("spiderID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
     
-    mod: createWithKeyName("mod", GENERAL.BigInt())
+    color1: createWithKeyName("color1", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
+    color2: createWithKeyName("color2", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
+};
+
+// Properties for UltimateGDBot
+const UGDB = {
+    blurb: createWithKeyName("blurb", STRING_BASE64),
+    unrated: createWithKeyName("unrated", GENERAL.boolean()),
+    isCopy: createWithKeyName("isCopy", GENERAL.boolean()),
 };
 
 const ulUser = {
@@ -108,7 +148,8 @@ const ulUser = {
     pastUsernames: createWithKeyName("pastUsernames", GENERAL.list(GD.username, { separator: "," })),
     region: createWithKeyName("region", GENERAL.BigInt()), // - needs to be created
     country: createWithKeyName("country", GENERAL.BigInt()), // - needs to be created
-    state: createWithKeyName("state", GENERAL.BigInt()) // - needs to be created
+    state: createWithKeyName("state", GENERAL.BigInt()), // - needs to be created
+    difficulty: createWithKeyName("difficulty", GENERAL.BigInt())
 };
 
 const COLLECTIONS = {
@@ -120,11 +161,10 @@ const woofPacks = {
     woofPackID: createWithKeyName("woofPackID", GENERAL.BigInt()),
     timeCreated: createWithKeyName("timeCreated", IDENTIFICATION.time),
     timeEdited: createWithKeyName("timeEdited", IDENTIFICATION.time),
-    createdByDisID: createWithKeyName("createdByDisID", IDENTIFICATION.disID),
-    editors: createWithKeyName("editors", GENERAL.list(IDENTIFICATION.disID, { separator: "," })),
+    editors: createWithKeyName("editors", GENERAL.list(DISCORD.disID, { separator: "," })),
     locked: createWithKeyName("locked", GENERAL.boolean()),
     viewable: createWithKeyName("viewable", GENERAL.boolean()),
-    tier: createWithKeyName("tier", GENERAL.BigInt((details, d) => d > 0 ? d : 0n)),
+    tier: createWithKeyName("tier", GENERAL.BigInt()),
     keys: createWithKeyName("keys", GENERAL.list(GENERAL.BigInt((details, d) => d > 0 || d < 0 ? d : null), { separator: "," })),
     verifiedWoof: createWithKeyName("verifiedWoof", GENERAL.boolean()),
     verifiedHustle: createWithKeyName("verifiedHustle", GENERAL.boolean()),
@@ -137,13 +177,13 @@ const woofPacks = {
     color: COLOR,
     emote: createWithKeyName("emote", EMOJI),
     gdbPerPage: createWithKeyName("gdbPerPage", GENERAL.integer((details, d) => d > 0 ? d : 10)),
-    sortByLevelID: createWithKeyName("sortByLevelID", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByDifficulty: createWithKeyName("sortByDifficulty", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByLevelName: createWithKeyName("sortByLevelName", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByLevelRating: createWithKeyName("sortByLevelRating", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByUsername: createWithKeyName("sortByUsername", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByPlayerID: createWithKeyName("sortByPlayerID", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
-    sortByScore: createWithKeyName("sortByScore", GENERAL.integer((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByLevelID: createWithKeyName("sortByLevelID", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByDifficulty: createWithKeyName("sortByDifficulty", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByLevelName: createWithKeyName("sortByLevelName", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByLevelRating: createWithKeyName("sortByLevelRating", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByUsername: createWithKeyName("sortByUsername", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByPlayerID: createWithKeyName("sortByPlayerID", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
+    sortByScore: createWithKeyName("sortByScore", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
     isRankPack: createWithKeyName("isRankPack", GENERAL.boolean()),
     isCopyPack: createWithKeyName("isCopyPack", GENERAL.boolean()),
     ytVid: createWithKeyName("ytVid", IDENTIFICATION.url),
@@ -178,7 +218,8 @@ module.exports = {
 
         ...ulUser,
         ...woofPacks,
-        ...woofPackLevel
+        ...woofPackLevel,
+        ...UGDB
     }
 
 };

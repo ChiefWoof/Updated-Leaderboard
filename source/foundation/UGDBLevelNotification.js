@@ -138,8 +138,8 @@ class UGDBLevelNotification extends Base {
             epic: false,
             featured: false,
             stars: 0,
-            difficultyFace: 0,
-            difficultyDemon: 0
+            difficultyFace: 0n,
+            difficultyDemon: 0n
         };
 
         let k = this.getImageKey(imgLink);

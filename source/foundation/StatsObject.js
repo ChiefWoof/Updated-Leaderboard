@@ -19,7 +19,7 @@ class StatsObject extends Base {
 
     /**
      * @description Compares using a "compareTo" equivalent for each value
-     * @param {{stars: number, diamonds: number, scoins: number, ucoins: number, demons: number, cp: number}} stats
+     * @param {{stars: BigInt, diamonds: BigInt, scoins: BigInt, ucoins: BigInt, demons: BigInt, cp: BigInt}} stats
      */
 
     compareTo(stats) {
@@ -42,45 +42,51 @@ class StatsObject extends Base {
 
         /**
          * @description The stars
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.stars = "stars" in data ? data.stars : 0;
+        this.stars = "stars" in data ? data.stars : 0n;
 
         /**
          * @description The diamonds
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.diamonds = "diamonds" in data ? data.diamonds : 0;
+        this.diamonds = "diamonds" in data ? data.diamonds : 0n;
 
         /**
          * @description The secret coins
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.scoins = "scoins" in data ? data.scoins : 0;
+        this.scoins = "scoins" in data ? data.scoins : 0n;
 
         /**
          * @description The usercoins
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.ucoins = "ucoins" in data ? data.ucoins : 0;
+        this.ucoins = "ucoins" in data ? data.ucoins : 0n;
 
         /**
          * @description The demons
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.demons = "demons" in data ? data.demons : 0;
+        this.demons = "demons" in data ? data.demons : 0n;
 
         /**
          * @description The creator points
-         * @type {number}
+         * @default 0
+         * @type {BigInt}
          */
 
-        this.cp = "cp" in data ? data.cp : 0;
+        this.cp = "cp" in data ? data.cp : 0n;
 
         return this;
     }
@@ -89,46 +95,46 @@ class StatsObject extends Base {
     // This is for documentation purposes
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?BigInt|number|string} [value=0n]
      */
 
-    setStars(value=0) { return this; }
+    setStars(value=0n) { return this; }
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?number|string} [value=0n]
      */
 
-    setDiamonds(value=0) { return this; }
+    setDiamonds(value=0n) { return this; }
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?number|string} [value=0n]
      */
 
-    setScoins(value=0) { return this; }
+    setScoins(value=0n) { return this; }
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?number|string} [value=0n]
      */
 
-    setUcoins(value=0) { return this; }
+    setUcoins(value=0n) { return this; }
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?number|string} [value=0n]
      */
 
-    setDemons(value=0) { return this; }
+    setDemons(value=0n) { return this; }
 
     /**
-     * @default 0
-     * @param {?number|string} [value=0]
+     * @default 0n
+     * @param {?number|string} [value=0n]
      */
 
-    setCP(value=0) { return this; }
+    setCP(value=0n) { return this; }
 
 }
 

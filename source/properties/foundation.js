@@ -11,7 +11,7 @@ exports.woofPack = new PList({
         1: PRESETS.woofPackID,
         2: PRESETS.timeCreated,
         3: PRESETS.timeEdited,
-        4: PRESETS.createdByDisID,
+        4: createWithKeyName("createdByDisID", PRESETS.disID),
         5: PRESETS.editors,
         // 6: levels - implemented in the woofPack class
         7: PRESETS.locked,
@@ -99,6 +99,35 @@ exports.StatsObject = new PList({
     }
 });
 
+exports.UGDBLevelNotification = new PList({
+    separator: ":",
+    restricted: true,
+    objData: {
+        1: PRESETS.blurb,
+        2: PRESETS.unrated,
+        3: PRESETS.levelID,
+        4: PRESETS.timelyID,
+        5: PRESETS.name,
+        6: PRESETS.username,
+        7: PRESETS.stars,
+        8: PRESETS.ucoins,
+        9: PRESETS.downloads,
+        10: PRESETS.likes,
+        11: PRESETS.levelLength,
+        12: PRESETS.difficultyFace,
+        13: PRESETS.difficultyDemon,
+        14: PRESETS.ucoinsVerified,
+        15: PRESETS.isDemon,
+        16: PRESETS.isAuto,
+        17: PRESETS.epic,
+        18: PRESETS.featured,
+        19: PRESETS.highObjects,
+        20: PRESETS.isCopy,
+        21: PRESETS.songName,
+        22: PRESETS.songPublisherName,
+    }
+});
+
 exports.UserRequest = exports.StatsObject.clone()
     .setRemoveFaultyValues(true)
     .registerByObj({
@@ -109,24 +138,32 @@ exports.UserRequest = exports.StatsObject.clone()
         11: createWithKeyName("linkedDisTag", PRESETS.disTag),
         12: createWithKeyName("overriderDisID", PRESETS.disID),
         13: createWithKeyName("overriderDisTag", PRESETS.disTag),
-        14: PRESETS.guildID,
-        15: PRESETS.guildName,
-        16: PRESETS.onUL,
-        17: PRESETS.onHL,
-        18: PRESETS.inSG,
-        19: PRESETS.gdServerStaff,
-        20: PRESETS.accountID,
-        21: PRESETS.playerID,
-        22: PRESETS.username,
-        23: PRESETS.gamemode,
-        24: PRESETS.cubeID,
-        25: PRESETS.shipID,
-        26: PRESETS.ballID,
-        27: PRESETS.ufoID,
-        28: PRESETS.dartID,
-        29: PRESETS.robotID,
-        30: PRESETS.spiderID,
-        31: PRESETS.dm
+        14: createWithKeyName("handlerDisID", PRESETS.disID),
+        15: createWithKeyName("handlerDisTag", PRESETS.disTag),
+        16: PRESETS.guildID,
+        17: PRESETS.guildName,
+        18: PRESETS.onUL,
+        19: PRESETS.onHL,
+        20: PRESETS.inSG,
+        21: PRESETS.gdServerStaff,
+        22: PRESETS.accountID,
+        23: PRESETS.playerID,
+        24: PRESETS.username,
+        25: PRESETS.youtube,
+        26: PRESETS.twitter,
+        27: PRESETS.twitch,
+        28: PRESETS.color1,
+        29: PRESETS.color2,
+        30: PRESETS.gamemode,
+        31: PRESETS.cubeID,
+        32: PRESETS.shipID,
+        33: PRESETS.ballID,
+        34: PRESETS.ufoID,
+        35: PRESETS.dartID,
+        36: PRESETS.robotID,
+        37: PRESETS.spiderID,
+        38: PRESETS.dm,
+        39: PRESETS.difficulty
     });
 
 exports.StatNotificationUserEntry = new PList({

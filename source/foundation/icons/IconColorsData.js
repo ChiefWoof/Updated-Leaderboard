@@ -39,6 +39,9 @@ class IconColorsData extends Base {
         return this;
     }
 
+    
+    // This is for documentation purposes
+
     /**
      * @default 1n
      * @param {?number|string|BigInt} [value=1n]

@@ -28,6 +28,6 @@ exports.IconColorsData = new PList({
 exports.IconDetailsData = new PList({
     separator: ":",
     objData: {
-        0: PRESETS.hasGlow, // Set to 0 because I initially set the original version of IconData with it so this just makes it easier
+        1: PRESETS.hasGlow,
     }
 });

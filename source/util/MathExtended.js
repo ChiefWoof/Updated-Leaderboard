@@ -19,7 +19,7 @@ class MathExtended {
     static floor(num) {
         if (typeof num === "number") return Math.floor(num);
         let n = BigInt(num);
-        return typeof n === "string" ? `${n}` : n;
+        return typeof num === "string" ? `${n}` : n;
     }
 
     static ceil(num) {

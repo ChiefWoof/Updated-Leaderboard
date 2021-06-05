@@ -42,6 +42,7 @@ const EMOJI = {
 // CREATIONS
 
 const IDENTIFICATION = {
+    index: createWithKeyName("index", GENERAL.BigInt()),
     name: createWithKeyName("name", STRING_BASE64),
     time: GENERAL.Date(),
 
@@ -54,13 +55,18 @@ const IDENTIFICATION = {
     })
 };
 
+const ENDPOINTS = {
+    version: createWithKeyName("version", GENERAL.BigInt())
+};
+
 const DISCORD = {
     guildID: createWithKeyName("guildID", GENERAL.BigInt()),
     guildName: createWithKeyName("guildName", STRING_BASE64),
     disID: createWithKeyName("disID", GENERAL.BigInt()),
     disTag: createWithKeyName("disTag", STRING_BASE64),
     dm: createWithKeyName("dm", GENERAL.boolean()),
-}
+    disCommandsUsed: createWithKeyName("disCommandsUsed", GENERAL.BigInt())
+};
 
 const BOT_LEVELS = {
     blocked: createWithKeyName("blocked", GENERAL.boolean()),
@@ -69,18 +75,38 @@ const BOT_LEVELS = {
     helper: createWithKeyName("helper", GENERAL.boolean()),
     officer: createWithKeyName("officer", GENERAL.boolean()),
     dev: createWithKeyName("dev", GENERAL.boolean()),
-    alpha: createWithKeyName("alpha", GENERAL.boolean())
-}
+    alpha: createWithKeyName("alpha", GENERAL.boolean()),
+};
+
+const UTIL = {
+    text: createWithKeyName("text", STRING_BASE64),
+    countBigInt: createWithKeyName("count", GENERAL.BigInt()),
+    countNumber: createWithKeyName("count", GENERAL.number()),
+    banned: createWithKeyName("banned", GENERAL.boolean()),
+
+    gdStatType: createWithKeyName("statType", {...GENERAL.BigInt(),
+        typeDefault: 0,
+        types: {
+            0: ["DEFAULT", "NONE"],
+            1: "STARS",
+            2: "DIAMONDS",
+            3: "SCOINS",
+            4: "UCOINS",
+            5: "DEMONS",
+            6: "CP"
+        }
+    })
+
+};
 
 const GD = {
     username: createWithKeyName("username", STRING_BASE64),
+    pastUsernames: createWithKeyName("pastUsernames", GENERAL.list(STRING_BASE64, { separator: "," })),
     accountID: createWithKeyName("accountID",  GENERAL.BigInt()),
     playerID: createWithKeyName("playerID", GENERAL.BigInt()),
     mod: createWithKeyName("mod", GENERAL.BigInt()),
 
-    youtube: createWithKeyName("youtube", STRING_BASE64),
-    twitter: createWithKeyName("twitter", STRING_BASE64),
-    twitch: createWithKeyName("twitch", STRING_BASE64),
+    onTop: createWithKeyName("onTop", GENERAL.boolean()),
 
     timelyID: createWithKeyName("timelyID", GENERAL.BigInt()),
     levelID: createWithKeyName("levelID", GENERAL.BigInt()),
@@ -119,6 +145,8 @@ const GD = {
     demons: createWithKeyName("demons", GENERAL.BigInt()),
     cp: createWithKeyName("cp", GENERAL.BigInt()),
     net: createWithKeyName("net", GENERAL.BigInt()),
+    
+    hasGlow: createWithKeyName("hasGlow", GENERAL.boolean()),
 
     gamemode: createWithKeyName("gamemode", GENERAL.BigInt()),
     cubeID: createWithKeyName("cubeID", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
@@ -133,8 +161,23 @@ const GD = {
     color2: createWithKeyName("color2", GENERAL.BigInt((details, d) => d >= 0 ? d : 1)),
 };
 
+const MEDIAS = {
+    youtube: createWithKeyName("youtube", STRING_BASE64),
+    twitter: createWithKeyName("twitter", STRING_BASE64),
+    twitch: createWithKeyName("twitch", STRING_BASE64),
+    discordServerCode: createWithKeyName("server", STRING_BASE64),
+    github: createWithKeyName("github", STRING_BASE64),
+    instagram: createWithKeyName("instagram", STRING_BASE64),
+};
+
+const DEVICES = {
+    isMobile: createWithKeyName("isMobile", GENERAL.boolean()),
+    isPC: createWithKeyName("isPC", GENERAL.boolean())
+};
+
 // Properties for UltimateGDBot
 const UGDB = {
+    ugdbAdmin: createWithKeyName("ugdbAdmin", GENERAL.boolean()),
     blurb: createWithKeyName("blurb", STRING_BASE64),
     unrated: createWithKeyName("unrated", GENERAL.boolean()),
     isCopy: createWithKeyName("isCopy", GENERAL.boolean()),
@@ -149,13 +192,25 @@ const ulUser = {
     region: createWithKeyName("region", GENERAL.BigInt()), // - needs to be created
     country: createWithKeyName("country", GENERAL.BigInt()), // - needs to be created
     state: createWithKeyName("state", GENERAL.BigInt()), // - needs to be created
-    difficulty: createWithKeyName("difficulty", GENERAL.BigInt())
+    difficulty: createWithKeyName("difficulty", GENERAL.BigInt()),
+
+    input: createWithKeyName("input", STRING_BASE64),
+    encoded: createWithKeyName("encoded", GENERAL.boolean()),
+    decoded: createWithKeyName("decoded", GENERAL.boolean()),
+    spacing: createWithKeyName("spacing", GENERAL.BigInt()),
+
+    linkCodeType: createWithKeyName("type", {...GENERAL.BigInt(),
+        typeDefault: 0n,
+        types: {
+            "0": "DISCORD_TO_GD"
+        }
+    })
 };
 
 const COLLECTIONS = {
     // editors is listed in "woofPacks"
     levels: createWithKeyName("levels", GENERAL.list(GD.levelID, { separator: "," }))
-}
+};
 
 const woofPacks = {
     woofPackID: createWithKeyName("woofPackID", GENERAL.BigInt()),
@@ -187,7 +242,7 @@ const woofPacks = {
     isRankPack: createWithKeyName("isRankPack", GENERAL.boolean()),
     isCopyPack: createWithKeyName("isCopyPack", GENERAL.boolean()),
     ytVid: createWithKeyName("ytVid", IDENTIFICATION.url),
-    sortOrder: createWithKeyName("sortOrder", GENERAL.list(GENERAL.BigInt((details, d) => d > 0 ? d : null)))
+    sortOrder: createWithKeyName("sortOrder", GENERAL.list(GENERAL.BigInt((details, d) => d > 0 ? d : null), { separator: "," }))
 };
 
 const woofPackLevel = {
@@ -206,7 +261,10 @@ module.exports = {
         cp: "CP",
         ytVid: "YTVid",
         gdbPerPage: "GDBPerPage",
-        gdServerStaff: "GDServerStaff"
+        gdServerStaff: "GDServerStaff",
+        ugdbAdmin: "UGDBAdmin",
+        bgprog: "BGProg",
+        pcolor: "PColor"
     },
 
     PRESETS: {
@@ -215,6 +273,10 @@ module.exports = {
         ...GD,
         ...COLLECTIONS,
         ...BOT_LEVELS,
+        ...ENDPOINTS,
+        ...UTIL,
+        ...MEDIAS,
+        ...DEVICES,
 
         ...ulUser,
         ...woofPacks,

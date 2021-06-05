@@ -61,29 +61,73 @@ exports.User = new PList({
     restricted: true,
     removeFaultyValues: true,
     objData: {
-        1: PRESETS.disID,
-        2: PRESETS.disTag,
-        3: PRESETS.accountID,
-        4: PRESETS.playerID,
-        5: PRESETS.blocked,
-        6: PRESETS.limited,
-        7: PRESETS.trainee,
-        8: PRESETS.helper,
-        9: PRESETS.officer,
-        10: PRESETS.dev,
-        11: PRESETS.alpha,
-        12: PRESETS.mod,
+        1: PRESETS.index,
+        2: createWithKeyName("dateAdded", PRESETS.time),
+        3: PRESETS.disID,
+        4: PRESETS.disTag,
+        5: PRESETS.accountID,
+        6: PRESETS.playerID,
+        7: PRESETS.username,
+        8: PRESETS.blocked,
+        9: PRESETS.limited,
+        10: PRESETS.trainee,
+        11: PRESETS.helper,
+        12: PRESETS.officer,
+        13: PRESETS.dev,
+        14: PRESETS.alpha,
+        15: PRESETS.ugdbAdmin,
+        16: PRESETS.gdServerStaff,
+        17: PRESETS.mod,
+        18: createWithKeyName("reasonBlocked", PRESETS.text),
+        19: createWithKeyName("reasonLimited", PRESETS.text),
+        20: PRESETS.disCommandsUsed,
+        21: PRESETS.stars,
+        22: PRESETS.diamonds,
+        23: PRESETS.scoins,
+        24: PRESETS.ucoins,
+        25: PRESETS.demons,
+        26: PRESETS.cp,
+        27: PRESETS.inSG,
+        28: PRESETS.hasGlow,
+        29: PRESETS.color1,
+        30: PRESETS.color2,
+        31: PRESETS.gamemode,
+        32: PRESETS.cubeID,
+        33: PRESETS.shipID,
+        34: PRESETS.ballID,
+        35: PRESETS.ufoID,
+        36: PRESETS.dartID,
+        37: PRESETS.robotID,
+        38: PRESETS.spiderID,
+        39: PRESETS.youtube,
+        40: PRESETS.twitter,
+        41: PRESETS.twitch,
+        42: PRESETS.discordServerCode,
+        43: PRESETS.github,
+        44: PRESETS.instagram,
+        45: PRESETS.isMobile,
+        46: PRESETS.isPC
     }
 });
 
 exports.UserProfile = exports.User.clone()
     .registerByObj({
-        13: PRESETS.stars,
-        14: PRESETS.diamonds,
-        15: PRESETS.scoins,
-        16: PRESETS.ucoins,
-        17: PRESETS.demons,
-        18: PRESETS.cp
+        47: createWithKeyName("banned", PRESETS.banned),
+        48: createWithKeyName("bannedSettings", PRESETS.banned),
+        49: createWithKeyName("lastRefreshed", PRESETS.time),
+        50: createWithKeyName("bannedStars", PRESETS.banned),
+        51: createWithKeyName("bannedDiamonds", PRESETS.banned),
+        52: createWithKeyName("bannedScoins", PRESETS.banned),
+        53: createWithKeyName("bannedUcoins", PRESETS.banned),
+        54: createWithKeyName("bannedDemons", PRESETS.banned),
+        55: createWithKeyName("bannedCP", PRESETS.banned),
+        56: PRESETS.pastUsernames,
+        57: createWithKeyName("areaRegion", PRESETS.text),
+        58: createWithKeyName("areaCountry", PRESETS.text),
+        59: createWithKeyName("areaSector", PRESETS.text),
+        60: createWithKeyName("bio", PRESETS.text),
+        61: createWithKeyName("pcolor", PRESETS.color),
+        62: createWithKeyName("bgprog", PRESETS.text)
     });
 
 exports.StatsObject = new PList({
@@ -166,17 +210,32 @@ exports.UserRequest = exports.StatsObject.clone()
         39: PRESETS.difficulty
     });
 
-exports.StatNotificationUserEntry = new PList({
+exports.UserStatAchievementEntry = exports.StatsObject.clone()
+    .registerByObj({
+        7: PRESETS.username,
+        8: PRESETS.playerID,
+        9: PRESETS.accountID,
+        10: PRESETS.mod,
+        11: PRESETS.inSG,
+        12: PRESETS.onTop
+    });
+
+exports.UserStatAchievement = new PList({
     separator: ":",
     restricted: true,
+    removeFaultyValues: true,
     objData: {
-        1: PRESETS.stars,
-        2: PRESETS.diamonds,
-        3: PRESETS.scoins,
-        4: PRESETS.ucoins,
-        5: PRESETS.demons,
-        6: PRESETS.cp,
-        7: PRESETS.username,
-        8: PRESETS.mod
+        1: PRESETS.username,
+        2: PRESETS.playerID,
+        3: PRESETS.accountID,
+        4: PRESETS.mod,
+        5: PRESETS.inSG,
+        6: PRESETS.onTop,
+        7: PRESETS.gdStatType,
+        8: createWithKeyName("usernameOld", PRESETS.username),
+        9: createWithKeyName("modOld", PRESETS.mod),
+        10: createWithKeyName("statOld", PRESETS.countBigInt),
+        11: createWithKeyName("statCurrent", PRESETS.countBigInt),
+        12: createWithKeyName("threshold", PRESETS.countBigInt)
     }
 });

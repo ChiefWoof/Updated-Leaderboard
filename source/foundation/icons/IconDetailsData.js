@@ -31,6 +31,9 @@ class IconDetailsData extends Base {
         return this;
     }
 
+    
+    // This is for documentation purposes
+
     /**
      * @default false
      * @param {boolean} [value=false]

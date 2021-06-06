@@ -106,7 +106,8 @@ exports.User = new PList({
         43: PRESETS.github,
         44: PRESETS.instagram,
         45: PRESETS.isMobile,
-        46: PRESETS.isPC
+        46: PRESETS.isPC,
+        63: createWithKeyName("gamemodeOverride", PRESETS.gamemode),
     }
 });
 

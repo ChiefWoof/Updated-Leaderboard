@@ -75,6 +75,22 @@ class IconGamemodeData extends Base {
          */
 
         this.spiderID = "spiderID" in data ? data.spiderID : 1n;
+
+        /**
+         * @description The identification number of what gamemode the player WANTS to display
+         * * `0` - Default gamemode
+         * * `1` - Cube
+         * * `2` - Ship
+         * * `3` - Ball
+         * * `4` - UFO
+         * * `5` - Dart
+         * * `6` - Robot
+         * * `7` - Spider
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.gamemodeOverride = "gamemodeOverride" in data ? data.gamemodeOverride : 0n;
  
         /**
          * @description The identification number of the player's primary gamemode
@@ -145,6 +161,13 @@ class IconGamemodeData extends Base {
      */
 
     setSpiderID(value=1n) { return this; }
+
+    /**
+     * @default 0n
+     * @param {number} [value=0n]
+     */
+
+    setGamemodeOverride(value=0n) { return this; }
 
     /**
      * @default 0n

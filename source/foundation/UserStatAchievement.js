@@ -24,7 +24,7 @@ class UserStatAchievement extends Base {
      * @returns {boolean}
      */
 
-    isUseable() { return this.isModChange() || this.isUsernameChange() || this.isStatAchievement(); }
+    isUseable() { return this.isModChange() || this.isUsernameChange() || this.isStatChange(); }
 
     /**
      * @description Whether the achievement should be announced
@@ -32,7 +32,7 @@ class UserStatAchievement extends Base {
      */
 
     isAnnounceable() {
-        return this.isUseable() && !this.isStatAchievement()
+        return this.isUseable() && !this.isStatChange()
         ? true
         : this.isPositiveDifferenceStat();
     }
@@ -56,14 +56,12 @@ class UserStatAchievement extends Base {
      * @returns {boolean}
      */
 
-
     wasMod() { return this.modOld > 0; }
 
     /**
      * @description Whether the user was previously a mod
      * @returns {boolean}
      */
-
 
     wasModElder() { return this.modOld > 1; }
 
@@ -72,21 +70,21 @@ class UserStatAchievement extends Base {
      * @returns {boolean}
      */
 
-    isStatAchievement() { return this.statType > 0; }
+    isStatChange() { return this.statType > 0; }
 
     /**
      * @description Whether this is a username change
      * @returns {boolean}
      */
 
-    isUsernameChange() { return this.username && this.usernameOld && this.username.toLowerCase() != this.usernameOld.toLowerCase(); }
+    isUsernameChange() { return !this.isStatChange() && this.valueCurrent.toLowerCase() != this.valueOld.toLowerCase(); }
 
     /**
      * @description Whether this is a mod status change
      * @returns {boolean}
      */
 
-    isModChange() { return this.mod != this.modOld; }
+    isModChange() { return !this.isStatChange() && !this.isUsernameChange() && this.valueCurrent != this.valueOld; }
 
     /**
      * @description Whether this is a positive change
@@ -94,8 +92,8 @@ class UserStatAchievement extends Base {
      */
 
     isPositive() {
-        return this.isStatAchievement() ? this.getDifferenceStat() > 0
-        : this.isModChange() ? this.mod > this.modOld
+        return this.isStatChange() ? this.getDifferenceStat() > 0
+        : this.isModChange() ? this.valueCurrent > this.valueOld
         : false;
     }
 
@@ -105,8 +103,8 @@ class UserStatAchievement extends Base {
      */
 
     isNegative() {
-        return this.isStatAchievement() ? this.getDifferenceStat() < 0
-        : this.isModChange() ? this.mod < this.modOld
+        return this.isStatChange() ? this.getDifferenceStat() < 0
+        : this.isModChange() ? this.valueCurrent < this.valueOld
         : false;
     }
 
@@ -136,39 +134,8 @@ class UserStatAchievement extends Base {
 
     getStatByThreshold(threshold=this.threshold, statValue=0n) {
         return threshold > 0
-        ? threshold * MathExtended.floor(statValue/threshold)
+        ? threshold * MathExtended.floor(BigInt(statValue)/threshold)
         : 0n;
-    }
-
-    /**
-     * @description Compares using a "compareTo" equivalent for each value
-     * @param {UserStatAchievementEntry} stats
-     */
-
-    compareTo(stats) {
-        if (!(this instanceof UserStatAchievementEntry))
-            throw new Error(`"this" is not an instance of the "UserStatAchievementEntry"`);
-        if (!(stats instanceof UserStatAchievementEntry))
-            throw new Error(`"stats" is not an instance of the "UserStatAchievementEntry"`);
-        let d = new UserStatAchievementEntry().buildByObj({
-            stars: this.stars - stats.stars,
-            diamonds: this.diamonds - stats.diamonds,
-            scoins: this.scoins - stats.scoins,
-            ucoins: this.ucoins - stats.ucoins,
-            demons: this.demons - stats.demons,
-            cp: this.cp - stats.cp,
-            mod: this.mod - stats.mod
-        });
-        d.username = this.username && stats.username
-        ? this.username.localeCompare(stats.username)
-        : null;
-        d.inSG = this.inSG && !stats.inSG ? 1
-        : !this.inSG && stats.inSG ? -1
-        : 0
-        d.onTop = this.onTop && !stats.onTop ? 1
-        : !this.onTop && stats.onTop ? -1
-        : 0
-        return d;
     }
 
     build(data) {
@@ -242,14 +209,6 @@ class UserStatAchievement extends Base {
         this.statType = "statType" in data ? data.statType : 0n;
 
         /**
-         * @description User's old GD username
-         * @default null
-         * @type {?string}
-         */
-
-        this.usernameOld = "usernameOld" in data ? data.usernameOld : null;
-
-        /**
          * @description The user's previous Geometry Dash mod status
          * `0` - None
          * `1` - Regular mod
@@ -262,19 +221,19 @@ class UserStatAchievement extends Base {
 
         /**
          * @description The previous count for a stat
-         * @default 0n
-         * @type {BigInt}
+         * @default null
+         * @type {?string}
          */
 
-        this.statOld = "statOld" in data ? data.statOld : 0n;
+        this.valueOld = "valueOld" in data ? data.valueOld : null;
 
         /**
          * @description The current count for a stat
-         * @default 0n
-         * @type {BigInt}
+         * @default null
+         * @type {?string}
          */
 
-        this.statCurrent = "statCurrent" in data ? data.statCurrent : 0n;
+        this.valueCurrent = "valueCurrent" in data ? data.valueCurrent : null;
 
         /**
          * @description The threshold for a stat
@@ -334,42 +293,35 @@ class UserStatAchievement extends Base {
 
     /**
      * @default 0n
-     * @param {boolean} [value=0n]
+     * @param {BigInt} [value=0n]
      */
 
     setStatType(value=0n) { return this; }
 
     /**
-     * @default null
-     * @param {string} [value=null]
-     */
-
-    setUsernameOld(value=null) { return this; }
-
-    /**
      * @default 0n
-     * @param {boolean} [value=0n]
+     * @param {BigInt} [value=0n]
      */
 
     setModOld(value=0n) { return this; }
 
     /**
-     * @default 0n
-     * @param {boolean} [value=0n]
+     * @default null
+     * @param {?string} [value=null]
      */
 
-    setStatOld(value=0n) { return this; }
+    setValueOld(value=null) { return this; }
+
+    /**
+     * @default null
+     * @param {?string} [value=null]
+     */
+
+    setValueCurrent(value=null) { return this; }
 
     /**
      * @default 0n
-     * @param {boolean} [value=0n]
-     */
-
-    setStatNew(value=0n) { return this; }
-
-    /**
-     * @default 0n
-     * @param {boolean} [value=0n]
+     * @param {BigInt} [value=0n]
      */
 
     setThreshold(value=0n) { return this; }

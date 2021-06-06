@@ -88,9 +88,27 @@ class UserStatAchievement extends Base {
 
     isModChange() { return this.mod != this.modOld; }
 
-    isPositiveDifferenceStat() { return this.getDifferenceStat() > 0; }
+    /**
+     * @description Whether this is a positive change
+     * @returns {boolean}
+     */
 
-    isNegativeDifferenceStat() { return this.getDifferenceStat() < 0; }
+    isPositive() {
+        return this.isStatAchievement() ? this.getDifferenceStat() > 0
+        : this.isModChange() ? this.mod > this.modOld
+        : false;
+    }
+
+    /**
+     * @description Whether this is a negative change
+     * @returns {boolean}
+     */
+
+    isNegative() {
+        return this.isStatAchievement() ? this.getDifferenceStat() < 0
+        : this.isModChange() ? this.mod < this.modOld
+        : false;
+    }
 
     /**
      * @description Retrives the difference between stat values

@@ -136,7 +136,7 @@ class UserStatAchievement extends Base {
 
     getStatByThreshold(threshold=this.threshold, statValue=0n) {
         return threshold > 0
-        ? statValue * MathExtended.floor(statValue/threshold)
+        ? threshold * MathExtended.floor(statValue/threshold)
         : 0n;
     }
 

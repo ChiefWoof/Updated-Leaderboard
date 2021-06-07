@@ -30,7 +30,7 @@ class StatsObject extends Base {
 
     /**
      * @description Retrives the net score based on the current stats
-     * @returns {boolean}
+     * @returns {number}
      */
 
     getNetScore(rounded=undefined) { return NetScore.calculate(rounded, this); }

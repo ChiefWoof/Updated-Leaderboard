@@ -68,7 +68,7 @@ class UserStatAchievements {
     checkUsername() {
         const achievements = [];
         const baseA = this.getAchievementBase()
-            .setUsernameOld(this.statsOld.username)
+            .setUsernameOld(this.statsOld.username);
         if (baseA.isUsernameChange())
             achievements.push(baseA);
         return achievements;
@@ -77,7 +77,7 @@ class UserStatAchievements {
     checkMod() {
         const achievements = [];
         const baseA = this.getAchievementBase()
-            .setModDifference(this.statsCurrent.mod-this.statsOld.mod)
+            .setModDifference(this.statsCurrent.mod-this.statsOld.mod);
         if (baseA.isModChange())
             achievements.push(baseA);
         return achievements;

@@ -247,7 +247,7 @@ class UserStatAchievement extends Base {
          * @type {BigInt}
          */
 
-        this.modDifference = "modDifference" in data ? data.modDifference : false;
+        this.modDifference = "modDifference" in data ? data.modDifference : 0n;
 
         /**
          * @description User's GD username

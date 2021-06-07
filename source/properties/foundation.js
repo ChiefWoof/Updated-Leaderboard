@@ -108,6 +108,8 @@ exports.User = new PList({
         45: PRESETS.isMobile,
         46: PRESETS.isPC,
         63: createWithKeyName("gamemodeOverride", PRESETS.gamemode),
+        64: PRESETS.onUL,
+        65: PRESETS.onHL
     }
 });
 
@@ -233,10 +235,10 @@ exports.UserStatAchievement = new PList({
         5: PRESETS.inSG,
         6: PRESETS.onTop,
         7: PRESETS.gdStatType,
-        8: createWithKeyName("usernameOld", PRESETS.username),
-        9: createWithKeyName("modOld", PRESETS.mod),
-        10: createWithKeyName("statOld", PRESETS.countBigInt),
-        11: createWithKeyName("statCurrent", PRESETS.countBigInt),
-        12: createWithKeyName("threshold", PRESETS.countBigInt)
+        8: createWithKeyName("modDifference", PRESETS.countBigInt),
+        9: createWithKeyName("usernameOld", PRESETS.username),
+        10: createWithKeyName("statOld",  PRESETS.countBigInt),
+        11: createWithKeyName("statCurrent",  PRESETS.countBigInt),
+        12: createWithKeyName("statThreshold", PRESETS.countBigInt)
     }
 });

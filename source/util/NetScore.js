@@ -41,4 +41,4 @@ class NetScore {
 
 }
 
-module.exports = BanFrom;
+module.exports = NetScore;

@@ -24,7 +24,7 @@ class UserStatAchievement extends Base {
      * @returns {boolean}
      */
 
-    isUseable() { return this.isModChange() || this.isUsernameChange() || this.isStatChange(); }
+    isUseable() { return this.isModChange || this.isUsernameChange() || this.isStatChange(); }
 
     /**
      * @description Whether the achievement should be announced
@@ -36,6 +36,20 @@ class UserStatAchievement extends Base {
         ? true
         : this.isPositiveDifferenceStat();
     }
+
+    /**
+     * @description Retrives the difference between stat values
+     * @returns {BigInt}
+     */
+
+    getDifferenceStat() { return this.statCurrent - this.statOld; }
+
+    /**
+     * @description Gets the numerical value of the user's previous mod status
+     * @returns {BigInt}
+     */
+
+    getModOld() { return this.mod - this.modDifference; }
 
     /**
      * @description Checks if the user is a regular or an elder mod
@@ -56,35 +70,35 @@ class UserStatAchievement extends Base {
      * @returns {boolean}
      */
 
-    wasMod() { return this.modOld > 0; }
+    wasMod() { return this.getModOld() > 0; }
 
     /**
      * @description Whether the user was previously a mod
      * @returns {boolean}
      */
 
-    wasModElder() { return this.modOld > 1; }
+    wasModElder() { return this.getModOld() > 1; }
 
     /**
-     * @description Whether this is a stat achievement
+     * @description Whether this is a stat change
      * @returns {boolean}
      */
 
     isStatChange() { return this.statType > 0; }
 
     /**
-     * @description Whether this is a username change
-     * @returns {boolean}
-     */
-
-    isUsernameChange() { return !this.isStatChange() && this.valueCurrent.toLowerCase() != this.valueOld.toLowerCase(); }
-
-    /**
      * @description Whether this is a mod status change
      * @returns {boolean}
      */
 
-    isModChange() { return !this.isStatChange() && !this.isUsernameChange() && this.valueCurrent != this.valueOld; }
+    isModChange() { return this.modDifference != 0;}
+
+    /**
+     * @description Whether this is a username change
+     * @returns {boolean}
+     */
+
+    isUsernameChange() { return [this.username, this.usernameOld].every(v => typeof v === "string") && this.username.toLowerCase() !== this.usernameOld.toLowerCase(); }
 
     /**
      * @description Whether this is a positive change
@@ -93,7 +107,7 @@ class UserStatAchievement extends Base {
 
     isPositive() {
         return this.isStatChange() ? this.getDifferenceStat() > 0
-        : this.isModChange() ? this.valueCurrent > this.valueOld
+        : this.isModChange ? this.modDifference > 0
         : false;
     }
 
@@ -104,23 +118,16 @@ class UserStatAchievement extends Base {
 
     isNegative() {
         return this.isStatChange() ? this.getDifferenceStat() < 0
-        : this.isModChange() ? this.valueCurrent < this.valueOld
+        : this.isModChange ? this.modDifference < 0
         : false;
     }
-
-    /**
-     * @description Retrives the difference between stat values
-     * @returns {number|BigInt}
-     */
-
-    getDifferenceStat() { return this.statCurrent - this.statOld; }
 
     /**
      * @description Whether there is a difference in a stat by the threshold
      * @returns {boolean}
      */
 
-    hasDifferenceByThreshold(threshold=this.threshold, statOld=this.statOld, statCurrent=this.statCurrent) {
+    hasDifferenceByThreshold(threshold=this.statThreshold, statOld=this.statOld, statCurrent=this.statCurrent) {
         return threshold > 0
         ? this.getStatByThreshold(threshold, statOld) != this.getStatByThreshold(threshold, statCurrent)
         : false;
@@ -132,7 +139,7 @@ class UserStatAchievement extends Base {
      * @returns {BigInt}
      */
 
-    getStatByThreshold(threshold=this.threshold, statValue=0n) {
+    getStatByThreshold(threshold=this.statThreshold, statValue=0n) {
         return threshold > 0
         ? threshold * MathExtended.floor(BigInt(statValue)/threshold)
         : 0n;
@@ -209,15 +216,25 @@ class UserStatAchievement extends Base {
         this.statType = "statType" in data ? data.statType : 0n;
 
         /**
-         * @description The user's previous Geometry Dash mod status
-         * `0` - None
-         * `1` - Regular mod
-         * `2` - Elder mod
+         * @description Current mod status - previous mod status
+         * `-1` - Went down by 2
+         * `-2` - Went down by 1
+         * `0` - No change
+         * `1` - Went up by 1
+         * `2` - Went up by 2
          * @default 0n
          * @type {BigInt}
          */
 
-        this.modOld = "modOld" in data ? data.modOld : 0n;
+        this.modDifference = "modDifference" in data ? data.modDifference : false;
+
+        /**
+         * @description User's GD username
+         * @default null
+         * @type {?string}
+         */
+
+        this.usernameOld = "usernameOld" in data ? data.usernameOld : null;
 
         /**
          * @description The previous count for a stat
@@ -225,7 +242,7 @@ class UserStatAchievement extends Base {
          * @type {?string}
          */
 
-        this.valueOld = "valueOld" in data ? data.valueOld : null;
+        this.statOld = "statOld" in data ? data.statOld : 0n;
 
         /**
          * @description The current count for a stat
@@ -233,7 +250,7 @@ class UserStatAchievement extends Base {
          * @type {?string}
          */
 
-        this.valueCurrent = "valueCurrent" in data ? data.valueCurrent : null;
+        this.statCurrent = "statCurrent" in data ? data.statCurrent : 0n;
 
         /**
          * @description The threshold for a stat
@@ -241,7 +258,7 @@ class UserStatAchievement extends Base {
          * @type {BigInt}
          */
 
-        this.threshold = "threshold" in data ? data.threshold : 0n;
+        this.statThreshold = "threshold" in data ? data.threshold : 0n;
 
         return this;
     }
@@ -303,28 +320,35 @@ class UserStatAchievement extends Base {
      * @param {BigInt} [value=0n]
      */
 
-    setModOld(value=0n) { return this; }
+    setModDifference(value=0n) { return this; }
+
+    /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setUsernameOld(value=null) { return this; }
 
     /**
      * @default null
      * @param {?string} [value=null]
      */
 
-    setValueOld(value=null) { return this; }
+    setStatOld(value=null) { return this; }
 
     /**
      * @default null
      * @param {?string} [value=null]
      */
 
-    setValueCurrent(value=null) { return this; }
+    setStatCurrent(value=null) { return this; }
 
     /**
      * @default 0n
      * @param {BigInt} [value=0n]
      */
 
-    setThreshold(value=0n) { return this; }
+    setStatThreshold(value=0n) { return this; }
 
 }
 

@@ -29,8 +29,6 @@ class UserStatAchievements {
 
     getAchievementBase() {
         return new UserStatAchievement(this.statsCurrent)
-            .setUsernameOld(this.statsOld.username)
-            .setModOld(this.statsOld.mod);
     }
 
     getAchievements() {
@@ -51,9 +49,10 @@ class UserStatAchievements {
     checkStat(statName="") {
         const achievements = [];
         const baseA = this.getAchievementBase()
-            .setThreshold(this.statsCurrent.inSG && `${statName.toUpperCase()}_SG` in THRESHOLDS ? THRESHOLDS[`${statName.toUpperCase()}_SG`] : statName.toUpperCase() in THRESHOLDS ? THRESHOLDS[statName.toUpperCase()] : 0n)
+            .setStatThreshold(this.statsCurrent.inSG && `${statName.toUpperCase()}_SG` in THRESHOLDS ? THRESHOLDS[`${statName.toUpperCase()}_SG`] : statName.toUpperCase() in THRESHOLDS ? THRESHOLDS[statName.toUpperCase()] : 0n)
             .setStatCurrent(statName in this.statsCurrent ? this.statsCurrent[statName] : 0n)
-            .setStatOld(statName in this.statsOld ? this.statsOld[statName] : 0n);
+            .setStatOld(statName in this.statsOld ? this.statsOld[statName] : 0n)
+            .setStatType(statName.toUpperCase());
         if (baseA.hasDifferenceByThreshold())
             achievements.push(baseA);
         return achievements;
@@ -69,7 +68,7 @@ class UserStatAchievements {
     checkUsername() {
         const achievements = [];
         const baseA = this.getAchievementBase()
-            .setUsernameOld(this.statsOld.username);
+            .setUsernameOld(this.statsOld.username)
         if (baseA.isUsernameChange())
             achievements.push(baseA);
         return achievements;
@@ -78,7 +77,7 @@ class UserStatAchievements {
     checkMod() {
         const achievements = [];
         const baseA = this.getAchievementBase()
-            .setModOld(this.statsOld.mod);
+            .setModDifference(this.statsCurrent.mod-this.statsOld.mod)
         if (baseA.isModChange())
             achievements.push(baseA);
         return achievements;

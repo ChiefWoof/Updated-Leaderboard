@@ -105,8 +105,8 @@ const GD = {
     accountID: createWithKeyName("accountID",  GENERAL.BigInt()),
     playerID: createWithKeyName("playerID", GENERAL.BigInt()),
     mod: createWithKeyName("mod", GENERAL.BigInt()),
-
-    onTop: createWithKeyName("onTop", GENERAL.boolean()),
+    
+    rankGlobal: createWithKeyName("rankGlobal", GENERAL.BigInt()),
 
     timelyID: createWithKeyName("timelyID", GENERAL.BigInt()),
     levelID: createWithKeyName("levelID", GENERAL.BigInt()),

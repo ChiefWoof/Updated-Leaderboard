@@ -109,7 +109,8 @@ exports.User = new PList({
         46: PRESETS.isPC,
         63: createWithKeyName("gamemodeOverride", PRESETS.gamemode),
         64: PRESETS.onUL,
-        65: PRESETS.onHL
+        65: PRESETS.onHL,
+        66: PRESETS.rankGlobal
     }
 });
 
@@ -220,7 +221,7 @@ exports.UserStatAchievementEntry = exports.StatsObject.clone()
         9: PRESETS.accountID,
         10: PRESETS.mod,
         11: PRESETS.inSG,
-        12: PRESETS.onTop
+        12: PRESETS.rankGlobal
     });
 
 exports.UserStatAchievement = new PList({
@@ -233,7 +234,7 @@ exports.UserStatAchievement = new PList({
         3: PRESETS.accountID,
         4: PRESETS.mod,
         5: PRESETS.inSG,
-        6: PRESETS.onTop,
+        6: PRESETS.rankGlobal,
         7: PRESETS.gdStatType,
         8: createWithKeyName("modDifference", PRESETS.countBigInt),
         9: createWithKeyName("usernameOld", PRESETS.username),

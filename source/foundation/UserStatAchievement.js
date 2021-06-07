@@ -134,6 +134,27 @@ class UserStatAchievement extends Base {
     }
 
     /**
+     * @description Whether the user has a global rank on GD
+     * @returns {boolean}
+     */
+
+    hasRank() { this.rankGlobal > 0; }
+
+    /**
+     * @description Whether the user is on the GD Top 100 global ranks
+     * @returns {boolean}
+     */
+
+    onTop100() { this.hasRank() && this.rankGlobal <= 100; }
+
+    /**
+     * @description Whether the user is on the GD Top players cache
+     * @returns {boolean}
+     */
+
+    onTop() { this.hasRank() && this.rankGlobal <= 1000; }
+
+    /**
      * @description If a threshold is present, returns the threshold
      * value that's closest to the statValue else 0n
      * @returns {BigInt}
@@ -193,12 +214,12 @@ class UserStatAchievement extends Base {
         this.inSG = "inSG" in data ? data.inSG : false;
 
         /**
-         * @description Whether the user is on the GD Top 1000
-         * @default false
-         * @type {boolean}
+         * @description The player's GD rank on the Global leaderboard
+         * @default 0n
+         * @type {BigInt}
          */
 
-        this.onTop = "onTop" in data ? data.onTop : false;
+        this.rankGlobal = "rankGlobal" in data ? data.rankGlobal : 0n;
 
         /**
          * @description The stat type
@@ -302,11 +323,11 @@ class UserStatAchievement extends Base {
     setInSG(value=null) { return this; }
 
     /**
-     * @default false
-     * @param {boolean} [value=false]
+     * @default 0n
+     * @param {BigInt} [value=0n]
      */
 
-    setOnTop(value=null) { return this; }
+    setRankGlobal(value=0n) { return this; }
 
     /**
      * @default 0n

@@ -10,6 +10,7 @@ const PROPERTY_LIST = (require("../properties/foundation").UserStatAchievementEn
 
 class UserStatAchievementEntry extends StatsObject {
 
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     constructor(data) {

@@ -1,17 +1,22 @@
 "use strict";
 
-const Base = require("./Base");
+const StatsObject = require("./StatsObject");
 const PROPERTY_LIST = (require("../properties/foundation").UserStatAchievement);
 
+const {
+    USER_STATUS: {IS_CREATOR_CP},
+    USER_ACHIEVEMENTS_THRESHOLDS: { NET_REQUIREMENT }
+} = require("../util/Constants");
 const MathExtended = require("../util/MathExtended");
 
 /**
  * @description Object of data to compare for UserStatAchievements
- * @extends {Base}
+ * @extends {StatsObject}
  */
 
-class UserStatAchievement extends Base {
+class UserStatAchievement extends StatsObject {
 
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     constructor(data) {
@@ -32,9 +37,11 @@ class UserStatAchievement extends Base {
      */
 
     isAnnounceable() {
-        return this.isUseable() && !this.isStatChange()
-        ? true
-        : this.isPositive();
+        return this.isUseable()
+        ? this.inSG || this.mod > 0 || this.getModOld() > 0 || this.getNetScore(false) >= NET_REQUIREMENT
+            ? this.isStatChange() ? this.isPositive() : true
+            : false
+        : false;
     }
 
     /**
@@ -123,6 +130,13 @@ class UserStatAchievement extends Base {
     }
 
     /**
+     * @description Whether the user should be considered a level creator
+     * @returns {boolean}
+     */
+
+    isCreator() { return this.cp >= IS_CREATOR_CP; }
+
+    /**
      * @description Whether there is a difference in a stat by the threshold
      * @returns {boolean}
      */
@@ -168,7 +182,6 @@ class UserStatAchievement extends Base {
 
     build(data) {
         data = this.parse(data);
-        super.build(data);
 
         /**
          * @description User's GD username
@@ -193,6 +206,14 @@ class UserStatAchievement extends Base {
          */
 
         this.accountID = "accountID" in data ? data.accountID : 0n;
+
+        /**
+         * @description The creator points
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.cp = "cp" in data ? data.cp : 0n;
 
         /**
          * @description The user's Geometry Dash mod status
@@ -257,6 +278,8 @@ class UserStatAchievement extends Base {
 
         this.usernameOld = "usernameOld" in data ? data.usernameOld : null;
 
+        super.build(data);
+
         /**
          * @description The previous count for a stat
          * @default null
@@ -307,6 +330,13 @@ class UserStatAchievement extends Base {
      */
 
     setAccountID(value=0n) { return this; }
+
+    /**
+     * @default 0n
+     * @param {?BigInt|number|string} [value=0n]
+     */
+
+    setCP(value=0n) { return this; }
 
     /**
      * @default 0

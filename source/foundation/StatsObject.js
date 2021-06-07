@@ -3,6 +3,9 @@
 const Base = require("./Base");
 const PROPERTY_LIST = (require("../properties/foundation").StatsObject);
 
+const { IS_CREATOR_CP } = (require("../util/Constants").USER_STATUS);
+const NetScore = require("../util/NetScore");
+
 /**
  * @description UL version of GD's primary stats
  * @extends {Base}
@@ -10,6 +13,7 @@ const PROPERTY_LIST = (require("../properties/foundation").StatsObject);
 
 class StatsObject extends Base {
 
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     constructor(data) {
@@ -18,8 +22,22 @@ class StatsObject extends Base {
     }
 
     /**
+     * @description Whether the user should be considered a level creator
+     * @returns {boolean}
+     */
+
+    isCreator() { return this.cp >= IS_CREATOR_CP; }
+
+    /**
+     * @description Retrives the net score based on the current stats
+     * @returns {boolean}
+     */
+
+    getNetScore(rounded=undefined) { return NetScore.calculate(rounded, this); }
+
+    /**
      * @description Compares using a "compareTo" equivalent for each value
-     * @param {{stars: BigInt, diamonds: BigInt, scoins: BigInt, ucoins: BigInt, demons: BigInt, cp: BigInt}} stats
+     * @param {StatsObject} stats
      */
 
     compareTo(stats) {
@@ -27,14 +45,14 @@ class StatsObject extends Base {
             throw new Error(`"this" is not an instance of the "StatsObject"`);
         if (!(stats instanceof StatsObject))
             throw new Error(`"stats" is not an instance of the "StatsObject"`);
-        return {
+        return new StatsObject().buildByObj({
             stars: this.stars - stats.stars,
             diamonds: this.diamonds - stats.diamonds,
             scoins: this.scoins - stats.scoins,
             ucoins: this.ucoins - stats.ucoins,
             demons: this.demons - stats.demons,
             cp: this.cp - stats.cp,
-        };
+        });
     }
 
     build(data) {
@@ -42,7 +60,7 @@ class StatsObject extends Base {
 
         /**
          * @description The stars
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -50,7 +68,7 @@ class StatsObject extends Base {
 
         /**
          * @description The diamonds
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -58,7 +76,7 @@ class StatsObject extends Base {
 
         /**
          * @description The secret coins
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -66,7 +84,7 @@ class StatsObject extends Base {
 
         /**
          * @description The usercoins
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -74,7 +92,7 @@ class StatsObject extends Base {
 
         /**
          * @description The demons
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -82,7 +100,7 @@ class StatsObject extends Base {
 
         /**
          * @description The creator points
-         * @default 0
+         * @default 0n
          * @type {BigInt}
          */
 

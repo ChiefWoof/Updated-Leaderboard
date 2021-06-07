@@ -107,6 +107,27 @@ class UserProfile extends User {
     }
 
     /**
+     * @description Whether the user has a global rank on GD
+     * @returns {boolean}
+     */
+
+    hasRank() { return this.rankGlobal > 0; }
+
+    /**
+     * @description Whether the user is on the GD Top 100 global ranks
+     * @returns {boolean}
+     */
+
+    onTop100() { return this.hasRank() && this.rankGlobal <= 100; }
+
+    /**
+     * @description Whether the user is on the GD Top players cache
+     * @returns {boolean}
+     */
+
+    onTop() { return this.hasRank() && this.rankGlobal <= 1000; }
+
+    /**
      * @description Whether the user's info should be displayed
      * @returns {boolean}
      */

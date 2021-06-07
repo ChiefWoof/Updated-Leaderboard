@@ -36,21 +36,21 @@ class UserStatAchievementEntry extends StatsObject {
      * @returns {boolean}
      */
 
-    hasRank() { this.rankGlobal > 0; }
+    hasRank() { return this.rankGlobal > 0; }
 
     /**
      * @description Whether the user is on the GD Top 100 global ranks
      * @returns {boolean}
      */
 
-    onTop100() { this.hasRank() && this.rankGlobal <= 100; }
+    onTop100() { return this.hasRank() && this.rankGlobal <= 100; }
 
     /**
      * @description Whether the user is on the GD Top players cache
      * @returns {boolean}
      */
 
-    onTop() { this.hasRank() && this.rankGlobal <= 1000; }
+    onTop() { return this.hasRank() && this.rankGlobal <= 1000; }
 
     /**
      * @description Compares using a "compareTo" equivalent for each value

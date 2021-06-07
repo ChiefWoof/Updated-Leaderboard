@@ -3,7 +3,7 @@
 /**
  * @description The UL uses emotes on Googlesheets
  * for easy readability when setting bans so this
- * class was made to help parse adn stringfy said bans
+ * class was made to help parse and stringfy said bans
  */
 
 class BanFrom {
@@ -21,8 +21,7 @@ class BanFrom {
     }
 
     static parse(str="") {
-        if (typeof str !== "string")
-            throw new Error("str is not a string");
+        if (typeof str !== "string") str = "";
         return {
             bannedStars: str.includes(this.EMOTES.get("STARS")),
             bannedDiamonds: str.includes(this.EMOTES.get("DIAMONDS")),

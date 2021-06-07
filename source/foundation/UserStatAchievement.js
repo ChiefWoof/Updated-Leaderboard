@@ -38,7 +38,7 @@ class UserStatAchievement extends StatsObject {
 
     isAnnounceable() {
         return this.isUseable()
-        ? this.inSG || this.mod > 0 || this.getModOld() > 0 || this.getNetScore(false) >= NET_REQUIREMENT
+        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0 || this.getNetScore(false) >= NET_REQUIREMENT
             ? this.isStatChange() ? this.isPositive() : true
             : false
         : false;

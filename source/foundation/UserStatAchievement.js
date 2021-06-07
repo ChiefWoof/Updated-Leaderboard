@@ -34,7 +34,7 @@ class UserStatAchievement extends Base {
     isAnnounceable() {
         return this.isUseable() && !this.isStatChange()
         ? true
-        : this.isPositiveDifferenceStat();
+        : this.isPositive();
     }
 
     /**

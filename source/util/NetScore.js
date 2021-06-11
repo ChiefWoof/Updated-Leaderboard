@@ -20,12 +20,12 @@ class NetScore {
     };
 
     static WEIGHTS_CALCULATED = {
-        stars: (amount=0) => this.WEIGHTS.stars * Number(amount),
-        diamonds: (amount=0) => this.WEIGHTS.diamonds * Number(amount),
-        scoins: (amount=0) => this.WEIGHTS.scoins * Number(amount),
-        ucoins: (amount=0) => this.WEIGHTS.ucoins * Number(amount),
-        demons: (amount=0) => this.WEIGHTS.demons * Number(amount),
-        cp: (amount=0) => this.WEIGHTS.cp * Number(amount),
+        stars: (amount=0) => this.WEIGHTS.stars * +amount,
+        diamonds: (amount=0) => this.WEIGHTS.diamonds * +amount,
+        scoins: (amount=0) => this.WEIGHTS.scoins * +amount,
+        ucoins: (amount=0) => this.WEIGHTS.ucoins * +amount,
+        demons: (amount=0) => this.WEIGHTS.demons * +amount,
+        cp: (amount=0) => this.WEIGHTS.cp * +amount,
     };
     
     static calculate(rounded=true, { stars=0, diamonds=0, scoins=0, ucoins=0, demons=0, cp=0 }={}) {

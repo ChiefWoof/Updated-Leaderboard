@@ -38,11 +38,19 @@ class UserStatAchievement extends StatsObject {
 
     isAnnounceable() {
         return this.isUseable()
-        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0 || this.getNetScore(false) >= NET_REQUIREMENT
+        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0 || this.passesRequirementNetScore()
             ? this.isStatChange() ? this.isPositive() : true
             : false
         : false;
     }
+
+    /**
+     * @description Whether the user passes the Net Score requirement
+     * @returns {boolean}
+     */
+
+
+    passesRequirementNetScore() { return this.getNetScore(false) >= NET_REQUIREMENT; }
 
     /**
      * @description Retrives the difference between stat values
@@ -141,11 +149,7 @@ class UserStatAchievement extends StatsObject {
      * @returns {boolean}
      */
 
-    hasDifferenceByThreshold(threshold=this.statThreshold, statOld=this.statOld, statCurrent=this.statCurrent) {
-        return threshold > 0
-        ? this.getStatByThreshold(threshold, statOld) != this.getStatByThreshold(threshold, statCurrent)
-        : false;
-    }
+    hasDifferenceByThreshold() { return this.getStatCurrentByThreshold() != this.getStatOldByThreshold(); }
 
     /**
      * @description Whether the user has a global rank on GD
@@ -179,6 +183,20 @@ class UserStatAchievement extends StatsObject {
         ? threshold * MathExtended.floor(BigInt(statValue)/threshold)
         : 0n;
     }
+
+    /**
+     * @description Retrives the "statCurrent" value by its threshold value, else 0n
+     * @returns {BigInt}
+     */
+
+    getStatCurrentByThreshold(threshold=this.statThreshold, value=this.statCurrent) { return this.getStatByThreshold(threshold, value); }
+
+    /**
+     * @description Retrives the "statOld" value by its threshold value, else 0n
+     * @returns {BigInt}
+     */
+
+    getStatOldByThreshold(threshold=this.statThreshold, value=this.statOld) { return this.getStatByThreshold(threshold, value); }
 
     build(data) {
         data = this.parse(data);

@@ -42,7 +42,9 @@ class UserStatAchievements {
             ...this.checkUcoins(),
             ...this.checkDemons(),
             ...this.checkCP(),
-            ...this.checkMod()
+            ...this.checkMod(),
+
+            ...this.checkRank()
         ];
     }
 
@@ -79,6 +81,15 @@ class UserStatAchievements {
         const baseA = this.getAchievementBase()
             .setModDifference(this.statsCurrent.mod-this.statsOld.mod);
         if (baseA.isModChange())
+            achievements.push(baseA);
+        return achievements;
+    }
+
+    checkRank() {
+        const achievements = [];
+        const baseA = this.getAchievementBase()
+            .setRankGlobalOld(this.statsOld.rankGlobal);
+        if (baseA.isRankChange())
             achievements.push(baseA);
         return achievements;
     }

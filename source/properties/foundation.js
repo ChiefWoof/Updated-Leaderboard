@@ -3,56 +3,56 @@
 const PList = require("../util/PList");
 const { PRESETS, createWithKeyName } = require("./base");
 
-
-exports.woofPack = new PList({
-    separator: ":",
-    restricted: true,
-    objData: {
-        1: PRESETS.woofPackID,
-        2: PRESETS.timeCreated,
-        3: PRESETS.timeEdited,
-        4: createWithKeyName("createdByDisID", PRESETS.disID),
-        5: PRESETS.editors,
-        // 6: levels - implemented in the woofPack class
-        7: PRESETS.locked,
-        8: PRESETS.viewable,
-        9: PRESETS.tier,
-        10: PRESETS.keys,
-        11: PRESETS.verifiedWoof,
-        12: PRESETS.verifiedHustle,
-        13: PRESETS.verifiedUL,
-        14: PRESETS.verifiedSG,
-        15: PRESETS.name,
-        16: PRESETS.description,
-        17: PRESETS.topic,
-        18: PRESETS.note,
-        19: PRESETS.tags,
-        20: PRESETS.color,
-
-        22: PRESETS.emote,
-        23: PRESETS.gdbPerPage,
-        24: PRESETS.sortByLevelID,
-        25: PRESETS.sortByDifficulty,
-        26: PRESETS.sortByLevelName,
-        27: PRESETS.sortByUsername,
-        28: PRESETS.sortByPlayerID,
-        29: PRESETS.sortByScore,
-        30: PRESETS.isRankPack,
-        31: PRESETS.isCopyPack,
-        32: PRESETS.ytVid,
-        33: PRESETS.sortByLevelRating,
-        34: PRESETS.sortOrder
-    }
-});
-
-exports.woofPackLevel = new PList({
+exports.ImageAttachment = new PList({
     separator: ":",
     restricted: true,
     removeFaultyValues: true,
     objData: {
-        1: PRESETS.levelID,
-        2: createWithKeyName("levelIDOriginal", PRESETS.levelID),
-        3: PRESETS.score,
+        1: PRESETS.url,
+        2: createWithKeyName("title", PRESETS.text),
+        3: createWithKeyName("description", PRESETS.text)
+    }
+});
+
+exports.StatsObject = new PList({
+    separator: ":",
+    restricted: true,
+    objData: {
+        1: PRESETS.stars,
+        2: PRESETS.diamonds,
+        3: PRESETS.scoins,
+        4: PRESETS.ucoins,
+        5: PRESETS.demons,
+        6: PRESETS.cp
+    }
+});
+
+exports.UGDBLevelNotification = new PList({
+    separator: ":",
+    restricted: true,
+    objData: {
+        1: PRESETS.blurb,
+        2: PRESETS.unrated,
+        3: PRESETS.levelID,
+        4: PRESETS.timelyID,
+        5: PRESETS.name,
+        6: PRESETS.username,
+        7: PRESETS.stars,
+        8: PRESETS.ucoins,
+        9: PRESETS.downloads,
+        10: PRESETS.likes,
+        11: PRESETS.levelLength,
+        12: PRESETS.difficultyFace,
+        13: PRESETS.difficultyDemon,
+        14: PRESETS.ucoinsVerified,
+        15: PRESETS.isDemon,
+        16: PRESETS.isAuto,
+        17: PRESETS.epic,
+        18: PRESETS.featured,
+        19: PRESETS.highObjects,
+        20: PRESETS.isCopy,
+        21: PRESETS.songName,
+        22: PRESETS.songPublisherName,
     }
 });
 
@@ -110,7 +110,8 @@ exports.User = new PList({
         63: createWithKeyName("gamemodeOverride", PRESETS.gamemode),
         64: PRESETS.onUL,
         65: PRESETS.onHL,
-        66: PRESETS.rankGlobal
+        66: PRESETS.rankGlobal,
+        67: PRESETS.ulServerStaff
     }
 });
 
@@ -133,48 +134,6 @@ exports.UserProfile = exports.User.clone()
         61: createWithKeyName("pcolor", PRESETS.color),
         62: createWithKeyName("bgprog", PRESETS.text)
     });
-
-exports.StatsObject = new PList({
-    separator: ":",
-    restricted: true,
-    objData: {
-        1: PRESETS.stars,
-        2: PRESETS.diamonds,
-        3: PRESETS.scoins,
-        4: PRESETS.ucoins,
-        5: PRESETS.demons,
-        6: PRESETS.cp
-    }
-});
-
-exports.UGDBLevelNotification = new PList({
-    separator: ":",
-    restricted: true,
-    objData: {
-        1: PRESETS.blurb,
-        2: PRESETS.unrated,
-        3: PRESETS.levelID,
-        4: PRESETS.timelyID,
-        5: PRESETS.name,
-        6: PRESETS.username,
-        7: PRESETS.stars,
-        8: PRESETS.ucoins,
-        9: PRESETS.downloads,
-        10: PRESETS.likes,
-        11: PRESETS.levelLength,
-        12: PRESETS.difficultyFace,
-        13: PRESETS.difficultyDemon,
-        14: PRESETS.ucoinsVerified,
-        15: PRESETS.isDemon,
-        16: PRESETS.isAuto,
-        17: PRESETS.epic,
-        18: PRESETS.featured,
-        19: PRESETS.highObjects,
-        20: PRESETS.isCopy,
-        21: PRESETS.songName,
-        22: PRESETS.songPublisherName,
-    }
-});
 
 exports.UserRequest = exports.StatsObject.clone()
     .setRemoveFaultyValues(true)
@@ -214,6 +173,32 @@ exports.UserRequest = exports.StatsObject.clone()
         39: PRESETS.difficulty
     });
 
+
+exports.UserRequestBanRanks = new PList({
+    separator: ":",
+    restricted: true,
+    removeFaultyValues: true,
+    objData: {
+        1: PRESETS.accountID,
+        2: PRESETS.playerID,
+        3: PRESETS.username,
+        4: PRESETS.mod,
+        5: createWithKeyName("description", PRESETS.text),
+        6: PRESETS.attachments,
+        7: PRESETS.stars,
+        8: PRESETS.diamonds,
+        9: PRESETS.scoins,
+        10: PRESETS.ucoins,
+        11: PRESETS.demons,
+        12: PRESETS.cp,
+        13: createWithKeyName("senderDisID", PRESETS.disID),
+        14: createWithKeyName("senderDisTag", PRESETS.disTag),
+        15: PRESETS.onUL,
+        16: PRESETS.onHL,
+        17: PRESETS.inSG
+    }
+});
+
 exports.UserStatAchievementEntry = exports.StatsObject.clone()
     .registerByObj({
         7: PRESETS.username,
@@ -247,5 +232,57 @@ exports.UserStatAchievement = new PList({
         17: createWithKeyName("statOld",  PRESETS.countBigInt),
         18: createWithKeyName("statCurrent",  PRESETS.countBigInt),
         19: createWithKeyName("statThreshold", PRESETS.countBigInt)
+    }
+});
+
+exports.WoofPack = new PList({
+    separator: ":",
+    restricted: true,
+    objData: {
+        1: PRESETS.woofPackID,
+        2: PRESETS.timeCreated,
+        3: PRESETS.timeEdited,
+        4: createWithKeyName("createdByDisID", PRESETS.disID),
+        5: PRESETS.editors,
+        // 6: levels - implemented in the woofPack class
+        7: PRESETS.locked,
+        8: PRESETS.viewable,
+        9: PRESETS.tier,
+        10: PRESETS.keys,
+        11: PRESETS.verifiedWoof,
+        12: PRESETS.verifiedHustle,
+        13: PRESETS.verifiedUL,
+        14: PRESETS.verifiedSG,
+        15: PRESETS.name,
+        16: PRESETS.description,
+        17: PRESETS.topic,
+        18: PRESETS.note,
+        19: PRESETS.tags,
+        20: PRESETS.color,
+
+        22: PRESETS.emote,
+        23: PRESETS.gdbPerPage,
+        24: PRESETS.sortByLevelID,
+        25: PRESETS.sortByDifficulty,
+        26: PRESETS.sortByLevelName,
+        27: PRESETS.sortByUsername,
+        28: PRESETS.sortByPlayerID,
+        29: PRESETS.sortByScore,
+        30: PRESETS.isRankPack,
+        31: PRESETS.isCopyPack,
+        32: PRESETS.ytVid,
+        33: PRESETS.sortByLevelRating,
+        34: PRESETS.sortOrder
+    }
+});
+
+exports.WoofPackLevel = new PList({
+    separator: ":",
+    restricted: true,
+    removeFaultyValues: true,
+    objData: {
+        1: PRESETS.levelID,
+        2: createWithKeyName("levelIDOriginal", PRESETS.levelID),
+        3: PRESETS.score,
     }
 });

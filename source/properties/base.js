@@ -48,11 +48,7 @@ const IDENTIFICATION = {
 
     inSG: createWithKeyName("inSG", GENERAL.boolean()),
     gdServerStaff: createWithKeyName("gdServerStaff", GENERAL.boolean()),
-
-    url: createWithKeyName("url", {
-        encoding: (details, d) => d instanceof URL ? Buffer.from(d.toString(), "utf-8").toString("base64") : null,
-        decoding: ({ source }={}, d) => d ? new URL(source === "SET" ? d : Buffer.from(d, "base64").toString("utf-8")) : null
-    })
+    ulServerStaff: createWithKeyName("ulServerStaff", GENERAL.boolean()),
 };
 
 const ENDPOINTS = {
@@ -80,9 +76,20 @@ const BOT_LEVELS = {
 
 const UTIL = {
     text: createWithKeyName("text", STRING_BASE64),
+    url: createWithKeyName("url", GENERAL.url()),
     countBigInt: createWithKeyName("count", GENERAL.BigInt()),
     countNumber: createWithKeyName("count", GENERAL.number()),
     banned: createWithKeyName("banned", GENERAL.boolean()),
+
+    attachments: createWithKeyName("attachments", GENERAL.list({
+        encoding: (details, d) => d && typeof d.stringify === "function" ? Buffer.from(d.stringify(), "utf-8").toString("base64") : null,
+        decoding: ({ source }={}, d) => {
+            if (!d) return null;
+            let ImageAttachment = require("../foundation/ImageAttachment");
+            if (source === "SET") return new ImageAttachment(d);
+            return new ImageAttachment(Buffer.from(d, source === "STRINGIFY" ? "utf-8" : "base64").toString(source === "STRINGIFY" ? "base64" : "utf-8"));
+        }
+    }, { separator: "," })),
 
     gdStatType: createWithKeyName("statType", {...GENERAL.BigInt(),
         typeDefault: 0,
@@ -241,7 +248,7 @@ const woofPacks = {
     sortByScore: createWithKeyName("sortByScore", GENERAL.BigInt((details, d) => d >= 0 && d <= 2 ? d : 0)),
     isRankPack: createWithKeyName("isRankPack", GENERAL.boolean()),
     isCopyPack: createWithKeyName("isCopyPack", GENERAL.boolean()),
-    ytVid: createWithKeyName("ytVid", IDENTIFICATION.url),
+    ytVid: createWithKeyName("ytVid", GENERAL.url()),
     sortOrder: createWithKeyName("sortOrder", GENERAL.list(GENERAL.BigInt((details, d) => d > 0 ? d : null), { separator: "," }))
 };
 
@@ -262,9 +269,11 @@ module.exports = {
         ytVid: "YTVid",
         gdbPerPage: "GDBPerPage",
         gdServerStaff: "GDServerStaff",
+        ulServerStaff: "ULServerStaff",
         ugdbAdmin: "UGDBAdmin",
         bgprog: "BGProg",
-        pcolor: "PColor"
+        pcolor: "PColor",
+        url: "URL"
     },
 
     PRESETS: {

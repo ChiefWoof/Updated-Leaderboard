@@ -19,8 +19,8 @@ module.exports = {
     source: {
 
         foundation: {
+            Attachment: require("./source/foundation/Attachment"),
             Base: require("./source/foundation/Base"),
-            ImageAttachment: require("./source/foundation/ImageAttachment"),
             StatsObject: require("./source/foundation/StatsObject"),
             UGDBLevelNotification: require('./source/foundation/UGDBLevelNotification'),
             User: require("./source/foundation/User"),

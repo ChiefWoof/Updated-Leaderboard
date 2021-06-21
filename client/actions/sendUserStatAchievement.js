@@ -14,10 +14,11 @@ class sendUserStatAchievement extends Action {
     handle(currentStats, oldStats) {
         const achievementData = new UserStatAchievements(currentStats, oldStats);
         if (!achievementData.isCompareable()) return false;
-        achievementData.getAchievements().map(a => {
-            this.client.emit(this.getHandler(), a);
-        });
-        return super.handle();
+        let handler = this.getHandler();
+        return achievementData.getAchievements().reduce((v, a) => {
+            v.push(super.handle(handler, a));
+            return v;
+        }, []);
     }
 
 }

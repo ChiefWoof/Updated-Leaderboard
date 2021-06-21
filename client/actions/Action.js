@@ -20,9 +20,9 @@ class Action {
     getHandlerType(type=undefined) {
         return type && type in HANDLES_EVENTS
         ? type
-        : this.constructor.name.startsWith("send")
-        ? "actionSent"
-        : "action";
+        : this.constructor.name.startsWith(HANDLES_EVENTS.actionSend)
+        ? HANDLES_EVENTS.actionSent
+        : HANDLES_EVENTS.action;
     }
 
     getHandler(handlerType=this.getHandlerType()) {
@@ -30,7 +30,7 @@ class Action {
         if (!handler)
             throw new Error("Invalid handler");
         return handlerType
-        ? [handlerType, handler].join("-")
+        ? `${handlerType}${handler}`
         : handler;
     }
 

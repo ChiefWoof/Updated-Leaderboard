@@ -13,6 +13,7 @@ const PROPERTY_LIST = (require("../properties/foundation").UserProfile);
 
 class UserProfile extends User {
 
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     constructor(data) {
@@ -105,27 +106,6 @@ class UserProfile extends User {
             this.bannedCP
         ].includes(true);
     }
-
-    /**
-     * @description Whether the user has a global rank on GD
-     * @returns {boolean}
-     */
-
-    hasRank() { return this.rankGlobal > 0; }
-
-    /**
-     * @description Whether the user is on the GD Top 100 global ranks
-     * @returns {boolean}
-     */
-
-    onTop100() { return this.hasRank() && this.rankGlobal <= 100; }
-
-    /**
-     * @description Whether the user is on the GD Top players cache
-     * @returns {boolean}
-     */
-
-    onTop() { return this.hasRank() && this.rankGlobal <= 1000; }
 
     /**
      * @description Whether the user's info should be displayed

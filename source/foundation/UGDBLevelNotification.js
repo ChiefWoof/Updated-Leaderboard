@@ -108,7 +108,7 @@ class UGDBLevelNotification extends Base {
             stars: 10
         });
     
-
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     constructor(data) {
@@ -119,17 +119,17 @@ class UGDBLevelNotification extends Base {
     isDaily() { return this.timelyID > dThreshold && this.timelyID < wkThreshold; }
     isWeekly() { return this.timelyID > wkThreshold; }
 
-    isRatedEasy() { return !this.isAuto && !this.isDemon && this.difficultyFace === EASY; }
-    isRatedNormal() { return !this.isAuto && !this.isDemon && this.difficultyFace === NORMAL; }
-    isRatedHard() { return !this.isAuto && !this.isDemon && this.difficultyFace === HARD; }
-    isRatedHarder() { return !this.isAuto && !this.isDemon && this.difficultyFace === HARDER; }
-    isRatedInsane() { return !this.isAuto && !this.isDemon && this.difficultyFace === INSANE; }
+    isRatedEasy() { return !this.isAuto && !this.isDemon && this.difficultyFace == EASY; }
+    isRatedNormal() { return !this.isAuto && !this.isDemon && this.difficultyFace == NORMAL; }
+    isRatedHard() { return !this.isAuto && !this.isDemon && this.difficultyFace == HARD; }
+    isRatedHarder() { return !this.isAuto && !this.isDemon && this.difficultyFace == HARDER; }
+    isRatedInsane() { return !this.isAuto && !this.isDemon && this.difficultyFace == INSANE; }
 
-    isRatedDemonEasy() { return this.isDemon && this.difficultyDemon === DEMON_EASY; }
-    isRatedDemonMedium() { return this.isDemon && this.difficultyDemon === DEMON_MEDIUM; }
-    isRatedDemonHard() { return this.isDemon && this.difficultyDemon === DEMON_HARD; }
-    isRatedDemonInsane() { return this.isDemon && this.difficultyDemon === DEMON_INSANE; }
-    isRatedDemonExtreme() { return this.isDemon && this.difficultyDemon === DEMON_EXTREME; }
+    isRatedDemonEasy() { return this.isDemon && this.difficultyDemon == DEMON_EASY; }
+    isRatedDemonMedium() { return this.isDemon && this.difficultyDemon == DEMON_MEDIUM; }
+    isRatedDemonHard() { return this.isDemon && this.difficultyDemon == DEMON_HARD; }
+    isRatedDemonInsane() { return this.isDemon && this.difficultyDemon == DEMON_INSANE; }
+    isRatedDemonExtreme() { return this.isDemon && this.difficultyDemon == DEMON_EXTREME; }
 
     getImageProperties(imgLink) {
         let props = {

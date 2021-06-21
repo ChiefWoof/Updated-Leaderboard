@@ -85,9 +85,9 @@ const UTIL = {
         encoding: (details, d) => d && typeof d.stringify === "function" ? Buffer.from(d.stringify(), "utf-8").toString("base64") : null,
         decoding: ({ source }={}, d) => {
             if (!d) return null;
-            let ImageAttachment = require("../foundation/ImageAttachment");
-            if (source === "SET") return new ImageAttachment(d);
-            return new ImageAttachment(Buffer.from(d, source === "STRINGIFY" ? "utf-8" : "base64").toString(source === "STRINGIFY" ? "base64" : "utf-8"));
+            let Attachment = require("../foundation/Attachment");
+            if (source === "SET") return new Attachment(d);
+            return new Attachment(Buffer.from(d, source === "STRINGIFY" ? "utf-8" : "base64").toString(source === "STRINGIFY" ? "base64" : "utf-8"));
         }
     }, { separator: "," })),
 

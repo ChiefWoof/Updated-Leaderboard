@@ -3,6 +3,7 @@
 // Individually listing each one for documentation
 
 const sendUserStatAchievement = require("./sendUserStatAchievement");
+const sendUserRequestBanGD = require("./sendUserRequestBanGD");
 
 /**
  * @description Manager for a client's actions,
@@ -16,6 +17,7 @@ class ActionsManager {
         this.client = client;
 
         this.sendUserStatAchievement = new sendUserStatAchievement(client);
+        this.sendUserRequestBanGD = new sendUserRequestBanGD(client);
         
     }
 

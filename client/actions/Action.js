@@ -19,13 +19,13 @@ class Action {
 
     getHandlerType(type=undefined) {
         return type && type in HANDLES_EVENTS
-        ? HANDLES_EVENTS[type]
+            ? HANDLES_EVENTS[type]
         : this.constructor.name.startsWith(HANDLES_EVENTS.actionSend)
-        ? HANDLES_EVENTS.actionSent
+            ? HANDLES_EVENTS.actionSent
         : this.constructor.name.startsWith(HANDLES_EVENTS.actionCreate)
-        ? HANDLES_EVENTS.actionCreated
+            ? HANDLES_EVENTS.actionCreated
         : this.constructor.name.startsWith(HANDLES_EVENTS.actionGet)
-        ? HANDLES_EVENTS.actionGet
+            ? HANDLES_EVENTS.actionGet
         : HANDLES_EVENTS.action;
     }
 

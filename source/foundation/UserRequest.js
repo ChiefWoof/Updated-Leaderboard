@@ -48,8 +48,10 @@ class UserRequest extends StatsObject {
      */
 
     isRequestable({ checkIfOnUL=true, checkIfOnHL=true, checkIsLinked=true }={}, { reqGen=this.checkRequirementsGeneral(), reqNor=this.checkRequirementsNormal(), reqLink=this.checkRequirementsLinked() }={}) {
-        return !this.passesStatusChecks({ checkIfOnUL, checkIfOnHL })
-        ? false
+        return !this.isUseable()
+            ? false
+        : !this.passesStatusChecks({ checkIfOnUL, checkIfOnHL })
+            ? false
         : this.passesRequirements(checkIsLinked, { reqGen, reqNor, reqLink });
     }
 

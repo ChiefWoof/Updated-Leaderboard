@@ -17,12 +17,20 @@ class Action {
         this.client = client;
     }
 
-    getHandler(withType=true) {
+    getHandlerType(type=undefined) {
+        return type && type in HANDLES_EVENTS
+        ? type
+        : this.constructor.name.startsWith("send")
+        ? "actionSent"
+        : "action";
+    }
+
+    getHandler(handlerType=this.getHandlerType()) {
         let handler = this.constructor.HANDLER;
         if (!handler)
             throw new Error("Invalid handler");
-        return withType
-        ? [HANDLES_EVENTS.action, handler].join("-")
+        return handlerType
+        ? [handlerType, handler].join("-")
         : handler;
     }
 

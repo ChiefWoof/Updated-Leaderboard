@@ -17,7 +17,7 @@ class sendUserStatAchievement extends Action {
         achievementData.getAchievements().map(a => {
             this.client.emit(this.getHandler(), a);
         });
-        super.handle();
+        return super.handle();
     }
 
 }

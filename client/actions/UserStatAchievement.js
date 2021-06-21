@@ -9,12 +9,15 @@ const {
 
 class UserStatAchievement extends Action {
 
+    static HANDLER = USER_STAT_ACHIEVEMENT;
+
     handle(currentStats, oldStats) {
         const achievementData = new UserStatAchievements(currentStats, oldStats);
-        if (!achievementData.isCompareable()) return;
+        if (!achievementData.isCompareable()) return false;
         achievementData.getAchievements().map(a => {
-            this.client.emit(USER_STAT_ACHIEVEMENT, a);
+            this.client.emit(this.getHandler(), a);
         });
+        super.handle();
     }
 
 }

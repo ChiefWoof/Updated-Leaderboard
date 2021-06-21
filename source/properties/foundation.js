@@ -3,7 +3,7 @@
 const PList = require("../util/PList");
 const { PRESETS, createWithKeyName } = require("./base");
 
-exports.ImageAttachment = new PList({
+exports.Attachment = new PList({
     separator: ":",
     restricted: true,
     removeFaultyValues: true,
@@ -231,7 +231,8 @@ exports.UserStatAchievement = new PList({
         16: createWithKeyName("usernameOld", PRESETS.username),
         17: createWithKeyName("statOld",  PRESETS.countBigInt),
         18: createWithKeyName("statCurrent",  PRESETS.countBigInt),
-        19: createWithKeyName("statThreshold", PRESETS.countBigInt)
+        19: createWithKeyName("statThreshold", PRESETS.countBigInt),
+        20: createWithKeyName("rankGlobalOld", PRESETS.rankGlobal)
     }
 });
 

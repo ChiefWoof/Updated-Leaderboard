@@ -1,5 +1,9 @@
 "use strict";
 
+// Individually listing each one for documentation
+
+const sendUserStatAchievement = require("./sendUserStatAchievement");
+
 /**
  * @description Manager for a client's actions,
  * inspired by Discord.js
@@ -11,12 +15,8 @@ class ActionsManager {
 
         this.client = client;
 
-        this.register(require("./UserStatAchievement"));
-
-    }
-
-    register(action) {
-        this[action.name] = new action(this.client);
+        this.sendUserStatAchievement = new sendUserStatAchievement(client);
+        
     }
 
 }

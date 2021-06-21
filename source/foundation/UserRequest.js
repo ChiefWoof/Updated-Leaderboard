@@ -26,6 +26,7 @@ function requirementCheck(requirements=new Map(), data={}) {
 
 class UserRequest extends StatsObject {
 
+    static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
     static REQUIREMENTS_GENERAL = REQUEST_REQUIREMENTS;
     static REQUIREMENTS_NORMAL = REQUEST_REQUIREMENTS_NORMAL;
@@ -37,19 +38,31 @@ class UserRequest extends StatsObject {
     }
 
     /**
-     * @description Checks if the user is requestable
-     * @returns {boolean}
+     * @returns {boolean} Whether the provided data provides use
+     */
+
+    isUseable() { return this.accountID > 0; }
+
+    /**
+     * @returns {boolean} Whether the user is requestable
      */
 
     isRequestable({ checkIfOnUL=true, checkIfOnHL=true, checkIsLinked=true }={}, { reqGen=this.checkRequirementsGeneral(), reqNor=this.checkRequirementsNormal(), reqLink=this.checkRequirementsLinked() }={}) {
-        return (checkIfOnHL && this.onHL) || (checkIfOnUL && this.onUL)
+        return !this.passesStatusChecks({ checkIfOnUL, checkIfOnHL })
         ? false
         : this.passesRequirements(checkIsLinked, { reqGen, reqNor, reqLink });
     }
 
     /**
-     * @description Checks if the user is requestable
-     * @returns {boolean}
+     * @returns {boolean} Whether the user passes status checks
+     */
+
+    passesStatusChecks({ checkIfOnUL=true, checkIfOnHL=true }={}) {
+        return !((checkIfOnHL && this.onHL) || (checkIfOnUL && this.onUL))
+    }
+
+    /**
+     * @returns {boolean} Whether the user passes specified request requirements
      */
 
     passesRequirements(checkIsLinked=true, { reqGen=this.checkRequirementsGeneral(), reqNor=this.checkRequirementsNormal(), reqLink=this.checkRequirementsLinked() }={}) {
@@ -59,8 +72,7 @@ class UserRequest extends StatsObject {
     }
 
     /**
-     * @description Checks if the user is linked
-     * @returns {boolean}
+     * @returns {boolean} Whether the user has a linked Discord account
      */
 
     isLinked() { return this.linkedDisID > 0; }
@@ -89,6 +101,20 @@ class UserRequest extends StatsObject {
         ? []
         : requirementCheck(this.constructor.REQUIREMENTS_LINKED, this);
     }
+
+    /**
+     * @description Checks if the user is a regular or an elder mod
+     * @returns {boolean}
+     */
+
+    isMod() { return this.mod > 0; }
+
+    /**
+     * @description Checks if the user is an elder mod
+     * @returns {boolean}
+     */
+
+    isModElder() { return this.mod > 1; }
     
     build(data) {
         data = this.parse(data);
@@ -99,6 +125,7 @@ class UserRequest extends StatsObject {
          * `0` - None
          * `1` - Regular mod
          * `2` - Elder mod
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -106,6 +133,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description ID representation of the sender's Discord account
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -113,6 +141,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Senders's Discord tag
+         * @default null
          * @type {?string}
          */
 
@@ -120,6 +149,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description ID representation of a linked user's Discord account
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -127,6 +157,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Linked user's Discord tag
+         * @default null
          * @type {?string}
          */
 
@@ -134,6 +165,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description ID representation of the admin that manually set the sender
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -141,13 +173,31 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Discord tag of the admin that manually set the sender
+         * @default null
          * @type {?string}
          */
 
         this.overriderDisTag = "linkedDisTag" in data ? data.linkedDisTag : null;
 
         /**
+         * @description Discord ID of the user that handled the request
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.handlerDisID = "handlerDisID" in data ? data.handlerDisID : 0n;
+
+        /**
+         * @description Discord tag of the user that handled the request
+         * @default null
+         * @type {?string}
+         */
+
+        this.handlerDisTag = "handlerDisTag" in data ? data.handlerDisTag : null;
+
+        /**
          * @description ID representation of the guild the request was sent from
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -155,6 +205,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Name of the guild the request was sent from
+         * @default null
          * @type {?string}
          */
 
@@ -162,6 +213,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Whether the user is on the UL
+         * @default false
          * @type {boolean}
          */
 
@@ -169,6 +221,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Whether the user is on the UL Hacker List
+         * @default false
          * @type {boolean}
          */
 
@@ -176,6 +229,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Whether the user is in the "Star Grinders" Discord server
+         * @default false
          * @type {boolean}
          */
 
@@ -183,6 +237,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Whether the user is a staff of the official GD server
+         * @default false
          * @type {boolean}
          */
 
@@ -190,6 +245,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description GD playerID of the requested player
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -197,6 +253,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description GD accountID of the requested player
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -204,13 +261,55 @@ class UserRequest extends StatsObject {
 
         /**
          * @description GD username of the requested player
+         * @default null
          * @type {BigInt}
          */
 
         this.username = "username" in data ? data.username : null;
 
         /**
+         * @description youtube channel ID of the requested player
+         * @default null
+         * @type {BigInt}
+         */
+
+        this.youtube = "youtube" in data ? data.youtube : null;
+
+        /**
+         * @description twitter username of the requested player
+         * @default null
+         * @type {BigInt}
+         */
+
+        this.twitter = "twitter" in data ? data.twitter : null;
+
+        /**
+         * @description twitch username of the requested player
+         * @default null
+         * @type {BigInt}
+         */
+
+        this.twitch = "twitch" in data ? data.twitch : null;
+
+        /**
+         * @description The user's primary icon color
+         * @default 1n
+         * @type {BigInt}
+         */
+
+        this.color1 = "color1" in data ? data.color1 : 1n;
+
+        /**
+         * @description The user's secondary icon color
+         * @default 1n
+         * @type {BigInt}
+         */
+
+        this.color2 = "color2" in data ? data.color2 : 0n;
+
+        /**
          * @description The user's main GD icon
+         * @default 0n
          * @type {BigInt}
          */
 
@@ -218,6 +317,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -225,6 +325,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -232,6 +333,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -239,6 +341,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -246,6 +349,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -253,6 +357,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -260,6 +365,7 @@ class UserRequest extends StatsObject {
 
         /**
          * @description The GD Cube ID of the requested player
+         * @default 1n
          * @type {BigInt}
          */
 
@@ -267,10 +373,19 @@ class UserRequest extends StatsObject {
 
         /**
          * @description Whether the sender should be direct messaged upon successfully accepted request
+         * @default false
          * @type {boolean}
          */
 
         this.dm = "dm" in data ? data.dm : false;
+
+        /**
+         * @description The difficulty in determining a user's legitimacy
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.difficulty = "difficulty" in data ? data.difficulty : 0n;
         
         return this;
     }
@@ -326,6 +441,20 @@ class UserRequest extends StatsObject {
      */
 
     setOverriderDisTag(value=null) { return this; }
+
+    /**
+     * @default 0n
+     * @param {?number|string|BigInt} [value=0n]
+     */
+
+    setHandlerDisID(value=0n) { return this; }
+
+    /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setHandlerDisTag(value=null) { return this; }
 
     /**
      * @default 0n
@@ -391,11 +520,46 @@ class UserRequest extends StatsObject {
     setUsername(value=null) { return this; }
 
     /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setYoutube(value=null) { return this; }
+
+    /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setTwitter(value=null) { return this; }
+
+    /**
+     * @default null
+     * @param {string} [value=null]
+     */
+
+    setTwitch(value=null) { return this; }
+
+    /**
      * @default 1n
      * @param {?number|string|BigInt} [value=1n]
      */
 
-    setGamemode(value=1n) { return this; }
+    setColor1(value=1n) { return this; }
+
+    /**
+     * @default 1n
+     * @param {?number|string|BigInt} [value=1n]
+     */
+
+    setColor2(value=1n) { return this; }
+
+    /**
+     * @default 0n
+     * @param {?number|string|BigInt} [value=0n]
+     */
+
+    setGamemode(value=0n) { return this; }
 
     /**
      * @default 1n
@@ -452,6 +616,13 @@ class UserRequest extends StatsObject {
      */
 
     setDM(value=false) { return this; }
+
+    /**
+     * @default 1n
+     * @param {?number|string|BigInt} [value=1n]
+     */
+
+    setDifficulty(value=1n) { return this; }
 
 }
 

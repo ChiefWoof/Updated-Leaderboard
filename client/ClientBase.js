@@ -13,21 +13,14 @@ const ActionsManager = require("./actions/ActionsManager");
 
 class ClientBase extends EventEmitter {
 
-    constructor(client) {
+    constructor() {
         super();
-        this.build(client);
+        this.build();
     }
 
     getUpTime() { return Date.now() - this.builtAt.getTime(); }
 
-    build(client) {
-
-        /**
-         * @description The initial client
-         * @type {*}
-         */
-
-        this.client = client || null;
+    build() {
 
         /**
          * @description Actions that go on within the client
@@ -37,18 +30,18 @@ class ClientBase extends EventEmitter {
         this.actions = new ActionsManager(this);
 
         /**
-         * @description The date the client started to run/be built
-         * @type {Date}
-         */
-        
-        this.builtAt = new Date();
-
-        /**
          * @description The user of the client
          * @type {User}
          */
 
         this.user = new User();
+
+        /**
+         * @description The date the client started to run/be built
+         * @type {Date}
+         */
+        
+        this.builtAt = new Date();
 
         return this;
     }
@@ -56,18 +49,20 @@ class ClientBase extends EventEmitter {
     // This is just for documentation purposes
 
     /**
-     * @param {"USER_STAT_ACHIEVEMENT"} event 
+     * @param {"sentUserStatAchievement"
+     * |"UserRequestBan-GD"} event 
      * @param  {...any} args 
      */
 
     emit(event, ...args) { super.emit(event, ...args); }
 
     /**
-     * @param {"USER_STAT_ACHIEVEMENT"} event 
-     * @param  {...any} args 
+     * @param {"sentUserStatAchievement"
+     * |"UserRequestBan-GD"} event
+     * @param  {function():void} cb 
      */
 
-    on(event, ...args) { super.on(event, ...args); }
+    on(event, cb) { super.on(event, cb); }
 
 }
 

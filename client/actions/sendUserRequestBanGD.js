@@ -13,9 +13,9 @@ class sendUserRequestBanGD extends Action {
 
     handle(data) {
         const d = new UserRequestBanRanks().buildByObj(data);
-        if (!d.isAcceptable()) return false;
-        this.client.emit(this.getHandler(), d);
-        return super.handle();
+        return d.isAcceptable()
+        ? super.handle(this.getHandler(), d)
+        : false;
     }
 
 }

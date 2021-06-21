@@ -44,6 +44,15 @@ class UserRequestBanRanks extends StatsObject {
      */
 
     isModElder() { return this.mod > 1; }
+
+    /**
+     * @description Appends an attachment to the attachment array
+     * @param {ImageAttachment} attachment The attachment to add
+     * @param {number} [pos=this.attachments.length] the index to place the attachment add (defaults to last)
+     * @returns {this}
+     */
+
+    addAttachment(attachment, index=this.attachments.length) { return this.setAttachments(...this.attachments.slice(0, index), attachment, ...this.attachments.slice(index)); }
     
     build(data) {
 

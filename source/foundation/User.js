@@ -263,6 +263,14 @@ class User extends StatsObject {
         this.gdServerStaff = "gdServerStaff" in data ? data.gdServerStaff : false;
 
         /**
+         * @description Whether the user is a staff member in the official UL server
+         * @default false
+         * @type {boolean}
+         */
+
+        this.ulServerStaff = "ulServerStaff" in data ? data.ulServerStaff : false;
+
+        /**
          * @description The user's Geometry Dash mod status
          * `0` - None
          * `1` - Regular mod
@@ -623,6 +631,13 @@ class User extends StatsObject {
      */
 
     setGDServerStaff(value=null) { return this; }
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setULServerStaff(value=null) { return this; }
 
     /**
      * @default 0n

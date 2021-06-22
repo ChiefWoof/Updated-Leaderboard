@@ -1,7 +1,8 @@
 "use strict";
 
 const {
-    HANDLES_EVENTS
+    HANDLES_EVENTS,
+    ACTION_EVENTS: { RAW }
 } = require("../../source/util/Constants");
 
 /**
@@ -38,7 +39,13 @@ class Action {
         : handler;
     }
 
-    handle() { return true; }
+    handle(listener, ...params) {
+        if (listener) {
+            this.client.emit(RAW, {t: listener, d: params});
+            this.client.emit(listener, ...params);
+        };
+        return true;
+    }
 
 }
 

@@ -50,15 +50,20 @@ class ClientBase extends EventEmitter {
 
     /**
      * @param {"sentUserStatAchievement"
-     * |"sentUserRequestBan-GD"} event 
+     * |"sentUserRequestBan-GD"
+     * | "sentUserRequest-UL"} event 
      * @param  {...any} args 
      */
 
-    emit(event, ...args) { super.emit(event, ...args); }
+    emit(event, ...args) {
+        super.emit(RAW, { t: event, d: args });
+        super.emit(event, ...args);
+    }
 
     /**
      * @param {"sentUserStatAchievement"
-     * |"sentUserRequestBan-GD"} event
+     * |"sentUserRequestBan-GD"
+     * | "sentUserRequest-UL"} event
      * @param  {function():void} cb 
      */
 

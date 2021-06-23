@@ -40,10 +40,7 @@ class Action {
     }
 
     handle(listener, ...params) {
-        if (listener) {
-            this.client.emit(RAW, {t: listener, d: params});
-            this.client.emit(listener, ...params);
-        };
+        if (listener) this.client.emit(listener, ...params);
         return true;
     }
 

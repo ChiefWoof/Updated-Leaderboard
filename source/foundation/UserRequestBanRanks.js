@@ -3,7 +3,12 @@
 const StatsObject = require("./StatsObject");
 const PROPERTY_LIST = (require("../properties/foundation").UserRequestBanRanks);
 
-const ImageAttachment = require("./ImageAttachment");
+const { REQUEST_BAN_RANKS_LIMITS } = require("../util/Constants");
+const {
+    stars: LIMIT_STARS
+} = REQUEST_BAN_RANKS_LIMITS;
+
+const Attachment = require("./Attachment");
 
 /**
  * @description Representation of a leaderboard mod request to ban a user
@@ -15,9 +20,19 @@ class UserRequestBanRanks extends StatsObject {
     static PROPERTIES_LOADED = -1;
     static PROPERTY_LIST = PROPERTY_LIST;
 
+    static LIMITS = REQUEST_BAN_RANKS_LIMITS;
+
     constructor(data) {
         super(data);
         this.build(data);
+    }
+
+    /**
+     * @returns {boolean} Whether the provided data is within bounded limits
+     */
+
+    withinLimits() {
+        return this.stars < LIMIT_STARS;
     }
 
     /**
@@ -29,6 +44,7 @@ class UserRequestBanRanks extends StatsObject {
         && this.username
         && this.playerID > 0
         && this.accountID > 0
+        && this.withinLimits();
     }
 
     /**
@@ -46,8 +62,29 @@ class UserRequestBanRanks extends StatsObject {
     isModElder() { return this.mod > 1; }
 
     /**
+     * @description Whether the user has a global rank on GD
+     * @returns {boolean}
+     */
+
+    hasRank() { return this.rankGlobal > 0; }
+
+    /**
+     * @description Whether the user is on the GD Top 100 global ranks
+     * @returns {boolean}
+     */
+
+    onTop100() { return this.hasRank() && this.rankGlobal <= 100; }
+
+    /**
+     * @description Whether the user is on the GD Top players cache
+     * @returns {boolean}
+     */
+
+    onTop() { return this.hasRank() && this.rankGlobal <= 1000; }
+
+    /**
      * @description Appends an attachment to the attachment array
-     * @param {ImageAttachment} attachment The attachment to add
+     * @param {Attachment} attachment The attachment to add
      * @param {number} [pos=this.attachments.length] the index to place the attachment add (defaults to last)
      * @returns {this}
      */
@@ -104,7 +141,7 @@ class UserRequestBanRanks extends StatsObject {
         /**
          * @description list of images related to the request
          * @default []
-         * @type {ImageAttachment[]}
+         * @type {Attachment[]}
          */
 
         this.attachments = "attachments" in data ? data.attachments : [];
@@ -151,6 +188,14 @@ class UserRequestBanRanks extends StatsObject {
 
         this.inSG = "inSG" in data ? data.inSG : false;
 
+        /**
+         * @description The player's GD rank on the Global leaderboard
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.rankGlobal = "rankGlobal" in data ? data.rankGlobal : 0n;
+
         return this;
     }
 
@@ -191,7 +236,7 @@ class UserRequestBanRanks extends StatsObject {
 
     /**
      * @default null
-     * @param {...ImageAttachment} [value]
+     * @param {...Attachment} [value]
      */
 
     setAttachments(...attachments) { return this; }
@@ -230,6 +275,13 @@ class UserRequestBanRanks extends StatsObject {
      */
 
     setInSG(value=false) { return this; }
+
+    /**
+     * @default 0n
+     * @param {BigInt} [value=0n]
+     */
+
+    setRankGlobal(value=0n) { return this; }
 
 }
 

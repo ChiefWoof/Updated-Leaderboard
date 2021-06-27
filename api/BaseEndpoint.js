@@ -83,17 +83,22 @@ class Base {
 
     isSupported() { return this.constructor.SUPPORTED; }
 
-    async handler(cb=() => API_CODES.FAILED) {
+    async handler() {
         let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
         : !this.hasPermission() ? API_CODES.ENDPOINT_PERMISSION_FAILURE
         : this.isFaulty() ? API_CODES.ENDPOINT_FAULTY
-        : await cb();
+        : await this.handlerAction();
+
         if (res === null) res = API_CODES.NO_DATA;
-        return this.json
-        ? JSON.stringify(Util.toJSON(res))
-        : res;
+        if (res && res.constructor && !(res instanceof Base) && res.constructor.PROPERTY_LIST)
+            if (this.json) res = JSON.stringify(Util.toJSON(res))
+            else res = res.stringify();
+
+        return res;
     }
+
+    async handlerAction() { return API_CODES.FAILED; }
 
     get directory() { return this.constructor.DIRECTORY; }
 

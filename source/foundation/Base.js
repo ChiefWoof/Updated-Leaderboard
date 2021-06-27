@@ -12,7 +12,6 @@ class Base {
 
     static OVERRIDES = setFunctionOverrides;
     static PROPERTY_LIST = null;
-    static ENTRY_CONSTRUCTOR = null;
 
     /**
      * @description Property list set methods loaded status
@@ -77,20 +76,20 @@ class Base {
         : this.constructor.PROPERTY_LIST.parse(data);
     }
 
-    build() {}
+    build() { return this; }
 
     /**
-     * @description Builds the object by using the "set" function for matching keys
+     * @description Builds the object by using the "set" function for matching keys in an Object
      * @returns {this}
      */
 
     buildByObj(data) {
-        this.build();
+        this.build(this);
         data = Object.prototype.toString.call(data) === "[object Object]"
         ? data
         : {};
         Object.entries(data).map(([k, v]) => {
-            if (k in this.constructor.SETS)
+            if (k in this.constructor.SETS && this.constructor.SETS[k] in this)
                 this[this.constructor.SETS[k]](v);
         });
         return this;

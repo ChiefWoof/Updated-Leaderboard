@@ -26,6 +26,7 @@ class Util {
         if (["number", "string", "boolean"].some(a => typeof value === a)) return value;
         if (typeof value === "bigint") return `${value}`;
         if (value === null) return value;
+        if (value instanceof Date) return value.toISOString();
         if (Array.isArray(value)) return value.reduce((v, a) => {
             if (a === undefined) return v;
             v.push(this.toJSONValue(a));

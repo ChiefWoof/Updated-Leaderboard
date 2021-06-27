@@ -69,7 +69,7 @@ class Base {
      * @returns {boolean} Whether the current parameters indicate the user passes permission requirements
      */
 
-    hasPermission() { true; }
+    hasPermission() { return true; }
 
     /**
      * @returns {boolean} Whether the endpoint is labeled as offline

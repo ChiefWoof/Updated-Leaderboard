@@ -79,12 +79,15 @@ class Base {
     async handler(cb=() => API_CODES.FAILED) {
         let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
-        : this.isFaulty() ? API_CODES.NO_DATA
+        : this.isFaulty() ? API_CODES.ENDPOINT_FAULTY
         : await cb();
+        if (res === null) res = API_CODES.NO_DATA;
         return this.json
         ? JSON.stringify(Util.toJSON(res))
         : res;
     }
+
+    get directory() { return this.constructor.DIRECTORY; }
 
     /**
      * @returns {Object} Returns an edited version of the parameters for a query string

@@ -2,8 +2,10 @@
 
 const { API_CODES } = require("../source/util/Constants");
 const PList = require("../source/util/PList");
+const Util = require("../source/util/Util");
 
 const PROPERTY_LIST = require("../source/properties/endpoints").base;
+const { setFunctionOverrides } = require("../source/properties/base");
 
 class Base {
 
@@ -11,6 +13,7 @@ class Base {
     static SUPPORTED = false;
     static OFFLINE = true;
     
+    static OVERRIDES = setFunctionOverrides;
     static PROPERTY_LIST = PROPERTY_LIST;
 
     /**
@@ -73,13 +76,13 @@ class Base {
 
     isSupported() { return this.constructor.SUPPORTED; }
 
-    handler(cb=() => API_CODES.FAILED) {
+    async handler(cb=() => API_CODES.FAILED) {
         let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
         : this.isFaulty() ? API_CODES.NO_DATA
-        : cb();
+        : await cb();
         return this.json
-        ? JSON.stringify(res)
+        ? JSON.stringify(Util.toJSON(res))
         : res;
     }
 
@@ -159,7 +162,13 @@ class Base {
         });
         return this;
     }
-    
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setJSON(value=null) { return this; }
     
 }
 

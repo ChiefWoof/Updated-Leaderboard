@@ -3,13 +3,15 @@
 const { API_CODES } = require("../source/util/Constants");
 const PList = require("../source/util/PList");
 
+const PROPERTY_LIST = require("../source/properties/endpoints").base;
+
 class Base {
 
     static DIRECTORY = "api";
     static SUPPORTED = false;
     static OFFLINE = true;
     
-    static PROPERTY_LIST = null;
+    static PROPERTY_LIST = PROPERTY_LIST;
 
     /**
      * @description Property list set methods loaded status
@@ -72,10 +74,13 @@ class Base {
     isSupported() { return this.constructor.SUPPORTED; }
 
     handler(cb=() => API_CODES.FAILED) {
-        return this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
+        let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
         : this.isFaulty() ? API_CODES.NO_DATA
         : cb();
+        return this.json
+        ? JSON.stringify(res)
+        : res;
     }
 
     /**
@@ -124,7 +129,19 @@ class Base {
         : data;
     }
 
-    build() { return this; }
+    build(data) {
+        data = this.parse(data);
+
+        /**
+         * @description Whether to return the data as a stringifed JSON
+         * @default false
+         * @type {boolean}
+         */
+
+        this.json = "json" in data ? data.json : false;
+        
+        return this;
+    }
 
     /**
      * @description Builds the object by using the "set" function for matching keys

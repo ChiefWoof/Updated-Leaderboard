@@ -4,7 +4,7 @@ const Base = require("../Base");
 const PROPERTY_LIST = (require("../../properties/foundationIcons").IconDetailsData);
 
 /**
- * @description An object with only gamemodes
+ * @description An object with only gamemodes' excess details
  * @extends {Base}
  */
 

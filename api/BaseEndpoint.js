@@ -65,6 +65,13 @@ class Base {
     isFaulty() { return false; }
 
     /**
+     * @todo add a private API password and file backups as a safety measure
+     * @returns {boolean} Whether the current parameters indicate the user passes permission requirements
+     */
+
+    hasPermission() { true; }
+
+    /**
      * @returns {boolean} Whether the endpoint is labeled as offline
      */
 
@@ -79,6 +86,7 @@ class Base {
     async handler(cb=() => API_CODES.FAILED) {
         let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
+        : !this.hasPermission() ? API_CODES.ENDPOINT_PERMISSION_FAILURE
         : this.isFaulty() ? API_CODES.ENDPOINT_FAULTY
         : await cb();
         if (res === null) res = API_CODES.NO_DATA;

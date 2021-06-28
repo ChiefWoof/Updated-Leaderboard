@@ -1,17 +1,14 @@
 "use strict";
 
-const Base = require("./Base");
+const Base = require("./BaseLevelRequests");
 
 const { API_CODES } = require("../../source/util/Constants");
-const PROPERTY_LIST = (require("../../source/foundation/LevelScore").PROPERTY_LIST);
-const fs = require("fs");
-const path = require("path");
+const PROPERTY_LIST = (require("../../source/properties/endpoints").submitLevelRequest);
 
-const LevelScore = require("../../source/foundation/LevelScore");
+const updateLevelRequest = require("./updateLevelRequest");
 
 class submitLevelRequest extends Base {
 
-    static DIRECTORY = `${this.DIRECTORY}/${this.name}`;
     static SUPPORTED = true;
     static OFFLINE = false;
 
@@ -28,31 +25,55 @@ class submitLevelRequest extends Base {
      */
 
     isFaulty() {
-        return this.levelID == 0
+        return super.isFaulty()
         || !this.levelRequest.hasSender();
     }
 
-    get directoryScores() { return path.resolve(__dirname, "../../source/database/levelScores"); }
-    get levelRequest() { return new LevelScore().buildByObj(this); }
-
-    async handler() {
-        return await super.handler(async () => {
-            let files = await fs.readdirSync(this.directoryScores);
-            if (!files.includes(`${this.levelID}.json`)) {
-                let req = this.levelRequest;
-                let dir = `${this.directoryScores}/${req.levelID}.json`;
-                req.setTimestamp(Date.now());
-                await fs.writeFileSync(dir, JSON.stringify(req.stringify()));
-                return API_CODES.SUCCESS;
-            }
-            return API_CODES.TAKEN;
-        });
+    async handlerAction() {
+        if (!(await this.entryExists())) {
+            let subID = API_CODES.FAILED;
+            await new updateLevelRequest()
+                .buildByObj(this.levelRequest)
+                .setTimestamp(Date.now())
+                .setSubmissionID(subID = await this.getNextSubmissionID())
+                .setEntry();
+            return subID;
+        }
+        return API_CODES.TAKEN;
     }
 
     build(data) {
         data = this.parse(data);
-        super.build(data);
-        LevelScore.prototype.build.bind(data);
+        super.build();
+
+        /**
+         * @description The identifiation number of the sender's Discord ID
+         * @type {BigInt}
+         */
+
+        this.senderDisID = "senderDisID" in data ? data.senderDisID : 0n;
+
+        /**
+         * @description The identifiation number of the sender's GD Account ID
+         * @type {BigInt}
+         */
+
+        this.senderAccountID = "senderAccountID" in data ? data.senderAccountID : 0n;
+
+        /**
+         * @description The identifiation number of the sender's Twitch ID
+         * @type {BigInt}
+         */
+
+        this.senderTwitchID = "senderTwitchID" in data ? data.senderTwitchID : 0n;
+
+        /**
+         * @description The identifiation code of the sender's YouTube ID
+         * @type {?string}
+         */
+
+        this.senderYoutubeID = "senderYoutubeID" in data ? data.senderYoutubeID : null;
+
         return this;
     }
 
@@ -62,41 +83,6 @@ class submitLevelRequest extends Base {
      */
 
     setLevelID(value=0n) { return this; }
-
-    /**
-     * @default null
-     * @param {?Date|string|number} [value=null]
-     */
-
-    setTimestamp(value=null) { return this; }
-
-    /**
-     * @default false
-     * @param {boolean} [value=false]
-     */
-
-    setViewed(value=false) { return this; }
-
-    /**
-     * @default false
-     * @param {boolean} [value=false]
-     */
-
-    setIsNSFW(value=false) { return this; }
-
-    /**
-     * @default false
-     * @param {boolean} [value=false]
-     */
-
-    setRejected(value=false) { return this; }
-
-    /**
-     * @default null
-     * @param {?string} [value=null]
-     */
-
-    setReview(value=null) { return this; }
 
     /**
      * @default 0n
@@ -125,27 +111,6 @@ class submitLevelRequest extends Base {
      */
 
     setSenderYoutubeID(value=null) { return this; }
-
-    /**
-     * @default 0n
-     * @param {?number|string|BigInt} [value=0n]
-     */
-
-    setReviewerDisID(value=0n) { return this; }
-
-    /**
-     * @default 0n
-     * @param {?number|string|BigInt} [value=0n]
-     */
-
-    setReviewerAccountID(value=0n) { return this; }
-
-    /**
-     * @default false
-     * @param {boolean} [value=false]
-     */
-
-    setSenderBanResult(value=false) { return this; }
 
 }
 

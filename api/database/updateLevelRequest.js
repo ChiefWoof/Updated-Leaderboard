@@ -1,17 +1,14 @@
 "use strict";
 
-const Base = require("./Base");
+const Base = require("./BaseLevelRequests");
 
 const { API_CODES } = require("../../source/util/Constants");
 const PROPERTY_LIST = (require("../../source/properties/endpoints").updateLevelRequest);
-const fs = require("fs");
-const path = require("path");
 
 const LevelScore = require("../../source/foundation/LevelScore");
 
-class submitLevelRequest extends Base {
+class updateLevelRequest extends Base {
 
-    static DIRECTORY = `${this.DIRECTORY}/${this.name}`;
     static SUPPORTED = true;
     static OFFLINE = false;
 
@@ -23,38 +20,40 @@ class submitLevelRequest extends Base {
         this.build(data);
     }
 
-    /**
-     * @returns {boolean} Whether the current parameters will clearly produce a faulty return
-     */
-
-    isFaulty() { return this.levelID == 0; }
-
-    get directoryScores() { return path.resolve(__dirname, "../../source/database/levelScores"); }
-    get levelRequest() { return new LevelScore().buildByObj(this); }
-
-    async handler() {
-        return await super.handler(async () => {
-            let files = await fs.readdirSync(this.directoryScores);
-            let req = this.levelRequest;
-
-            if (files.includes(`${this.levelID}.json`)) {
-                let dir = `${this.directoryScores}/${this.levelID}.json`;
-                let d = await fs.readFileSync(dir).toString() || '""';
-                d = new LevelScore(JSON.parse(d));
-                await fs.writeFileSync(dir, JSON.stringify(req.stringify()));
-                return API_CODES.SUCCESS;
-            }
-
-            return API_CODES.FAILED;
-        });
+    async handlerAction() {
+        return this.forceOverwrite || await this.entryExists()
+        ? await this.setEntry() || API_CODES.SUCCESS
+        : API_CODES.FAILED;
     }
 
     build(data) {
         data = this.parse(data);
+
+        /**
+         * @description Whether to create a new entry if one doesn't already exist
+         * @type {boolean}
+         */
+
+        this.forceOverwrite = "forceOverwrite" in data ? data.forceOverwrite : false;
+
         super.build(data);
-        LevelScore.prototype.build.bind(this, data);
+        LevelScore.prototype.build.bind(this, data)();
         return this;
     }
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setForceOverwrite(value=false) { return this; }
+
+    /**
+     * @default 0n
+     * @param {?number|string|BigInt} [value=0n]
+     */
+
+    setSubmissionID(value=0n) { return this; }
 
     /**
      * @default 0n
@@ -149,4 +148,4 @@ class submitLevelRequest extends Base {
 
 }
 
-module.exports = submitLevelRequest;
+module.exports = updateLevelRequest;

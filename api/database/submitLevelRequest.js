@@ -1,24 +1,19 @@
 "use strict";
 
-const Base = require("./BaseLevelRequests");
+const BaseLevelRequests = require("./BaseLevelRequests");
 
 const { API_CODES } = require("../../source/util/Constants");
 const PROPERTY_LIST = (require("../../source/properties/endpoints").submitLevelRequest);
 
 const updateLevelRequest = require("./updateLevelRequest");
 
-class submitLevelRequest extends Base {
+class submitLevelRequest extends BaseLevelRequests {
 
     static SUPPORTED = true;
     static OFFLINE = false;
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
-
-    constructor(data, client) {
-        super(data, client);
-        this.build(data);
-    }
 
     /**
      * @returns {boolean} Whether the current parameters will clearly produce a faulty return
@@ -76,6 +71,9 @@ class submitLevelRequest extends Base {
 
         return this;
     }
+    
+    
+    // This is for documentation purposes
 
     /**
      * @default 0n

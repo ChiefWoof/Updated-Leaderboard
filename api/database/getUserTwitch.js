@@ -1,11 +1,11 @@
 "use strict";
 
-const BaseLevelRequests = require("./BaseLevelRequests");
+const BaseUserTwitch = require("./BaseUserTwitch");
 
 const { API_CODES } = require("../../source/util/Constants");
-const PROPERTY_LIST = require("../../source/properties/endpoints").getLevelRequest;
+const PROPERTY_LIST = require("../../source/properties/endpoints").getUserTwitch;
 
-class getLevelRequest extends BaseLevelRequests {
+class getUserTwitch extends BaseUserTwitch {
 
     static SUPPORTED = true;
     static OFFLINE = false;
@@ -16,7 +16,7 @@ class getLevelRequest extends BaseLevelRequests {
 
     async handlerAction() {
         if (await this.entryExists()) {
-            let d = await this.getEntryAsLevelRequest();
+            let d = await this.getEntryAsUser();
             if (d.isUseable()) return d;
         }
         return API_CODES.NO_DATA;
@@ -24,4 +24,4 @@ class getLevelRequest extends BaseLevelRequests {
 
 }
 
-module.exports = getLevelRequest;
+module.exports = getUserTwitch;

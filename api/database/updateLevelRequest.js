@@ -1,24 +1,19 @@
 "use strict";
 
-const Base = require("./BaseLevelRequests");
+const BaseLevelRequests = require("./BaseLevelRequests");
 
 const { API_CODES } = require("../../source/util/Constants");
 const PROPERTY_LIST = (require("../../source/properties/endpoints").updateLevelRequest);
 
 const LevelScore = require("../../source/foundation/LevelScore");
 
-class updateLevelRequest extends Base {
+class updateLevelRequest extends BaseLevelRequests {
 
     static SUPPORTED = true;
     static OFFLINE = false;
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
-
-    constructor(data, client) {
-        super(data, client);
-        this.build(data);
-    }
 
     async handlerAction() {
         return this.forceOverwrite || await this.entryExists()
@@ -40,6 +35,9 @@ class updateLevelRequest extends Base {
         LevelScore.prototype.build.bind(this, data)();
         return this;
     }
+    
+    
+    // This is for documentation purposes
 
     /**
      * @default false

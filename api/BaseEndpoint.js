@@ -7,7 +7,7 @@ const Util = require("../source/util/Util");
 const PROPERTY_LIST = require("../source/properties/endpoints").base;
 const { setFunctionOverrides } = require("../source/properties/base");
 
-class Base {
+class BaseEndpoint {
 
     static SUPPORTED = false;
     static OFFLINE = true;
@@ -89,7 +89,7 @@ class Base {
         : await this.handlerAction();
 
         if (res === null) res = API_CODES.NO_DATA;
-        if (res && res.constructor && !(res instanceof Base) && res.constructor.PROPERTY_LIST)
+        if (res && res.constructor && !(res instanceof BaseEndpoint) && res.constructor.PROPERTY_LIST)
             if (this.json) res = JSON.stringify(Util.toJSON(res))
             else res = res.stringify();
 
@@ -183,6 +183,9 @@ class Base {
      */
 
     async buildByParams(data) { return this.buildByObj(data); }
+    
+    
+    // This is for documentation purposes
 
     /**
      * @default false
@@ -193,4 +196,4 @@ class Base {
     
 }
 
-module.exports = Base;
+module.exports = BaseEndpoint;

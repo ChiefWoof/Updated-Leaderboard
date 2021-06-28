@@ -1,19 +1,17 @@
 "use strict";
 
-const BaseDatabase = require("./Base");
+const BaseLevels = require("./BaseLevels");
 
 const LevelScore = require("../../source/foundation/LevelScore");
 const fs = require("fs");
 const path = require("path");
 
-class Base extends BaseDatabase {
+class BaseLevelRequests extends BaseLevels {
 
-    static DIRECTORY = `${this.DIRECTORY}/requests`;
-    static DIRECTORY_PATH = "../../source/database/levels/requests";
     static PROPERTIES_LOADED = -1;
     static SETS = {};
 
-    getDirectoryPath(full=false) { return `${path.resolve(__dirname, this.constructor.DIRECTORY_PATH)}${full ? `/${this.getDirectoryPathEntry()}` : ""}`; }
+    getDirectoryPath(full=false) { return `${path.resolve(__dirname, "../../source/database/levels/requests")}${full ? `/${this.getDirectoryPathEntry()}` : ""}`; }
     getDirectoryPathEntry() { return `${this.levelID || 0}.json`; }
     async entryExists() { return await fs.readdirSync(this.getDirectoryPath()).includes(this.getDirectoryPathEntry()); }
     async getEntry() { return this.entryExists() ? (await fs.readFileSync(this.getDirectoryPath(true)) || '""') : null; }
@@ -33,33 +31,6 @@ class Base extends BaseDatabase {
     }
 
     get levelRequest() { return new LevelScore().buildByObj(this); }
-
-    /**
-     * @returns {boolean} Whether the current parameters will clearly produce a faulty return
-     * @override
-     */
-
-    isFaulty() {
-        return super.isFaulty() || ![
-            this.levelID > 0,
-            this.levelID < 0
-        ].includes(true);
-    }
-
-    build(data) {
-        data = this.parse(data);
-        super.build(data);
-
-        /**
-         * @description The Level ID
-         * @default 0n
-         * @type {BigInt}
-         */
-
-        this.levelID = "levelID" in data ? data.levelID : 0n;
-        
-        return this;
-    }
 
     /**
      * @description Builds the object specifically based on API parameters
@@ -83,13 +54,6 @@ class Base extends BaseDatabase {
         });
     }
 
-    /**
-     * @default 0n
-     * @param {?number|string|BigInt} [value=0n]
-     */
-
-    setLevelID(value=0n) { return this; }
-
 }
 
-module.exports = Base;
+module.exports = BaseLevelRequests;

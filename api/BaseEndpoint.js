@@ -9,7 +9,6 @@ const { setFunctionOverrides } = require("../source/properties/base");
 
 class Base {
 
-    static DIRECTORY = "api";
     static SUPPORTED = false;
     static OFFLINE = true;
     
@@ -55,7 +54,6 @@ class Base {
             enumerable: false,
             writable: false
         });
-
     }
 
     /**
@@ -173,11 +171,18 @@ class Base {
         ? data
         : {};
         Object.entries(data).map(([k, v]) => {
-            if (k in this.constructor.SETS)
+            if (k in this.constructor.SETS && this.constructor.SETS[k] in this)
                 this[this.constructor.SETS[k]](v);
         });
         return this;
     }
+
+    /**
+     * @description Builds the object specifically based on API parameters
+     * @returns {this}
+     */
+
+    async buildByParams(data) { return this.buildByObj(data); }
 
     /**
      * @default false

@@ -22,28 +22,6 @@ class BaseUsers extends BaseDatabase {
         return this;
     }
 
-    /**
-     * @description Builds the object specifically based on API parameters
-     * @returns {Promise<this>}
-     * @override
-     */
-
-    async buildByParams(data) {
-        return new Promise(async res => {
-            this.build(this).buildByObj(data);
-
-            if (Object.prototype.toString.call(data) === "[object Object]") {
-                let entry = new this.constructor().buildByObj(data);
-                if (await entry.entryExists()) {
-                    let req = await entry.getEntryAsUser();
-                    return res(this.buildByObj(req.buildByObj(data)));
-                }
-            }
-            
-            return res(this);
-        });
-    }
-
     
     // This is for documentation purposes
 

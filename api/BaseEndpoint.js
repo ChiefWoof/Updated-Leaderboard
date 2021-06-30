@@ -7,6 +7,24 @@ const Util = require("../source/util/Util");
 const PROPERTY_LIST = require("../source/properties/endpoints").base;
 const { setFunctionOverrides } = require("../source/properties/base");
 
+function isAPIError(code) {
+    if (code == API_CODES.SUCCESS) return false;
+    return Object.entries(API_CODES).reduce((v, [k, kV]) => {
+        if (v) return v;
+
+        if (kV instanceof RegExp) {
+            if (kV.test(`${code}`)) return true;
+        } else if (code === kV) return true;
+
+        return v;
+    }, false);
+}
+
+/**
+ * @description The most basic form for each endpoint
+ * @todo Add a handler specifically for API requests
+ */
+
 class BaseEndpoint {
 
     static SUPPORTED = false;
@@ -54,6 +72,8 @@ class BaseEndpoint {
             enumerable: false,
             writable: false
         });
+
+        this.build(data);
     }
 
     /**
@@ -82,6 +102,8 @@ class BaseEndpoint {
     isSupported() { return this.constructor.SUPPORTED; }
 
     async handler() {
+        let apiResponse = { isError: false, data: null };
+
         let res = this.isOffline() ? API_CODES.ENDPOINT_OFFLINE
         : !this.isSupported() ? API_CODES.ENDPOINT_NOT_SUPPORTED
         : !this.hasPermission() ? API_CODES.ENDPOINT_PERMISSION_FAILURE
@@ -89,11 +111,18 @@ class BaseEndpoint {
         : await this.handlerAction();
 
         if (res === null) res = API_CODES.NO_DATA;
-        if (res && res.constructor && !(res instanceof BaseEndpoint) && res.constructor.PROPERTY_LIST)
-            if (this.json) res = JSON.stringify(Util.toJSON(res))
-            else res = res.stringify();
+        if (isAPIError(res)) {
+            apiResponse.isError = true;
+            apiResponse.data = res;
+        }
 
-        return res;
+        if (this.json) apiResponse.data = JSON.stringify(Util.toJSON(res))
+        else if (res && res.constructor && !(res instanceof BaseEndpoint) && res.constructor.PROPERTY_LIST)
+            apiResponse.data = res.stringify();
+        else
+            apiResponse.data = `${res}`;
+
+        return apiResponse;
     }
 
     async handlerAction() { return API_CODES.FAILED; }
@@ -105,13 +134,13 @@ class BaseEndpoint {
      */
 
     toParamObject() {
-        let o = {};
-        for (const [key, value] of Object.entries(this))
-            if (value !== null)
-                o[key] = typeof value === "boolean"
-                ? String(value ? 1 : 0)
-                : String(value);
-        return o;
+        return Object.entries(this).reduce((v, [k, kV]) => {
+            if (kV !== null)
+                v[k] = typeof kV === "boolean"
+                ? String(kV ? 1 : 0)
+                : String(kV);
+            return v;
+        }, {});
     }
 
     /**
@@ -179,10 +208,31 @@ class BaseEndpoint {
 
     /**
      * @description Builds the object specifically based on API parameters
-     * @returns {this}
+     * @param {string|Object} data
      */
 
-    async buildByParams(data) { return this.buildByObj(data); }
+    buildByParams(data) { return this.build(this.parseParams(data)); }
+
+    /**
+     * @param {Object|string} data
+     * @returns {string} a stringifed version of parsed parameters
+     */
+
+    stringifyParams(data) {
+        return Object.prototype.toString.call(data) === "[object Object]"
+        ? Object.entries(data).reduce((v, entry) => {
+            v.push(entry.join(this.constructor.PROPERTY_LIST.separatorValue));
+            return v;
+        }, []).join(this.constructor.PROPERTY_LIST.separator)
+        : typeof data === "string" ? data : "";
+    }
+
+    /**
+     * @param {string|Object} data
+     * @returns {Object} a parsed version of stringed parameters
+     */
+
+    parseParams(data) { return this.parse(this.stringifyParams(data)); } 
     
     
     // This is for documentation purposes

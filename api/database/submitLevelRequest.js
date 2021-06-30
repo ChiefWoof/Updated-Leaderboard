@@ -7,9 +7,6 @@ const PROPERTY_LIST = (require("../../source/properties/endpoints").submitLevelR
 
 const updateLevelRequest = require("./updateLevelRequest");
 
-const getUserYoutube = require("./getUserYoutube");
-const getUserTwitch = require("./getUserTwitch");
-
 class submitLevelRequest extends BaseLevelRequests {
 
     static SUPPORTED = true;
@@ -17,6 +14,7 @@ class submitLevelRequest extends BaseLevelRequests {
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
+    static SETS = {};
 
     /**
      * @returns {boolean} Whether the current parameters will clearly produce a faulty return
@@ -27,51 +25,12 @@ class submitLevelRequest extends BaseLevelRequests {
         || !this.levelRequest.hasSender();
     }
 
-    /**
-     * @returns {boolean} Whether the sender is able to submit a request.
-     * Defaults to true if there is no sender
-     */
-
-    async senderCanRequest() {
-        let req = this.levelRequest;
-
-        if (req.hasSender()) {
-
-            if (req.senderYoutubeID) {
-                let senderYoutube = new getUserYoutube()
-                    .setJSON(true)
-                    .setYoutubeUserID(req.senderYoutubeID)
-                    .buildByObj(req);
-                senderYoutube = JSON.parse(await senderYoutube.handler().data);
-                if (!senderYoutube.isError && JSON.parse(senderYoutube.data).youtubeRequestBan)
-                    return false;
-            }
-            
-            if (req.senderTwitchID) {
-                let senderTwitch = new getUserTwitch()
-                    .setJSON(true)
-                    .setTwitchUserID(req.senderTwitchID)
-                    .buildByObj(req);
-                senderTwitch = (await senderTwitch.handler());
-                if (!senderTwitch.isError && JSON.parse(senderTwitch.data).twitchRequestBan)
-                    return false;
-            }
-
-        }
-
-        return true;
-    }
-
     async handlerAction() {
         if (!(await this.entryExists())) {
             if (!(await this.senderCanRequest())) return API_CODES.FAILED_BAN;
-            let subID = API_CODES.FAILED;
-            await new updateLevelRequest()
+            return await new updateLevelRequest()
                 .buildByObj(this.levelRequest)
-                .setTimestamp(Date.now())
-                .setSubmissionID(subID = await this.getNextSubmissionID())
-                .setEntry();
-            return subID;
+                .handler();
         }
         return API_CODES.TAKEN;
     }

@@ -14,16 +14,13 @@ class submitUserTwitch extends BaseUserTwitch {
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
+    static SETS = {};
 
     async handlerAction() {
         if (!(await this.entryExists())) {
-            let subID = API_CODES.FAILED;
-            await new updateUserTwitch()
+            return await new updateUserTwitch()
                 .buildByObj(this.userTwitch)
-                .setDateAdded(Date.now())
-                .setSubmissionID(subID = await this.getNextSubmissionID())
-                .setEntry();
-            return subID;
+                .handler();
         }
         return API_CODES.TAKEN;
     }

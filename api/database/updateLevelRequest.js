@@ -7,6 +7,9 @@ const PROPERTY_LIST = (require("../../source/properties/endpoints").updateLevelR
 
 const LevelScore = require("../../source/foundation/LevelScore");
 
+const updateUserTwitch = require("./updateUserTwitch");
+const updateUserYoutube = require("./updateUserYoutube");
+
 class updateLevelRequest extends BaseLevelRequests {
 
     static SUPPORTED = true;
@@ -14,11 +17,48 @@ class updateLevelRequest extends BaseLevelRequests {
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
+    static SETS = {};
 
     async handlerAction() {
-        return this.forceOverwrite || await this.entryExists()
-        ? await this.setEntry() || API_CODES.SUCCESS
-        : API_CODES.FAILED;
+
+        if (this.forceRequestabilityCheck && !(await this.senderCanRequest()))
+            return API_CODES.FAILED_BAN;
+
+        if (this.senderTwitchID) {
+            let dTwitch = new updateUserTwitch({
+                forceOverwrite: this.forceOverwrite,
+                twitchUserID: this.senderTwitchID
+            });
+            await dTwitch.loadEntryItem();
+            await dTwitch.handler();
+        }
+                
+        if (this.senderYoutubeID) {
+            let dYoutube = new updateUserYoutube({
+                forceOverwrite: this.forceOverwrite,
+                youtubeUserID: this.senderYoutubeID
+            });
+            await dYoutube.loadEntryItem();
+            await dYoutube.handler();
+        }
+
+        let exists = await this.entryExists();
+        
+        if (exists) {
+            this.setEntry();
+            return API_CODES.SUCCESS;
+        } else if (this.forceOverwrite) {
+
+            let subID = API_CODES.FAILED;
+            await this
+                .setTimestamp(new Date())
+                .setSubmissionID(subID = await this.getNextSubmissionID())
+                .setEntry();
+            return { submissionID: subID };
+
+        }
+
+        return API_CODES.FAILED;
     }
 
     build(data) {
@@ -30,6 +70,13 @@ class updateLevelRequest extends BaseLevelRequests {
          */
 
         this.forceOverwrite = "forceOverwrite" in data ? data.forceOverwrite : false;
+
+        /**
+         * @description Whether to force a check if the entered sender can request before updating
+         * @type {boolean}
+         */
+
+        this.forceRequestabilityCheck = "forceRequestabilityCheck" in data ? data.forceRequestabilityCheck : false;
 
         super.build(data);
         LevelScore.prototype.build.bind(this, data)();
@@ -45,6 +92,13 @@ class updateLevelRequest extends BaseLevelRequests {
      */
 
     setForceOverwrite(value=false) { return this; }
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setforceRequestabilityCheck(value=false) { return this; }
 
     /**
      * @default 0n

@@ -17,17 +17,9 @@ class BaseUserTwitch extends BaseUsers {
     async getEntry() { return this.entryExists() ? (await fs.readFileSync(this.getDirectoryPath(true)) || '""') : null; }
     async setEntry() { await fs.writeFileSync(this.getDirectoryPath(true), JSON.stringify(this.userYoutube.stringify())); }
     
-    async getEntryAsUser() {
+    async getEntryAsItem() {
         let entry = await this.getEntry();
         return entry ? new UserYoutube(JSON.parse(entry)) : null;
-    }
-
-    async getNextSubmissionID() {
-        let files = await fs.readdirSync(this.getDirectoryPath());
-        return files.reduce((v, a) => {
-            if (/^\d{1,}.json$/.test(a)) v += 1n;
-            return v;
-        }, 0n) + 1n;
     }
 
     get userYoutube() { return new UserYoutube().buildByObj(this); }
@@ -39,7 +31,7 @@ class BaseUserTwitch extends BaseUsers {
 
     isFaulty() {
         return super.isFaulty()
-        || !(this.youtubeUserID > 0);
+        || this.youtubeUserID == null;
     }
 
     build(data) {
@@ -48,11 +40,11 @@ class BaseUserTwitch extends BaseUsers {
 
         /**
          * @description The identification number of the user on Youtube
-         * @default 0n
-         * @type {BigInt}
+         * @default null
+         * @type {?string}
          */
 
-        this.youtubeUserID = "youtubeUserID" in data ? data.youtubeUserID : 0n;
+        this.youtubeUserID = "youtubeUserID" in data ? data.youtubeUserID : null;
         
         return this;
     }

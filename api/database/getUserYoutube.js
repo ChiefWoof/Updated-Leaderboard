@@ -5,7 +5,7 @@ const BaseUserYoutube = require("./BaseUserYoutube");
 const { API_CODES } = require("../../source/util/Constants");
 const PROPERTY_LIST = require("../../source/properties/endpoints").getUserYoutube;
 
-class getUserTwitch extends BaseUserYoutube {
+class getUserYoutube extends BaseUserYoutube {
 
     static SUPPORTED = true;
     static OFFLINE = false;
@@ -16,7 +16,7 @@ class getUserTwitch extends BaseUserYoutube {
 
     async handlerAction() {
         if (await this.entryExists()) {
-            let d = await this.getEntryAsUser();
+            let d = await this.getEntryAsItem();
             if (d.isUseable()) return d;
         }
         return API_CODES.NO_DATA;
@@ -24,4 +24,4 @@ class getUserTwitch extends BaseUserYoutube {
 
 }
 
-module.exports = getUserTwitch;
+module.exports = getUserYoutube;

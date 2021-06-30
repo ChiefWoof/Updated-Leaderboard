@@ -16,7 +16,7 @@ class getUserTwitch extends BaseUserTwitch {
 
     async handlerAction() {
         if (await this.entryExists()) {
-            let d = await this.getEntryAsUser();
+            let d = await this.getEntryAsItem();
             if (d.isUseable()) return d;
         }
         return API_CODES.NO_DATA;

@@ -14,16 +14,13 @@ class submitUserYoutube extends BaseUserYoutube {
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
+    static SETS = {};
 
     async handlerAction() {
         if (!(await this.entryExists())) {
-            let subID = API_CODES.FAILED;
-            await new updateUserYoutube()
+            return await new updateUserYoutube()
                 .buildByObj(this.userYoutube)
-                .setDateAdded(Date.now())
-                .setSubmissionID(subID = await this.getNextSubmissionID())
-                .setEntry();
-            return subID;
+                .handler();
         }
         return API_CODES.TAKEN;
     }

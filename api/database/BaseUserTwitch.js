@@ -17,17 +17,9 @@ class BaseUserTwitch extends BaseUsers {
     async getEntry() { return this.entryExists() ? (await fs.readFileSync(this.getDirectoryPath(true)) || '""') : null; }
     async setEntry() { await fs.writeFileSync(this.getDirectoryPath(true), JSON.stringify(this.userTwitch.stringify())); }
     
-    async getEntryAsUser() {
+    async getEntryAsItem() {
         let entry = await this.getEntry();
         return entry ? new UserTwitch(JSON.parse(entry)) : null;
-    }
-
-    async getNextSubmissionID() {
-        let files = await fs.readdirSync(this.getDirectoryPath());
-        return files.reduce((v, a) => {
-            if (/^\d{1,}.json$/.test(a)) v += 1n;
-            return v;
-        }, 0n) + 1n;
     }
 
     get userTwitch() { return new UserTwitch().buildByObj(this); }
@@ -55,28 +47,6 @@ class BaseUserTwitch extends BaseUsers {
         this.twitchUserID = "twitchUserID" in data ? data.twitchUserID : 0n;
         
         return this;
-    }
-
-    /**
-     * @description Builds the object specifically based on API parameters
-     * @returns {Promise<this>}
-     * @override
-     */
-
-    async buildByParams(data) {
-        return new Promise(async res => {
-            this.build(this).buildByObj(data);
-
-            if (Object.prototype.toString.call(data) === "[object Object]") {
-                let entry = new this.constructor().buildByObj(data);
-                if (await entry.entryExists()) {
-                    let req = await entry.getEntryAsUser();
-                    return res(this.buildByObj(req.buildByObj(data)));
-                }
-            }
-            
-            return res(this);
-        });
     }
 
     

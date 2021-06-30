@@ -14,11 +14,24 @@ class updateUserYoutube extends BaseUserYoutube {
 
     static PROPERTY_LIST = PROPERTY_LIST;
     static PROPERTIES_LOADED = -1;
+    static SETS = {};
 
     async handlerAction() {
-        return this.forceOverwrite || await this.entryExists()
-        ? await this.setEntry() || API_CODES.SUCCESS
-        : API_CODES.FAILED;
+        let exists = await this.entryExists();
+        
+        if (exists) {
+            this.setEntry();
+            return API_CODES.SUCCESS;
+        } else if (this.forceOverwrite) {
+            let subID = API_CODES.FAILED;
+            await this
+                .setDateAdded(new Date())
+                .setSubmissionID(subID = await this.getNextSubmissionID())
+                .setEntry();
+            return { submissionID: subID };
+        }
+
+        return API_CODES.FAILED;
     }
 
     build(data) {
@@ -38,6 +51,13 @@ class updateUserYoutube extends BaseUserYoutube {
     
     
     // This is for documentation purposes
+
+    /**
+     * @default false
+     * @param {boolean} [value=false]
+     */
+
+    setForceOverwrite(value=false) { return this; }
 
     /**
      * @default 0n
@@ -72,7 +92,7 @@ class updateUserYoutube extends BaseUserYoutube {
      * @param {boolean} [value=false]
      */
 
-    setTwitchRequestBan(value=false) { return this; }
+    setYoutubeRequestBan(value=false) { return this; }
 
 }
 

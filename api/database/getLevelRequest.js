@@ -16,7 +16,7 @@ class getLevelRequest extends BaseLevelRequests {
 
     async handlerAction() {
         if (await this.entryExists()) {
-            let d = await this.getEntryAsLevelRequest();
+            let d = await this.getEntryAsItem();
             if (d.isUseable()) return d;
         }
         return API_CODES.NO_DATA;

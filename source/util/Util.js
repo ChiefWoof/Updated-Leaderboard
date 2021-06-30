@@ -35,14 +35,21 @@ class Util {
         throw new Error(`value not supported in JSON (${value})`);
     }
 
-    static toJSON(obj) {
+    /**
+     * @param {*} obj 
+     * @param {boolean} [stringified=false] Whether to stringfy the object return
+     * @returns 
+     */
+
+    static toJSON(obj, stringified=false) {
         if (Object.prototype.toString.call(obj) !== "[object Object]")
             return this.toJSONValue(obj);
-        return Object.entries(obj).reduce((v, [k, kV]) => {
+        let o = Object.entries(obj).reduce((v, [k, kV]) => {
             if (kV !== undefined)
                 v[k] = this.toJSONValue(kV);
             return v;
         }, {});
+        return stringified ? JSON.stringify(o) : o;
     }
 
 }

@@ -37,19 +37,15 @@ class UserStatAchievement extends StatsObject {
      */
 
     isAnnounceable() {
-        console.log("useable:", this.isUseable());
-        return this.isUseable()
-        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0
+        return !this.isUseable() ? false
 
-        || this.isRankChange()
+        : this.inSG || this.isCreator() || this.isMod() || this.wasMod()
+            ? true
+
+        : this.isRankChange()
             ? this.rankGlobal <= 250
-            : false
-        
-        || this.passesRequirementNetScore()
-            ? this.isStatChange() ? this.isPositive() : true
-            : false
 
-        : false;
+        : this.isStatChange() && this.isPositive();
     }
 
     /**

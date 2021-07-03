@@ -29,7 +29,7 @@ class UserStatAchievement extends StatsObject {
      * @returns {boolean}
      */
 
-    isUseable() { return this.isModChange || this.isUsernameChange() || this.isStatChange(); }
+    isUseable() { return this.isModChange() || this.isUsernameChange() || this.isRankChange() || this.isStatChange(); }
 
     /**
      * @description Whether the achievement should be announced
@@ -37,10 +37,18 @@ class UserStatAchievement extends StatsObject {
      */
 
     isAnnounceable() {
+        console.log("useable:", this.isUseable());
         return this.isUseable()
-        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0 || this.passesRequirementNetScore()
+        ? this.inSG || this.isCreator() || this.mod > 0 || this.getModOld() > 0
+
+        || this.isRankChange()
+            ? this.rankGlobal <= 250
+            : false
+        
+        || this.passesRequirementNetScore()
             ? this.isStatChange() ? this.isPositive() : true
             : false
+
         : false;
     }
 
@@ -109,6 +117,13 @@ class UserStatAchievement extends StatsObject {
     isModChange() { return this.modDifference != 0;}
 
     /**
+     * @description Whether this is a mod status change
+     * @returns {boolean}
+     */
+
+    isRankChange() { return this.rankGlobal != this.rankGlobalOld;}
+
+    /**
      * @description Whether this is a username change
      * @returns {boolean}
      */
@@ -159,6 +174,13 @@ class UserStatAchievement extends StatsObject {
     hasRank() { return this.rankGlobal > 0; }
 
     /**
+     * @description Whether the user had a global rank on GD
+     * @returns {boolean}
+     */
+
+    hasRankOld() { return this.rankGlobalOld > 0; }
+
+    /**
      * @description Whether the user is on the GD Top 100 global ranks
      * @returns {boolean}
      */
@@ -166,11 +188,25 @@ class UserStatAchievement extends StatsObject {
     onTop100() { return this.hasRank() && this.rankGlobal <= 100; }
 
     /**
+     * @description Whether the user was on the GD Top 100 global ranks
+     * @returns {boolean}
+     */
+
+    wasOnTop100() { return this.hasRankOld() && this.rankGlobalOld <= 100; }
+
+    /**
      * @description Whether the user is on the GD Top players cache
      * @returns {boolean}
      */
 
     onTop() { return this.hasRank() && this.rankGlobal <= 1000; }
+
+    /**
+     * @description Whether the user was on the GD Top players cache
+     * @returns {boolean}
+     */
+
+    wasOnTop100() { return this.hasRankOld() && this.rankGlobalOld <= 1000; }
 
     /**
      * @description If a threshold is present, returns the threshold
@@ -259,6 +295,14 @@ class UserStatAchievement extends StatsObject {
          */
 
         this.rankGlobal = "rankGlobal" in data ? data.rankGlobal : 0n;
+
+        /**
+         * @description The player's GD rank on the Global leaderboard
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.rankGlobalOld = "rankGlobal" in data ? data.rankGlobal : 0n;
 
         /**
          * @description The stat type
@@ -376,6 +420,13 @@ class UserStatAchievement extends StatsObject {
      */
 
     setRankGlobal(value=0n) { return this; }
+
+    /**
+     * @default 0n
+     * @param {BigInt} [value=0n]
+     */
+
+    setRankGlobalOld(value=0n) { return this; }
 
     /**
      * @default 0n

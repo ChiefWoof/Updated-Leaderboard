@@ -8,7 +8,33 @@ const UserProgressEntry = require("../foundation/UserProgressEntry");
  * @extends {Map<string, UserProgressEntry>}
  */
 
-class ulLeaderboardManager extends Map {
+class UserProgressEntriesManager extends Map {
+
+    /**
+     * @returns {UserProgressEntry[]}
+     */
+
+    getOrdered() { return [...this.values()].sort((a, b) => a.entryID-b.entryID); }
+
+    /**
+     * @returns {UserProgressEntry[]}
+     */
+
+    getRecent(amount=1) {
+        return amount < 0
+        ? this.getOldest(-amount)
+        : this.getOrdered().slice(-amount);
+    }
+
+    /**
+     * @returns {UserProgressEntry[]}
+     */
+
+    getOldest(amount=1) {
+        return amount < 0
+        ? this.getRecent(-amount)
+        : this.getOrdered().slice(0, amount);
+    }
 
     /**
      * @returns {boolean} Whether a accountID exists in the cache
@@ -74,4 +100,4 @@ class ulLeaderboardManager extends Map {
 
 }
 
-module.exports = ulLeaderboardManager;
+module.exports = UserProgressEntriesManager;

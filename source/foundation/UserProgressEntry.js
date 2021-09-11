@@ -19,6 +19,14 @@ class UserProgressEntry extends StatsObject {
         data = this.parse(data);
 
         /**
+         * @description The entry's index based on the very first refresh
+         * @default 0n
+         * @type {BigInt}
+         */
+
+        this.entryID = "entryID" in data ? data.entryID : 0n;
+
+        /**
          * @description The date timestamp of when the user's stats were refreshed or null.
          * Is null for dates before this index was recorded
          * @default 0n
@@ -26,14 +34,6 @@ class UserProgressEntry extends StatsObject {
          */
 
         this.timestamp = "timestamp" in data ? data.timestamp : null;
-
-        /**
-         * @description The entry's index based on the very first refresh
-         * @default 0n
-         * @type {BigInt}
-         */
-
-        this.entryID = "entryID" in data ? data.entryID : 0n;
         
         super.build(data);
         

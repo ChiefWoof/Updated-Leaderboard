@@ -48,8 +48,6 @@ async function onStart() {
     // Initial Settings
     await loadFiles();
 
-    client.IN_BETA = false;
-
 }
 
 async function onReady() {

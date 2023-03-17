@@ -609,30 +609,7 @@ class profileCommand extends Command {
             if (u && u.ulID) profile.profile.ulID = u.ulID;
         }
 
-        if (profile.profile.username || profile.profile.playerID) {
-
-            let endpoint = new getGJUsers20();
-            endpoint.secret = endpoint._secrets.GENERAL;
-            endpoint.str = profile.profile.playerID || profile.profile.username;
-
-            let res = await endpoint.request();
-            let resType = endpoint.responseType(res);
-
-            switch (resType) {
-                case "OK": {
-                    let ok = endpoint.parseOK(res);
-                    let u = ok.findStr(endpoint.str);
-                    if (u) {
-                        profile.profile.accountID = u.accountID;
-                        break;
-                    }
-                }
-                default: {
-                    // Optional Error Message
-                }
-            }
-
-        }
+        if (!profile.profile.accountID) await profile.profile.loadUserSearchGD(profile.profile);
 
         if (profile.profile.accountID) {
             let u = this.client.usersUL.searchAccountID(profile.profile.accountID);
@@ -641,31 +618,34 @@ class profileCommand extends Command {
 
         if (profile.profile.ulID) await profile.profile.load(profile.profile);
 
-        let success = await profile.profile.loadUserInfoGD(profile.profile);
-
-        if (success) {
+        if (await profile.profile.loadUserInfoGD(profile.profile)) {
 
             // UPDATE CURRENT DATA IF NECESSARY
 
             if (profile.profile.accountID) 
                 await profile.profile.loadProgress(profile.profile);
 
-            if (profile.profile.progress.length > 0) {
+            if (profile.profile.ulID) {
+                if (profile.profile.progress.length > 0) {
 
-                let recent = profile.profile.progress.recent;
-                if (Date.now() - recent.timestampStatsRefreshed >= 1000 * 60 * 60 * 24) {
+                    let recent = profile.profile.progress.recent;
+                    if (Date.now() - recent.timestampStatsRefreshed >= 1000 * 60 * 60 * 24) {
+                        profile.profile.setAsProgressEntryCurrent();
+                        await profile.profile.saveProgress(profile.profile);
+                    } else {
+                        recent.stars = profile.profile.stars;
+                        recent.diamonds = profile.profile.diamonds;
+                        recent.scoins = profile.profile.scoins;
+                        recent.ucoins = profile.profile.ucoins;
+                        recent.demons = profile.profile.demons;
+                        recent.cp = profile.profile.cp;
+                        await profile.profile.saveProgress(profile.profile);
+                    }
+    
+                } else {
                     profile.profile.setAsProgressEntryCurrent();
                     await profile.profile.saveProgress(profile.profile);
-                } else {
-                    recent.stars = profile.profile.stars;
-                    recent.diamonds = profile.profile.diamonds;
-                    recent.scoins = profile.profile.scoins;
-                    recent.ucoins = profile.profile.ucoins;
-                    recent.demons = profile.profile.demons;
-                    recent.cp = profile.profile.cp;
-                    await profile.profile.saveProgress(profile.profile);
                 }
-
             }
 
             // SETTING UP SETTINGS BY INTERACTION OPTIONS
@@ -697,8 +677,10 @@ class profileCommand extends Command {
             }
             
             if (profile.page == "PROFILE") {
-                if (`${profile.profile.disID}` === `${int.guild.ownerId}`)
-                            profile.profile.flags.selected = true;
+                if (int.guild) {
+                    if (`${profile.profile.disID}` === `${int.guild.ownerId}`)
+                                profile.profile.flags.selected = true;
+                }
             }
 
             replyMsg = await this.profileToProfileMessage(profile);

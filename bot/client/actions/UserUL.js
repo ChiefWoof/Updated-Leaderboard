@@ -12,6 +12,7 @@ const {
     rest: {
         api: {
             database: {
+                getGJUsers20,
                 getGJUserInfo20
             }
         }
@@ -235,6 +236,39 @@ class UserULAction extends Action {
             return false;
         }
 
+        base.loadUserSearchGD = async (user) => {
+            if (!user)
+                throw new Error("Must input user into \"load\" function");
+            
+                if (user.username || user.playerID) {
+
+                    let endpoint = new getGJUsers20();
+                    endpoint.secret = endpoint._secrets.GENERAL;
+                    endpoint.str = user.playerID || user.username;
+        
+                    let res = await endpoint.request();
+                    let resType = endpoint.responseType(res);
+        
+                    switch (resType) {
+                        case "OK": {
+                            let ok = endpoint.parseOK(res);
+                            let u = ok.findStr(endpoint.str);
+                            if (u) {
+                                user.accountID = u.accountID;
+                                user.playerID = u.playerID;
+                                user.username = u.username;
+                                return true;
+                                break;
+                            }
+                        }
+                    }
+        
+                }
+
+            return false;
+            
+        }
+
         base.loadUserInfoGD = async (user) => {
             if (!user)
                 throw new Error("Must input user into \"load\" function");
@@ -304,6 +338,33 @@ class UserULAction extends Action {
             if (!user)
                 throw new Error("Must input user into \"saveProgress\" function");
             await this.saveByStatProgressManager(user.progress);
+        }
+
+        base.updateProgress = async (user) => {
+            if (!user)
+                throw new Error("Must input user into \"saveProgress\" function");
+            if (!user.accountID)
+                throw new Error("User must have a valid account ID");
+            if (user.progress.length > 0) {
+
+                let recent = user.progress.recent;
+                if (Date.now() - recent.timestampStatsRefreshed >= 1000 * 60 * 60 * 24) {
+                    user.setAsProgressEntryCurrent();
+                    await user.saveProgress(user);
+                } else {
+                    recent.stars = user.stars;
+                    recent.diamonds = user.diamonds;
+                    recent.scoins = user.scoins;
+                    recent.ucoins = user.ucoins;
+                    recent.demons = user.demons;
+                    recent.cp = user.cp;
+                    await user.saveProgress(user);
+                }
+
+            } else {
+                user.setAsProgressEntryCurrent();
+                await user.saveProgress(user);
+            }
         }
 
         return base;

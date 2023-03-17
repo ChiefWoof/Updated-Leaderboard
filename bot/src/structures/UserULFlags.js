@@ -300,6 +300,17 @@ class UserULFlags extends BitField {
         || this.bannedDemons
         || this.bannedCP;
     }
+
+    /**
+     * @description The numerical value of a user's GD mod level
+     * @type {BigInt}
+     */
+
+    get modGD() {
+        return this.isGDModElder ? 2n
+        : this.isGDMod ? 1n
+        : 0n;
+    }
  
 }
 

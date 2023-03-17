@@ -80,7 +80,7 @@ class statProgressDownloadCommand extends Command {
 
     async handlerInteractionPermissionCheck(int) {
         let u = await this.interactionToUserUL(int);
-        return u && (u.flags.staffTrainee || u.flags.staffHelper);
+        return u && (u.flags.staffTrainee || u.flags.staffHelper || u.flags.leaderboardTeam || u.flags.isGDModLeaderboard);
     }
 
     /**

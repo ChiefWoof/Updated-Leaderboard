@@ -9,6 +9,12 @@ const UserUL = require("../structures/UserUL");
 class UsersULManager extends Map {
 
     /**
+     * @returns {BigInt}
+     */
+
+    get ulIDNext() { return this.size > 0 ? this.users.map(u => u.ulID).sort((a, b) => b - a)[0] + 1n : 1n; }
+
+    /**
      * @returns {UserUL[]}
      */
 

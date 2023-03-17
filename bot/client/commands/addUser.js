@@ -159,12 +159,11 @@ class addUserCommand extends Command {
         // COMMAND RESULT
         try {
             if (int.replied) {
-                setTimeout(() => {
-
-                }, 3000 - Date.now() - replyTime)
-                await int.editReply({
-                    content: msg
-                });
+                setTimeout(async () => {
+                    await int.editReply({
+                        content: msg
+                    });
+                }, 3000 - Date.now() - replyTime);
             } else {
                 await int.reply({
                     content: msg

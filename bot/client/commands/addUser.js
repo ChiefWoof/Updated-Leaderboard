@@ -30,7 +30,7 @@ const {
     }
 } = require("../../src/util/Emotes");
 
-class statProgressDownloadCommand extends Command {
+class addUserCommand extends Command {
 
     get command() {
 
@@ -176,4 +176,4 @@ class statProgressDownloadCommand extends Command {
 
 }
 
-module.exports = statProgressDownloadCommand;
+module.exports = addUserCommand;

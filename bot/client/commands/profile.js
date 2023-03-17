@@ -625,28 +625,8 @@ class profileCommand extends Command {
             if (profile.profile.accountID) 
                 await profile.profile.loadProgress(profile.profile);
 
-            if (profile.profile.ulID) {
-                if (profile.profile.progress.length > 0) {
-
-                    let recent = profile.profile.progress.recent;
-                    if (Date.now() - recent.timestampStatsRefreshed >= 1000 * 60 * 60 * 24) {
-                        profile.profile.setAsProgressEntryCurrent();
-                        await profile.profile.saveProgress(profile.profile);
-                    } else {
-                        recent.stars = profile.profile.stars;
-                        recent.diamonds = profile.profile.diamonds;
-                        recent.scoins = profile.profile.scoins;
-                        recent.ucoins = profile.profile.ucoins;
-                        recent.demons = profile.profile.demons;
-                        recent.cp = profile.profile.cp;
-                        await profile.profile.saveProgress(profile.profile);
-                    }
-    
-                } else {
-                    profile.profile.setAsProgressEntryCurrent();
-                    await profile.profile.saveProgress(profile.profile);
-                }
-            }
+            if (profile.profile.ulID)
+                await profile.profile.updateProgress(profile.profile);
 
             // SETTING UP SETTINGS BY INTERACTION OPTIONS
             profile.page = int.options.getString("page") || page;

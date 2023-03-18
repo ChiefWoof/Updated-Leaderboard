@@ -21,7 +21,7 @@ const {
         characters: {
             SPACE_BLOCK
         }
-    }
+    },
 } = require("../../src/util/Constants");
 
 const Util = require("../../src/util/Util");
@@ -307,6 +307,8 @@ class profileCommand extends Command {
 
                     if (profile.profile.progress.length > 0 && profile.profile.flags.verified) {
 
+                        profile.setBoundsProgressType();
+
                         try {
                             
                             let chart = await this.client.actions.StatProgressChart.lineProfileCreate(profile);
@@ -353,7 +355,10 @@ class profileCommand extends Command {
                 : null,
                 profile.page === "PROGRESS"
                 ? "Progress"
-                : "Profile"
+                : "Profile",
+                this.beta
+                ? "(BETA)"
+                : null
             ].filter(v => v !== null).join(" "),
             url: profile.profile.accountID || profile.profile.username
             ? `https://gdbrowser.com/u/${profile.profile.accountID || profile.profile.username}`
@@ -379,13 +384,13 @@ class profileCommand extends Command {
         .setOptions(
             new SelectMenuOptionBuilder()
                 .setEmoji(`👤`)
-                .setLabel(`${profile.profile.username ? `${Util.possession(profile.profile.username)} ` : ""}Profile`)
+                .setLabel(`${profile.profile.username ? `${Util.possession(profile.profile.username)} ` : ""}Profile${this.beta ? " (BETA)" : ""}`)
                 .setValue("PROFILE")
                 .setDescription("Profile page")
                 .setDefault(profile.page == "PROFILE"),
             new SelectMenuOptionBuilder()
                 .setEmoji(`📈`)
-                .setLabel(`${profile.profile.username ? `${Util.possession(profile.profile.username)} ` : ""}Progress`)
+                .setLabel(`${profile.profile.username ? `${Util.possession(profile.profile.username)} ` : ""}Progress${this.beta ? " (BETA)" : ""}`)
                 .setValue("PROGRESS")
                 .setDescription("Stat progression page")
                 .setDefault(profile.page == "PROGRESS")
@@ -437,6 +442,36 @@ class profileCommand extends Command {
                 .setDescription("Overall Score setting")
                 .setDefault(profile.stat == "NET")
         );
+        
+        let progressType = new SelectMenuBuilder()
+        .setCustomId("PROGRESS_TYPE_SELECTION")
+        .setOptions(
+            new SelectMenuOptionBuilder()
+                .setEmoji(`${EMOTE_ARROW_RIGHT_PINK}`)
+                .setLabel(`Weekly Progress (RECENT)`)
+                .setValue("WEEKLY_DEFAULT")
+                .setDefault(profile.progressType == "WEEKLY_DEFAULT"),
+            new SelectMenuOptionBuilder()
+                .setEmoji(`${EMOTE_ARROW_RIGHT_PINK}`)
+                .setLabel(`Weekly Progress (FULL)`)
+                .setValue("WEEKLY")
+                .setDefault(profile.progressType == "WEEKLY"),
+            new SelectMenuOptionBuilder()
+                .setEmoji(`${EMOTE_ARROW_RIGHT_PINK}`)
+                .setLabel(`Monthly Progress (RECENT)`)
+                .setValue("MONTHLY_DEFAULT")
+                .setDefault(profile.progressType == "MONTHLY_DEFAULT"),
+            new SelectMenuOptionBuilder()
+                .setEmoji(`${EMOTE_ARROW_RIGHT_PINK}`)
+                .setLabel(`Monthly Progress (FULL)`)
+                .setValue("MONTHLY")
+                .setDefault(profile.progressType == "MONTHLY"),
+            new SelectMenuOptionBuilder()
+                .setEmoji(`${EMOTE_ARROW_RIGHT_PINK}`)
+                .setLabel(`Yearly Progress`)
+                .setValue("YEARLY")
+                .setDefault(profile.progressType == "YEARLY"),
+        );
     
         let SELECTION = new ActionRowBuilder()
         .setComponents(
@@ -447,10 +482,16 @@ class profileCommand extends Command {
         .setComponents(
             stat
         );
+    
+        let SELECTION3 = new ActionRowBuilder()
+        .setComponents(
+            progressType
+        );
 
         return [
             SELECTION,
-            [ "PROGRESS" ].includes(profile.page) ? SELECTION2 : null
+            [ "PROGRESS" ].includes(profile.page) ? SELECTION3 : null,
+            [ "PROGRESS" ].includes(profile.page) ? SELECTION2 : null,
         ].filter(s => s !== null).map(r => {
             if (disable) r.components.map(c => c.setDisabled(disable));
             return r;
@@ -495,6 +536,19 @@ class profileCommand extends Command {
      * @param {UserULProfile} profile
      */
 
+    async progressTypeSelectionByInteraction(int, intChat, profile) {
+        await int.deferUpdate();
+        profile.progressType = int.values[0] || "WEEKLY_DEFAULT";
+        profile.pageLocal = 0;
+        await intChat.editReply(await this.profileToProfileMessage(profile));
+    }
+
+    /**
+     * @param {SelectMenuInteraction} int
+     * @param {ChatInputCommandInteraction} intChat
+     * @param {UserULProfile} profile
+     */
+
     async pageSelectionByInteraction(int, intChat, profile) {
         await int.deferUpdate();
         profile.page = int.values[0];
@@ -528,6 +582,7 @@ class profileCommand extends Command {
 
             if (int.customId == "PAGE_SELECTION") await this.pageSelectionByInteraction(int, intChat, profile);
             else if (int.customId == "STAT_SELECTION") await this.statSelectionByInteraction(int, intChat, profile);
+            else if (int.customId == "PROGRESS_TYPE_SELECTION") await this.progressTypeSelectionByInteraction(int, intChat, profile);
             
         }
 
@@ -609,14 +664,16 @@ class profileCommand extends Command {
             if (u && u.ulID) profile.profile.ulID = u.ulID;
         }
 
-        if (!profile.profile.accountID) await profile.profile.loadUserSearchGD(profile.profile);
+        if (!profile.profile.accountID)
+            await profile.profile.loadUserSearchGD(profile.profile);
 
         if (profile.profile.accountID) {
             let u = this.client.usersUL.searchAccountID(profile.profile.accountID);
             if (u && u.ulID) profile.profile.ulID = u.ulID;
         }
 
-        if (profile.profile.ulID) await profile.profile.load(profile.profile);
+        if (profile.profile.ulID)
+            await profile.profile.load(profile.profile);
 
         if (await profile.profile.loadUserInfoGD(profile.profile)) {
 

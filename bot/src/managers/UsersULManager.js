@@ -12,7 +12,7 @@ class UsersULManager extends Map {
      * @returns {BigInt}
      */
 
-    get ulIDNext() { return this.size > 0 ? this.users.map(u => u.ulID).sort((a, b) => b - a)[0] + 1n : 1n; }
+    get ulIDNext() { return this.users.reduce((res, u) => res = u.ulID > res ? u.ulID : res, 0n) + 1n; }
 
     /**
      * @returns {UserUL[]}
@@ -46,14 +46,14 @@ class UsersULManager extends Map {
 
     /**
      * @param {BigInt|string|number} accountID
-     * @returns {UserUL}
+     * @returns {?UserUL}
      */
 
     searchAccountID(accountID) { return this.users.find(u => `${u.accountID}` === `${accountID}`); }
 
     /**
      * @param {BigInt|string|number} accountID
-     * @returns {UserUL}
+     * @returns {?UserUL}
      */
 
     searchDisID(disID) { return this.users.find(u => `${u.disID}` === `${disID}`); }

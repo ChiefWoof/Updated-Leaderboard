@@ -10,6 +10,10 @@ const {
 
 const Command = require("./Command");
 const UserUL = require("../../src/structures/UserUL");
+const {
+    wait
+} = require("../../src/util/Util");
+
 
 const {
     util: {
@@ -36,11 +40,11 @@ class addUserCommand extends Command {
 
         let res = new SlashCommandBuilder()
         .setName("add-user")
-        .setDescription("(staff) Adds a user to the Updated Leaderboard");
+        .setDescription("(staff) Adds up to 10 users at a time to the Updated Leaderboard");
 
         let searchOption = new SlashCommandStringOption();
         searchOption.setName("search");
-        searchOption.setDescription("The user to search");
+        searchOption.setDescription("The users to search (separate with just a \",\")");
         searchOption.setRequired(true);
 
         let searchTypeOption = new SlashCommandStringOption();
@@ -108,65 +112,88 @@ class addUserCommand extends Command {
         let sg = int.options.getBoolean("sg") || false;
         let disID = int.options.getString("dis-id");
 
-        let u = new UserUL();
-        u = this.client.actions.UserUL.construct(u);
+        let searches = search.split(",").slice(0, 10);
+        let searchTypes = [ searchType ];
+        let i = 0;
+        let msgs = [];
+        let addLogs = [];
 
-        u.addedByDisID = BigInt(int.user.id);
-        u.timestampAdded = Date.now();
+        for await (search of searches) {
 
-        u.flags.verified = verified;
-        u.flags.sg = sg;
+            searchType = searchTypes[i];
 
-        if (disID) u.disID = BigInt((disID.match(/\d{1,}/g) || [0])[0]);
+            let LOADED_SEARCH = false;
 
-        if (!searchType) {
-            if (/^(a|acc|account|aID|accountID) ?\d{1,}$/.test(search)) searchType = "ACCOUNT_ID";
-            else searchType = "USERNAME_AND_PLAYER_ID";
-        }
-
-        switch (searchType) {
-            default:
-                case "USERNAME_AND_PLAYER_ID": {
-                    if (/^\d{1,}$/.test(search))
-                        u.playerID = BigInt(search.match(/\d{1,}/) || 0);
-                    else
-                        u.username = search;
+            let u = new UserUL();
+            u = this.client.actions.UserUL.construct(u);
+    
+            u.addedByDisID = BigInt(int.user.id);
+            u.timestampAdded = Date.now();
+    
+            u.flags.verified = verified;
+            u.flags.sg = sg;
+    
+            if (disID) u.disID = BigInt((disID.match(/\d{1,}/g) || [0])[0]);
+    
+            if (!searchType) {
+                if (/^(a|acc|account|aID|accountID) ?\d{1,}$/.test(search)) searchType = "ACCOUNT_ID";
+                else searchType = "USERNAME_AND_PLAYER_ID";
+            }
+    
+            switch (searchType) {
+                default:
+                    case "USERNAME_AND_PLAYER_ID": {
+                        if (/^\d{1,}$/.test(search))
+                            u.playerID = BigInt(search.match(/\d{1,}/) || 0);
+                        else
+                            u.username = search;
+                        break;
+                    }
+                case "ACCOUNT_ID": {
+                    u.accountID = BigInt(search.match(/\d{1,}/) || 0);
                     break;
                 }
-            case "ACCOUNT_ID": {
-                u.accountID = BigInt(search.match(/\d{1,}/) || 0);
-                break;
             }
+
+            if (!u.accountID) {
+                LOADED_SEARCH = true;
+                await u.loadUserSearchGD(u);
+            }
+    
+            let msg = `${EMOTE_INVALID} "${search}" could not be found`;
+    
+            if (u.accountID) {
+                if (this.client.usersUL.searchAccountID(u.accountID)) {
+                    msg = `${EMOTE_INVALID} "${search}" already exists`;
+                } else if (await u.loadUserInfoGD(u)) {
+                    this.client.actions.UserULRequest.addUserByUserUL(u);
+                    await u.save(u);
+                    addLogs.push(`${EMOTE_INFO} \`${u.username}\` (pID: ${u.playerID}, aID: ${u.accountID}, ulID: ${u.ulID}) was added to the Updated Leaderboard by \`${int.user.tag}\` (${int.user.id})`);
+                    msg = `${EMOTE_VALID} ${u.username ? `\`${u.username}\`` : "User"} (pID: ${u.playerID}, aID: ${u.accountID}, ulID: ${u.ulID}) has been added (search: "${search}")`;
+                } else {
+                    msg = `${EMOTE_INVALID} GD Error for "${search}"`;
+                }
+            }
+
+            msgs[i++] = msg;
+            await wait(LOADED_SEARCH ? 3000 : 1500);
+
         }
 
-        if (!u.accountID) await u.loadUserSearchGD(u);
-
-        let msg = `${EMOTE_INVALID} User could not be found`;
-
-        if (u.accountID) {
-            if (this.client.usersUL.searchAccountID(u.accountID)) {
-                msg = `${EMOTE_INVALID} User already exists`;
-            } else if (await u.loadUserInfoGD(u)) {
-                this.client.actions.UserULRequest.addUserByUserUL(u);
-                await u.save(u);
-                await this.client.log(`${EMOTE_INFO} \`${u.username}\` (pID: ${u.playerID}, aID: ${u.accountID}, ulID: ${u.ulID}) was added to the Updated Leaderboard by \`${int.user.tag}\` (${int.user.id})`);
-                msg = `${EMOTE_VALID} ${u.username ? `\`${u.username}\`` : "User"} (pID: ${u.playerID}, aID: ${u.accountID}, ulID: ${u.ulID}) has been added`;
-            } else {
-                msg = `${EMOTE_INVALID} GD Error`;
-            }
+        if (addLogs.length > 0) {
+            await this.client.log(addLogs.join("\n"));
         }
 
         // COMMAND RESULT
         try {
             if (int.replied) {
-                setTimeout(async () => {
-                    await int.editReply({
-                        content: msg
-                    });
-                }, 3000 - Date.now() - replyTime);
+                await wait(3000 - Date.now() - replyTime);
+                await int.editReply({
+                    content: msgs.join("\n") || "UNKNOWN ERROR"
+                });
             } else {
                 await int.reply({
-                    content: msg
+                    content: msgs.join("\n") || "UNKNOWN ERROR"
                 });
             }
         } catch { return; }

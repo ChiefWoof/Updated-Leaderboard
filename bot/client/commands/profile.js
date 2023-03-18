@@ -29,6 +29,7 @@ const Util = require("../../src/util/Util");
 const Command = require("./Command");
 
 const UserULProfile = require("../../src/structures/UserULProfile");
+const Leaderboard = require("../../src/structures/Leaderboard");
 
 const {
     gd: {
@@ -224,43 +225,71 @@ class profileCommand extends Command {
                         }
 
                     if (profile.profile.bio)
-                        descStr += `\`\`\`${profile.profile.bio}\`\`\`\n`
+                        descStr += `\`\`\`${profile.profile.bio}\`\`\`\n`;
+
+                    let ldbr = new Leaderboard();
+                    ldbr = this.client.actions.Leaderboard.construct(ldbr);
+                    ldbr.resetCache(ldbr);
+
+                    ldbr.statType = "STARS";
+                    ldbr.refresh({ cache: false });
+                    let RANK_STARS = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
+
+                    ldbr.statType = "DIAMONDS";
+                    ldbr.refresh({ cache: false });
+                    let RANK_DIAMONDS = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
+
+                    ldbr.statType = "SCOINS";
+                    ldbr.refresh({ cache: false });
+                    let RANK_SCOINS = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
+
+                    ldbr.statType = "UCOINS";
+                    ldbr.refresh({ cache: false });
+                    let RANK_UCOINS = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
+
+                    ldbr.statType = "DEMONS";
+                    ldbr.refresh({ cache: false });
+                    let RANK_DEMONS = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
+
+                    ldbr.statType = "CP";
+                    ldbr.refresh({ cache: false });
+                    let RANK_CP = ldbr.searchAccountID(profile.profile.accountID)?.position || 0;
                     
                     let statsStr = [
                         {
                             emote: EMOTE_STARS,
                             str: Util.stringPadStart(`${profile.profile.stars}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedStars ? -1 : 0
+                            rank: profile.profile.flags.bannedStars ? -1 : RANK_STARS
                         },
                         {
                             emote: EMOTE_DIAMONDS,
                             str: Util.stringPadStart(`${profile.profile.diamonds}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedDiamonds ? -1 : 0
+                            rank: profile.profile.flags.bannedDiamonds ? -1 : RANK_DIAMONDS
                         },
                         {
                             emote: EMOTE_SCOINS,
                             str: Util.stringPadStart(`${profile.profile.scoins}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedScoins ? -1 : 0
+                            rank: profile.profile.flags.bannedScoins ? -1 : RANK_SCOINS
                         },
                         {
                             emote: EMOTE_UCOINS,
                             str: Util.stringPadStart(`${profile.profile.ucoins}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedUcoins ? -1 : 0
+                            rank: profile.profile.flags.bannedUcoins ? -1 : RANK_UCOINS
                         },
                         {
                             emote: EMOTE_DEMONS,
                             str: Util.stringPadStart(`${profile.profile.demons}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedDemons ? -1 : 0
+                            rank: profile.profile.flags.bannedDemons ? -1 : RANK_DEMONS
                         },
                         {
                             emote: EMOTE_CP,
                             str: Util.stringPadStart(`${profile.profile.cp}`, 8, SPACE_BLOCK),
-                            rank: profile.profile.flags.bannedCP ? -1 : 0
+                            rank: profile.profile.flags.bannedCP ? -1 : RANK_CP
                         }
                     ].map(stat => [
                         `${stat.emote}` || null,
                         `\`${stat.str}\``,
-                        stat.rank > 0 ? `_#${stat.rank}_` : stat.rank < 0 ? `${EMOTE_LOCKED}` : null
+                        stat.rank > 0 ? `_#${stat.rank}_` : null //stat.rank < 0 ? `${EMOTE_LOCKED}` : null
                     ].filter(str => str !== null).join(" ")).join("\n")
 
                     descStr += statsStr;
@@ -630,7 +659,7 @@ class profileCommand extends Command {
         }
 
         if (!searchType) {
-            if (/^@\d{1,}$/.test(search)) searchType = "DISCORD_ID";
+            if (/^<?@\d{1,}>?$/.test(search)) searchType = "DISCORD_ID";
             else if (/^(a|acc|account|aID|accountID) ?\d{1,}$/.test(search)) searchType = "ACCOUNT_ID";
             else if (/^ul ?\d{1,}$/.test(search)) searchType = "UL_ID";
             else searchType = "USERNAME_AND_PLAYER_ID";
@@ -682,8 +711,13 @@ class profileCommand extends Command {
             if (profile.profile.accountID) 
                 await profile.profile.loadProgress(profile.profile);
 
-            if (profile.profile.ulID)
+            if (profile.profile.disID && `${profile.profile.disID}` === `${int.user.id}`)
+                profile.profile.disTag = int.user.tag;
+
+            if (profile.profile.ulID) {
                 await profile.profile.updateProgress(profile.profile);
+                await profile.profile.save(profile.profile);
+            }
 
             // SETTING UP SETTINGS BY INTERACTION OPTIONS
             profile.page = int.options.getString("page") || page;

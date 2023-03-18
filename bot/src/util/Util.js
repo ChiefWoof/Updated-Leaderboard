@@ -34,4 +34,15 @@ Util.hexToColorArray = function(str) {
     return str.match(/[a-fA-F0-9]{2}/g).map(h => parseInt(h, 16));
 }
 
+/**
+ * @param {number} ms Time in miliseconds 
+ * @returns {Promise<>}
+ */
+
+Util.wait = async function(ms) {
+    return await new Promise(res => {
+        setTimeout(res, ms);
+    })
+}
+
 module.exports = Util;

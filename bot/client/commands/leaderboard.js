@@ -206,7 +206,7 @@ class leaderboardCommand extends Command {
         
         let embed = new EmbedBuilder()
         .setAuthor({
-            name: this.statTypeToEmbedName(ldbr.statType),
+            name: `${this.statTypeToEmbedName(ldbr.statType)}${this.beta ? " (BETA)" : ""}`,
             iconURL: this.statTypeToEmote(ldbr.statType).url
         })
         .setTitle(`**Page:** \`${ldbr.page + 1} / ${ldbr.pageMax + 1}\` _(${ldbr.cache.length} users)_`)
@@ -724,7 +724,7 @@ class leaderboardCommand extends Command {
 
         // INITIALIZING
         let ldbr = new Leaderboard();
-        this.client.actions.Leaderboard.setResetCache(ldbr);
+        ldbr = this.client.actions.Leaderboard.construct(ldbr);
 
         // SETTING UP SETTINGS BY INTERACTION OPTIONS
         ldbr.setStatByString(int.options.getString("stat") || "STARS");
@@ -741,26 +741,29 @@ class leaderboardCommand extends Command {
         ldbr.setPageFirstSelection();
 
         // INITIALIZING INTERACTIONS
-        const collector = reply.channel.createMessageComponentCollector({
-            time: 10 * 1000 * 60
-        });
+        if (reply.channel) {
+            const collector = reply.channel.createMessageComponentCollector({
+                time: 10 * 1000 * 60
+            });
+    
+            collector.on("collect", async (interaction) => {
+                try {
+                    if (`${interaction.message.id}` === `${reply.id}`)
+                        this.handlerInteractionMessageComponent(interaction, int, ldbr);
+                } catch {
+    
+                }
+            })
+    
+            collector.on("end", async () => {
+                try {
+                    await int.editReply(await this.leaderboardToLeaderboardMessage(ldbr, { disableComponents: true }));
+                } catch {
+    
+                }
+            })
 
-        collector.on("collect", async (interaction) => {
-            try {
-                if (`${interaction.message.id}` === `${reply.id}`)
-                    this.handlerInteractionMessageComponent(interaction, int, ldbr);
-            } catch {
-
-            }
-        })
-
-        collector.on("end", async () => {
-            try {
-                await int.editReply(await this.leaderboardToLeaderboardMessage(ldbr, { disableComponents: true }));
-            } catch {
-
-            }
-        })
+        }
 
         // POST
 

@@ -2,6 +2,8 @@
 
 const Action = require("../actions/Action");
 
+const UserUL = require("../../src/structures/UserUL");
+
 const {
     SlashCommandBuilder,
     ChatInputCommandInteraction,
@@ -42,10 +44,10 @@ class Command extends Action {
         this.beta = false;
 
         /**
-         * @description Whether the command is an SG-only command
+         * @description Whether the command is only useable in the beta server
          * @type {boolean}
          */
-        this.sg = false;
+        this.betaOnly = false;
 
     }
 
@@ -85,20 +87,49 @@ class Command extends Action {
 
     async handlerInteractionPermission(int) {
         if (this.useable) {
-
+            
             // Returns true if user has permission
-            if (await this.handlerInteractionPermissionCheck(int))
+            if (await this.handlerInteractionPermissionCheck(int)) {
+
+                if (this.betaOnly && !this.interactionToIsBetaServer(int)) {
+                    await int.reply({
+                        content:  `${INVALID_EMOTE} This command isn't ready for public use yet.\n\nYou can help test out this command in the __[developer's personal server](<https://discord.gg/VQv2sUX7pa>)__`
+                    });
+                    return false;
+                }
+
                 return true;
+
+            }
         
             // Returns false after replying to the interaction indicating no permission
             await int.reply({
-                content: [
-                    `${INVALID_EMOTE} The permission levels on this command are preventing you from using it at this time`
-                ].join("\n")
+                content: `${INVALID_EMOTE} The permission levels on this command are preventing you from using it at this time`
             });
 
         }
         return false;
+    }
+
+    /**
+     * @param {ChatInputCommandInteraction} int
+     * @returns {?UserUL}
+     */
+
+    async interactionToUserUL(int) {
+        return await this.client.usersUL.searchDisID(int.user.id);
+    }
+
+    /**
+     * @param {ChatInputCommandInteraction} int
+     * @returns {?UserUL}
+     */
+
+    interactionToIsBetaServer(int) {
+        return [
+            "454565627848294411",
+            "1037606651462688770"
+        ].includes(`${int.guildId}`);
     }
 
     /**
@@ -108,9 +139,6 @@ class Command extends Action {
 
     async handlerInteractionPermissionCheck(int) {
         return true;
-        return [
-            "191709026113945600"
-        ].includes(int.user.id);
     }
 
     ////////////////////////////////////

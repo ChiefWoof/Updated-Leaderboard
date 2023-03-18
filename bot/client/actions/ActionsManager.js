@@ -8,6 +8,7 @@ const NotificationAction = require("./Notification");
 const StatProgressChartAction = require("./StatProgressChart");
 const StorageFilesAction = require("./StorageFiles");
 const UserULAction = require("./UserUL");
+const UserULRequestAction = require("./UserULRequest");
 const UserULSheetAction = require("./UserULSheet");
 
 class ActionsManager {
@@ -37,6 +38,9 @@ class ActionsManager {
 
         /** @type {UserULAction} */
         this.UserUL = new UserULAction(client);
+
+        /** @type {UserULRequestAction} */
+        this.UserULRequest = new UserULRequestAction(client);
 
         /** @type {UserULSheetAction} */
         this.UserULSheet = new UserULSheetAction(client);

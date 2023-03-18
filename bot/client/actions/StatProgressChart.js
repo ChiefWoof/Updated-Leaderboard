@@ -61,7 +61,8 @@ class StatProgressChartAction extends Action {
 
             switch (profile.progressType) {
 
-                case "WEEKLY": {
+                case "WEEKLY":
+                    case "WEEKLY_DEFAULT": {
 
                     let timestamp = new Date(initial.timestampStatsRefreshed);
                     timestamp.setDate(timestamp.getDate() + 7);
@@ -99,7 +100,8 @@ class StatProgressChartAction extends Action {
 
                 }
 
-                case "MONTHLY": {
+                case "MONTHLY":
+                    case "MONTHLY_DEFAULT": {
 
                         let timestamp = new Date(initial.timestampStatsRefreshed);
                         timestamp.setMonth(timestamp.getMonth() + 1);
@@ -129,7 +131,8 @@ class StatProgressChartAction extends Action {
                     break;
                 }
 
-                case "YEARLY": {
+                case "YEARLY":
+                    case "YEARLY_DEFAULT": {
 
                         let timestamp = new Date(initial.timestampStatsRefreshed);
                         timestamp.setFullYear(timestamp.getFullYear() + 1);

@@ -345,6 +345,7 @@ class UserULAction extends Action {
                 throw new Error("Must input user into \"saveProgress\" function");
             if (!user.accountID)
                 throw new Error("User must have a valid account ID");
+            await user.loadProgress(user);
             if (user.progress.length > 0) {
 
                 let recent = user.progress.recent;
@@ -368,6 +369,41 @@ class UserULAction extends Action {
         }
 
         return base;
+
+    }
+
+    /**
+     * @returns {BigInt[]} Updated users' account IDs
+     */
+
+    async refreshStatsByLeaderboardWhitelistFile() {
+
+        let res = [];
+        let details = await this.client.actions.LeaderboardWhitelist.loadFileDetails();
+        let lastUpdated = details.mtime.getTime();
+
+        let users = await this.client.actions.LeaderboardWhitelist.loadUsersFromFile();
+
+        for await (let entry of users) {
+            /** @type {UserUL} */
+            let u = this.client.usersUL.searchAccountID(entry.accountID);
+            if (u && lastUpdated > u.timestampStatsRefreshed) {
+                u.rankGlobal = entry.rankGlobal;
+                u.updateUsername(entry.username);
+                u.stars = entry.stars;
+                u.diamonds = entry.diamonds;
+                u.scoins = entry.scoins;
+                u.ucoins = entry.ucoins;
+                u.demons = entry.demons;
+                u.timestampStatsRefreshed = lastUpdated;
+                await u.updateProgress(u);
+                res.push(u.accountID);
+            }
+        }
+        
+        await this.saveByManager(this.client.usersUL);
+
+        return res;
 
     }
 

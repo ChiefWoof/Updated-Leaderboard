@@ -17,20 +17,6 @@ class LeaderboardAction extends Action {
     }
 
     /**
-     * @param {Leaderboard} ldbr 
-     */
-
-    setResetCache(ldbr, cache=this.getUserCache()) {
-        ldbr.resetCache = () => {
-            ldbr.cache = [
-                ...cache
-                .map(u => (new UserUL()).fromJSON(u.toJSON()))
-            ]
-            ldbr.sort();
-        }
-    };
-
-    /**
      * @param {Leaderboard} ldbr
      */
 
@@ -59,6 +45,26 @@ class LeaderboardAction extends Action {
         }
 
         return user;
+    }
+
+    /**
+     * @description Constructs a client-Leaderboard structure
+     * @param {Leaderboard} [base = new Leaderboard()]
+     * @returns {Leaderboard} 
+     */
+
+    construct(base = new Leaderboard()) {
+
+        base.resetCache = async (ldbr) => {
+            ldbr.cache = [
+                ...this.getUserCache()
+                .map(u => (new UserUL()).fromJSON(u.toJSON()))
+            ]
+            ldbr.sort();
+        }
+
+        return base;
+
     }
 
 }

@@ -18,8 +18,11 @@
 
 /**
  * @typedef {"WEEKLY"
+ * |"WEEKLY_DEFAULT"
  * |"MONTHLY"
+ * |"MONTHLY_DEFAULT"
  * |"YEARLY"
+ * |"YEARLY_DEFAULT"
 * } PROGRESS_TYPE
 */
 
@@ -73,7 +76,7 @@ class UserULProfile extends Base {
          * @type {PROGRESS_TYPE}
          */
 
-        this.progressType = "WEEKLY";
+        this.progressType = "WEEKLY_DEFAULT";
 
         /**
          * @description The lower bound of the progress chart
@@ -130,6 +133,18 @@ class UserULProfile extends Base {
         d.setFullYear(d.getFullYear() - 1);
 
         this.progressLB = d.getTime();
+
+        return this;
+
+    }
+
+    setBoundsProgressType() {
+        
+        switch (this.progressType) {
+            case "WEEKLY_DEFAULT": { this.setBoundsDefaultWeekly(); break; }
+            case "MONTHLY_DEFAULT": { this.setBoundsDefaultMonthly(); break; }
+            default: { this.progressLB = 0; this.progressUB = Infinity; break; }
+        }
 
         return this;
 

@@ -444,6 +444,12 @@ class UserUL extends Base {
      * @returns {boolean} Whether the action was successful
      */
     
+    async loadUserSearchGD() { return false; }
+
+    /**
+     * @returns {boolean} Whether the action was successful
+     */
+    
     async loadUserInfoGD() { return false; }
 
     /**
@@ -469,6 +475,12 @@ class UserUL extends Base {
      */
     
     async saveProgress() { return false; }
+
+    /**
+     * @returns {boolean} Whether the action was successful
+     */
+    
+    async updateProgress() { return false; }
 
 }
 

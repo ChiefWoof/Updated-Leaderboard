@@ -322,7 +322,7 @@ class Leaderboard extends Base {
         positions = true,
         positionValues = true
     }={}) {
-        if (cache) this.resetCache();
+        if (cache) this.resetCache(this);
         if (positionValues) this.setPositionValues();
         if (filter) this.filterCache();
         if (positions) {
@@ -373,6 +373,13 @@ class Leaderboard extends Base {
             if (`${u.disID}` === `${value}`) u.flags.selected = true;
         });
     }
+
+    /**
+     * @param {BigInt|string|number} accountID
+     * @returns {?UserUL}
+     */
+
+    searchAccountID(accountID) { return this.cache.find(u => `${u.accountID}` === `${accountID}`); }
 
     resetCache() {}
 

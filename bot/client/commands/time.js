@@ -3,6 +3,7 @@
 const {
     SlashCommandBuilder,
     ChatInputCommandInteraction,
+    SlashCommandStringOption,
     SlashCommandNumberOption
 } = require("discord.js");
 
@@ -73,6 +74,10 @@ class timeCommand extends Command {
         msOption.setMaxValue(999);
         msOption.setMinValue(0);
 
+        let strOption = new SlashCommandStringOption();
+        strOption.setName("str");
+        strOption.setDescription("The timestamp string");
+
         res.addNumberOption(timestampOption);
 
         res.addNumberOption(yearOption);
@@ -83,6 +88,8 @@ class timeCommand extends Command {
         res.addNumberOption(mOption);
         res.addNumberOption(sOption);
         res.addNumberOption(msOption);
+
+        res.addStringOption(strOption);
 
         return res;
     }
@@ -97,7 +104,11 @@ class timeCommand extends Command {
         if (!(await this.handlerInteractionPermission(int)))
             return;
 
-        let date = new Date(Date.now());
+        let date = new Date(
+            int.options.getString("str") !== null
+            ? int.options.getString("str")
+            : Date.now()
+        );
 
         if (int.options.getNumber("timestamp") !== null)
             date.setTime(int.options.getNumber("timestamp"));

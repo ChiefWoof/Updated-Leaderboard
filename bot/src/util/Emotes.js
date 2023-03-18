@@ -171,7 +171,8 @@ const GD_USER_ICONS = {
     dysowolief: new Emote({ id: "686021458228674583", name: "dysowolief" }),
     dysowoliefBounce: new Emote({ animated: true, id: "852639939375267841", name: "dysowoliefBounce" }),
     shidab: new Emote({ id: "884958390428766258", name: "shidab" }),
-    shidabEpic: new Emote({ id: "886045145831710730", name: "shidabEpic" })
+    shidabEpic: new Emote({ id: "886045145831710730", name: "shidabEpic" }),
+    RobTopo: new Emote({ id: "586724987210301451", name: "RobTopo" })
 };
 
 const GD_USERS = {

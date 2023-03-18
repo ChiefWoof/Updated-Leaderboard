@@ -45,6 +45,9 @@ const {
             status: {
                 modRegular: EMOTE_MOD,
                 modElder: EMOTE_MOD_ELDER
+            },
+            icons: {
+                RobTopo: EMOTE_ROBTOPO
             }
         },
         pagination: {
@@ -307,6 +310,8 @@ class profileCommand extends Command {
 
                     if (profile.profile.disTag)
                         details.push(`${EMOTE_LINKED} **Tag:** \`${profile.profile.disTag}\``);
+
+                    details.push(`${EMOTE_ROBTOPO} [GDBrowser Profile](https://gdbrowser.com/u/${profile.profile.accountID})`);
 
                     if (profile.profile.youtube)
                         details.push(`${EMOTE_YOUTUBE} [YouTube](https://www.youtube.com/channel/${profile.profile.youtube})`);

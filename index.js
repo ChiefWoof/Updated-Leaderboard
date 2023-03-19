@@ -50,11 +50,12 @@ async function onStart() {
 async function onReady() {
 
     await login(BOT_MAIN_TOKEN);
+    client.runHandlerInteractionCreate();
 
 }
 
 async function onExit() {
-
+    await client.actions.UserUL.saveByManager(client.usersUL);
 }
 
 

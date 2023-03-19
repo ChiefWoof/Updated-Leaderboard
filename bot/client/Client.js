@@ -29,8 +29,6 @@ class Client {
         /** @type {UsersULManager} */
         this.usersUL = new UsersULManager();
 
-        this.runHandlerInteractionCreate();
-
     }
 
     async createSlashCommands(guildID, commands) {
@@ -66,11 +64,18 @@ class Client {
             if (interaction.isChatInputCommand()) {
                 let cmd = Object.values(this.commands).find(cmd => cmd.command.name == interaction.commandName);
                 if (cmd) {
-                    this.log(`${EMOTE_INFO} \`${interaction.user.tag}\` (${interaction.user.id}) ran command "${cmd.command.name}" in ${interaction.guild ? `guild \`${interaction.guild.name}\` (${interaction.guild.id})` : "DM"}`);
+                    await this.log(`${EMOTE_INFO} \`${interaction.user.tag}\` (${interaction.user.id}) ran command "${cmd.command.name}" in ${interaction.guild ? `guild \`${interaction.guild.name}\` (${interaction.guild.id})` : "DM"}`);
                     cmd.handlerInteractionChatInput(interaction);
                 }
             }
         
+        });
+        this.clientBase.on("guildCreate", async guild => {
+            let owner = await guild.fetchOwner();
+            await this.log(`:inbox_tray: joined guild \`${guild.name}\` (${guild.id}) owned by \`${owner.user.tag}\` (${owner.user.id}) [Guilds: ${this.clientBase.guilds.cache.size}]`);
+        });
+        this.clientBase.on("guildDelete", async guild => {
+            await this.log(`:outbox_tray: left guild \`${guild.name}\` (${guild.id}) [Guilds: ${this.clientBase.guilds.cache.size}]`);
         });
     }
 

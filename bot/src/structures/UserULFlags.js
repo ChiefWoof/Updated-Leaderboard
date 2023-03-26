@@ -288,6 +288,23 @@ class UserULFlags extends BitField {
     set selected(value) { this.fromBitValue(SELECTED_INDICATOR, value); }
 
     /**
+     * @description Whether the user is UL staff member (Trainee -> Chief)
+     * @type {boolean}
+     * @param {boolean|number} value
+     */
+
+    get staff() {
+        return this.staffTrainee
+        || this.staffHelper;
+    }
+    set staff(value) {
+        if (!value) {
+            this.staffTrainee = false;
+            this.staffHelper = false;
+        }
+    }
+
+    /**
      * @description Whether the user is banned from the UL net score leaderboard
      * @type {boolean}
      */

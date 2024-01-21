@@ -1,0 +1,774 @@
+{
+    "1": {
+        "id": "1",
+        "nameDisplay": "North America",
+        "name": "North America",
+        "abbrev": "NA"
+    },
+    "2": {
+        "id": "2",
+        "nameDisplay": "South America",
+        "name": "South America",
+        "abbrev": "SA"
+    },
+    "3": {
+        "id": "3",
+        "nameDisplay": "Europe",
+        "name": "Europe",
+        "abbrev": "EU"
+    },
+    "4": {
+        "id": "4",
+        "nameDisplay": "Asia",
+        "name": "Asia",
+        "abbrev": "AS"
+    },
+    "5": {
+        "id": "5",
+        "nameDisplay": "Africa",
+        "name": "Africa",
+        "abbrev": "AF"
+    },
+    "6": {
+        "id": "6",
+        "nameDisplay": "Oceania",
+        "name": "Oceania",
+        "abbrev": "OC"
+    },
+    "7": {
+        "id": "7",
+        "nameDisplay": "Antarctica",
+        "name": "Antarctica",
+        "abbrev": "AT",
+        "emote": "🇦🇶"
+    },
+    "8": {
+        "id": "8",
+        "nameDisplay": "Central America",
+        "name": "Central America",
+        "abbrev": "CA"
+    },
+    "9": {
+        "id": "9",
+        "nameDisplay": "United States North of MO Compromise",
+        "name": "North of Missouri Compromise",
+        "abbrev": "US-North",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "10": {
+        "id": "10",
+        "nameDisplay": "United States South of MO Compromise",
+        "name": "South of Missouri Compromise",
+        "abbrev": "US-South",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "11": {
+        "id": "11",
+        "nameDisplay": "United States East of MS River",
+        "name": "East of the Mississippi River",
+        "abbrev": "US-East",
+        "emote": "🇺🇸"
+    },
+    "12": {
+        "id": "12",
+        "nameDisplay": "United States West of MS River",
+        "name": "West of the Mississippi River",
+        "abbrev": "US-West",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "13": {
+        "id": "13",
+        "nameDisplay": "Canadian Atlantic",
+        "name": "Canadian Atlantic",
+        "abbrev": "CA-Atlantic",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "14": {
+        "id": "14",
+        "nameDisplay": "Canadian Prairies",
+        "name": "Canadian Prairies",
+        "abbrev": "CA-Prairies",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "15": {
+        "id": "15",
+        "nameDisplay": "Western Canada",
+        "name": "Western Canada",
+        "abbrev": "CA-West",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "16": {
+        "id": "16",
+        "nameDisplay": "Eastern Canada",
+        "name": "Eastern Canada",
+        "abbrev": "CA-East",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "17": {
+        "id": "17",
+        "nameDisplay": "Canadian Maritimes",
+        "name": "Canadian Maritimes",
+        "abbrev": "CA-Maritimes",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "18": {
+        "id": "18",
+        "nameDisplay": "Canadian Territories",
+        "name": "Canadian Territories",
+        "abbrev": "CA-Territories",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇨🇦"
+    },
+    "19": {
+        "id": "19",
+        "nameDisplay": "Islands",
+        "name": "Islands",
+        "featured": true
+    },
+    "20": {
+        "id": "20",
+        "nameDisplay": "United States Northeast",
+        "name": "United States Northeast",
+        "abbrev": "US-NE",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "21": {
+        "id": "21",
+        "nameDisplay": "United States South",
+        "name": "United States South",
+        "abbrev": "US-S",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "22": {
+        "id": "22",
+        "nameDisplay": "United States Far West",
+        "name": "United States Far West",
+        "abbrev": "US-W",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "23": {
+        "id": "23",
+        "nameDisplay": "United States Midwest",
+        "name": "United States Midwest",
+        "abbrev": "US-MW",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "24": {
+        "id": "24",
+        "nameDisplay": "United States MIMAL Fried Chicken",
+        "name": "MIMAL Fried Chicken",
+        "abbrev": "US-MIMAL",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "25": {
+        "id": "25",
+        "nameDisplay": "United States New England",
+        "name": "New England",
+        "abbrev": "US-England",
+        "regions": [
+            "1"
+        ],
+        "emote": "<:flag_new_england:1149223848387039233>"
+        
+    },
+    "27": {
+        "id": "27",
+        "nameDisplay": "Russia North Caucasian Federal District",
+        "name": "Russia North Caucasian Federal District",
+        "abbrev": "RU-NCFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "28": {
+        "id": "28",
+        "nameDisplay": "Russia Southern Federal District",
+        "name": "Russia Southern Federal District",
+        "abbrev": "RU-SFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "29": {
+        "id": "29",
+        "nameDisplay": "Russia Central Federal District",
+        "name": "Russia Central Federal District",
+        "abbrev": "RU-CFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "30": {
+        "id": "30",
+        "nameDisplay": "Russia Northwestern Federal District",
+        "name": "Russia Northwestern Federal District",
+        "abbrev": "RU-NFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "31": {
+        "id": "31",
+        "nameDisplay": "Russia Volga Federal District",
+        "name": "Russia Volga Federal District",
+        "abbrev": "RU-VFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "32": {
+        "id": "32",
+        "nameDisplay": "Russia Ural Federal District",
+        "name": "Russia Ural Federal District",
+        "abbrev": "RU-UFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "33": {
+        "id": "33",
+        "nameDisplay": "Russia Siberian Federal District",
+        "name": "Russia Siberian Federal District",
+        "abbrev": "RU-SFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "34": {
+        "id": "34",
+        "nameDisplay": "Russia Far Eastern Federal District",
+        "name": "Russia Far Eastern Federal District",
+        "abbrev": "RU-FEFD",
+        "regions": [
+            "4"
+        ],
+        "emote": "🇷🇺"
+    },
+    "35": {
+        "id": "35",
+        "nameDisplay": "The Caribbean",
+        "name": "The Caribbean",
+        "abbrev": "CB",
+        "regions": [
+            "8"
+        ]
+    },
+    "36": {
+        "id": "36",
+        "nameDisplay": "United States Mid-Atlantic",
+        "name": "United States Mid-Atlantic",
+        "abbrev": "US-MA",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "37": {
+        "id": "37",
+        "nameDisplay": "Commonwealth of Nations",
+        "name": "Commonwealth of Nations",
+        "abbrev": "UK-CW",
+        "emote": "<:flag_commonwealth_of_nations:1169698128774041670>"
+    },
+    "38": {
+        "id": "38",
+        "nameDisplay": "Cascadia",
+        "name": "Cascadia",
+        "abbrev": "US-CAS",
+        "regions": [
+            "1"
+        ],
+        "emote": "<:flag_cascadia:1149224392748957696>"
+    },
+    "39": {
+        "id": "39",
+        "nameDisplay": "European Union",
+        "name": "European Union",
+        "abbrev": "EU-2",
+        "regions": [
+            "3"
+        ],
+        "emote": "🇪🇺"
+    },
+    "40": {
+        "id": "40",
+        "nameDisplay": "Balkans",
+        "name": "Balkan Peninsula",
+        "regions": [
+            "3"
+        ],
+        "abbrev": "EU-BP"
+    },
+    "41": {
+        "id": "41",
+        "nameDisplay": "Southeast Asia",
+        "name": "Southeast Asia",
+        "regions": [
+            "4"
+        ],
+        "abbrev": "AS-SE"
+    },
+    "42": {
+        "id": "42",
+        "nameDisplay": "East Asia",
+        "name": "East Asia",
+        "regions": [
+            "4"
+        ],
+        "abbrev": "AS-E"
+    },
+    "43": {
+        "id": "43",
+        "nameDisplay": "Central Asia",
+        "name": "Central Asia",
+        "regions": [
+            "4"
+        ],
+        "abbrev": "AS-C"
+    },
+    "44": {
+        "id": "44",
+        "nameDisplay": "Middle East",
+        "name": "Middle East",
+        "regions": [
+            "4"
+        ],
+        "abbrev": "AS-ME"
+    },
+    "45": {
+        "id": "45",
+        "nameDisplay": "South Asia",
+        "name": "South Asia",
+        "regions": [
+            "4"
+        ],
+        "abbrev": "AS-S"
+    },
+    "46": {
+        "id": "46",
+        "nameDisplay": "North Africa",
+        "name": "North Africa",
+        "regions": [
+            "5"
+        ],
+        "abbrev": "AF-N"
+    },
+    "47": {
+        "id": "47",
+        "nameDisplay": "Maghreb",
+        "name": "Maghreb",
+        "regions": [
+            "5"
+        ],
+        "abbrev": "AF-M"
+    },
+    "48": {
+        "id": "48",
+        "nameDisplay": "NATO",
+        "name": "North Atlantic Treaty Organization",
+        "abbrev": "NATO",
+        "regions": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "44",
+            "46",
+            "47",
+            "49"
+        ],
+        "emote": "<:flag_nato:1169846924749307996>"
+    },
+    "49": {
+        "id": "49",
+        "nameDisplay": "CSTO",
+        "name": "Collective Security Treaty Organization",
+        "abbrev": "CSTO",
+        "regions": [
+            "3",
+            "4"
+        ],
+        "emote": "<:flag_csto:1169846025222099034>"
+    },
+    "50": {
+        "id": "50",
+        "nameDisplay": "Argentine Northwest",
+        "name": "Argentine Northwest",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "51": {
+        "id": "51",
+        "nameDisplay": "Gran Chaco",
+        "name": "Gran Chaco",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "52": {
+        "id": "52",
+        "nameDisplay": "La Mesopotamia",
+        "name": "La Mesopotamia",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "53": {
+        "id": "53",
+        "nameDisplay": "Cuyo",
+        "name": "Cuyo",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "54": {
+        "id": "54",
+        "nameDisplay": "Pampas",
+        "name": "Pampas",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "55": {
+        "id": "55",
+        "nameDisplay": "Patagonia",
+        "name": "Patagonia",
+        "abbrev": "AR-NW",
+        "emote": "🇦🇷"
+    },
+    "56": {
+        "id": "56",
+        "nameDisplay": "Iberia",
+        "name": "Iberian Peninsula",
+        "abbrev": "EU-IBA",
+        "emote": "🇦🇷"
+    },
+    "57": {
+        "id": "57",
+        "nameDisplay": "United States East North Central",
+        "name": "United States East North Central",
+        "abbrev": "US-ENC",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "58": {
+        "id": "58",
+        "nameDisplay": "United States West North Central",
+        "name": "United States West North Central",
+        "abbrev": "US-WNC",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "59": {
+        "id": "59",
+        "nameDisplay": "United States South Atlantic",
+        "name": "United States South Atlantic",
+        "abbrev": "US-SA",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "60": {
+        "id": "60",
+        "nameDisplay": "United States East South Central",
+        "name": "United States East South Central",
+        "abbrev": "US-ESC",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "61": {
+        "id": "61",
+        "nameDisplay": "United States West South Central",
+        "name": "United States West South Central",
+        "abbrev": "US-WSC",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "62": {
+        "id": "62",
+        "nameDisplay": "United States Mountain West",
+        "name": "United States Mountain West",
+        "abbrev": "US-MTNW",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "63": {
+        "id": "63",
+        "nameDisplay": "United States Pacific West",
+        "name": "United States Pacific West",
+        "abbrev": "US-PW",
+        "regions": [
+            "1"
+        ],
+        "emote": "🇺🇸"
+    },
+    "64": {
+        "id": "64",
+        "nameDisplay": "Scandinavia",
+        "name": "Scandinavia",
+        "abbrev": "EU-SCO"
+    },
+    "65": {
+        "id": "65",
+        "nameDisplay": "Nordic Countries",
+        "name": "Nordic Countries",
+        "abbrev": "EU-NORDIC"
+    },
+    "66": {
+        "id": "66",
+        "nameDisplay": "North Region of Brazil",
+        "name": "Região Norte",
+        "abbrev": "BR-N",
+        "emote": "🇧🇷"
+    },
+    "67": {
+        "id": "67",
+        "nameDisplay": "Northeast Region of Brazil",
+        "name": "Região Nordeste",
+        "abbrev": "BR-NE",
+        "emote": "🇧🇷"
+    },
+    "68": {
+        "id": "68",
+        "nameDisplay": "Central-West Region of Brazil",
+        "name": "Região Centro-Oeste",
+        "abbrev": "BR-CW",
+        "emote": "🇧🇷"
+    },
+    "69": {
+        "id": "69",
+        "nameDisplay": "Southeast Region of Brazil",
+        "name": "Região Sudeste",
+        "abbrev": "BR-SE",
+        "emote": "🇧🇷"
+    },
+    "70": {
+        "id": "70",
+        "nameDisplay": "South Region of Brazil",
+        "name": "Região Sul",
+        "abbrev": "BR-S",
+        "emote": "🇧🇷"
+    },
+    "71": {
+        "id": "71",
+        "nameDisplay": "North Netherlands",
+        "name": "North Netherlands",
+        "abbrev": "NL-N",
+        "emote": "🇳🇱"
+    },
+    "72": {
+        "id": "72",
+        "nameDisplay": "East Netherlands",
+        "name": "East Netherlands",
+        "abbrev": "NL-E",
+        "emote": "🇳🇱"
+    },
+    "73": {
+        "id": "73",
+        "nameDisplay": "West Netherlands",
+        "name": "West Netherlands",
+        "abbrev": "NL-W",
+        "emote": "🇳🇱"
+    },
+    "74": {
+        "id": "74",
+        "nameDisplay": "South Netherlands",
+        "name": "South Netherlands",
+        "abbrev": "NL-S",
+        "emote": "🇳🇱"
+    },
+    "75": {
+        "id": "75",
+        "nameDisplay": "Northwest Italy",
+        "name": "Italia nord-occidentale",
+        "abbrev": "IT-NW",
+        "emote": "🇮🇹"
+    },
+    "76": {
+        "id": "76",
+        "nameDisplay": "Northeast Italy",
+        "name": "Italia nord-orientale",
+        "abbrev": "IT-NE",
+        "emote": "🇮🇹"
+    },
+    "77": {
+        "id": "77",
+        "nameDisplay": "Central Italy",
+        "name": "Italia centrale",
+        "abbrev": "IT-C",
+        "emote": "🇮🇹"
+    },
+    "78": {
+        "id": "78",
+        "nameDisplay": "South Italy",
+        "name": "Italia meridionale",
+        "abbrev": "IT-S",
+        "emote": "🇮🇹"
+    },
+    "79": {
+        "id": "79",
+        "nameDisplay": "Insular Italy",
+        "name": "Italia insulare",
+        "abbrev": "IT-I",
+        "emote": "🇮🇹"
+    },
+    "80": {
+        "id": "80",
+        "nameDisplay": "Northwest Spain",
+        "name": "Noroeste de España",
+        "abbrev": "ES-NW",
+        "emote": "🇪🇸"
+    },
+    "81": {
+        "id": "81",
+        "nameDisplay": "Northeast Spain",
+        "name": "Noreste de España",
+        "abbrev": "ES-NE",
+        "emote": "🇪🇸"
+    },
+    "82": {
+        "id": "82",
+        "nameDisplay": "Central Spain",
+        "name": "Centro de España",
+        "abbrev": "ES-C",
+        "emote": "🇪🇸"
+    },
+    "83": {
+        "id": "83",
+        "nameDisplay": "East Spain",
+        "name": "Este de España",
+        "abbrev": "ES-E",
+        "emote": "🇪🇸"
+    },
+    "84": {
+        "id": "84",
+        "nameDisplay": "South Spain",
+        "name": "Sur de España",
+        "abbrev": "ES-S",
+        "emote": "🇪🇸"
+    },
+    "85": {
+        "id": "85",
+        "nameDisplay": "Gyeonggi Region",
+        "name": "Gyeonggi Region",
+        "abbrev": "KR-G",
+        "emote": "🇰🇷"
+    },
+    "86": {
+        "id": "86",
+        "nameDisplay": "Hoseo Region",
+        "name": "Hoseo Region",
+        "abbrev": "KR-HS",
+        "emote": "🇰🇷"
+    },
+    "87": {
+        "id": "87",
+        "nameDisplay": "Honam Region",
+        "name": "Honam Region",
+        "abbrev": "KR-HN",
+        "emote": "🇰🇷"
+    },
+    "88": {
+        "id": "88",
+        "nameDisplay": "Yeongnam Region",
+        "name": "Yeongnam Region",
+        "abbrev": "KR-Y",
+        "emote": "🇰🇷"
+    },
+    "89": {
+        "id": "89",
+        "nameDisplay": "British Islands",
+        "name": "British Islands",
+        "abbrev": "GB-BI",
+        "emote": "🇬🇧"
+    }    
+}

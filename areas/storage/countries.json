@@ -1,0 +1,2565 @@
+{
+    "1": {
+        "id": "1",
+        "nameDisplay": "Afghanistan",
+        "name": "Afghanistan",
+        "emote": "🇦🇫",
+        "regions": [
+            "4",
+            "45"
+        ],
+        "languages": []
+    },
+    "2": {
+        "id": "2",
+        "nameDisplay": "Albania",
+        "name": "Republic of Albania",
+        "emote": "🇦🇱",
+        "regions": [
+            "3",
+            "40",
+            "48"
+        ],
+        "languages": []
+    },
+    "3": {
+        "id": "3",
+        "nameDisplay": "Algeria",
+        "name": "People's Democratic Republic of Algeria",
+        "emote": "🇩🇿",
+        "regions": [
+            "5",
+            "46",
+            "47"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "4": {
+        "id": "4",
+        "nameDisplay": "Andorra",
+        "name": "Principality of Andorra",
+        "emote": "🇦🇩",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "18"
+        ]
+    },
+    "5": {
+        "id": "5",
+        "nameDisplay": "Angola",
+        "name": "Republic of Angola",
+        "emote": "🇦🇴",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "6": {
+        "id": "6",
+        "nameDisplay": "Antigua and Barbuda",
+        "name": "Antigua and Barbuda",
+        "emote": "🇦🇬",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "7": {
+        "id": "7",
+        "nameDisplay": "Argentina",
+        "name": "Argentine Republic",
+        "emote": "🇦🇷",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "8": {
+        "id": "8",
+        "nameDisplay": "Armenia",
+        "name": "Republic of Armenia",
+        "emote": "🇦🇲",
+        "regions": [
+            "4",
+            "49"
+        ],
+        "languages": []
+    },
+    "9": {
+        "id": "9",
+        "nameDisplay": "Australia",
+        "name": "Commonwealth of Australia",
+        "emote": "🇦🇺",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "10": {
+        "id": "10",
+        "nameDisplay": "Austria",
+        "name": "Republic of Austria",
+        "emote": "🇦🇹",
+        "regions": [
+            "3",
+            "39"
+        ],
+        "languages": [
+            "5"
+        ]
+    },
+    "11": {
+        "id": "11",
+        "nameDisplay": "Azerbaijan",
+        "name": "Republic of Azerbaijan",
+        "emote": "🇦🇿",
+        "regions": [
+            "4"
+        ],
+        "languages": []
+    },
+    "12": {
+        "id": "12",
+        "nameDisplay": "Bahamas",
+        "name": "Commonwealth of The Bahamas",
+        "emote": "🇧🇸",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "13": {
+        "id": "13",
+        "nameDisplay": "Bahrain",
+        "name": "Kingdom of Bahrain",
+        "emote": "🇧🇭",
+        "regions": [
+            "4",
+            "19",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "14": {
+        "id": "14",
+        "nameDisplay": "Bangladesh",
+        "name": "People's Republic of Bangladesh",
+        "emote": "🇧🇩",
+        "regions": [
+            "4",
+            "37",
+            "45"
+        ],
+        "languages": []
+    },
+    "15": {
+        "id": "15",
+        "nameDisplay": "Barbados",
+        "name": "Barbados",
+        "emote": "🇧🇧",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "16": {
+        "id": "16",
+        "nameDisplay": "Belarus",
+        "name": "Republic of Belarus",
+        "emote": "🇧🇾",
+        "regions": [
+            "3",
+            "49"
+        ],
+        "languages": [
+            "15"
+        ]
+    },
+    "17": {
+        "id": "17",
+        "nameDisplay": "Belgium",
+        "name": "Kingdom of Belgium",
+        "emote": "🇧🇪",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "7"
+        ]
+    },
+    "18": {
+        "id": "18",
+        "nameDisplay": "Belize",
+        "name": "Belize",
+        "emote": "🇧🇿",
+        "regions": [
+            "1",
+            "8",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "19": {
+        "id": "19",
+        "nameDisplay": "Benin",
+        "name": "Republic of Benin",
+        "emote": "🇧🇯",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "20": {
+        "id": "20",
+        "nameDisplay": "Bhutan",
+        "name": "Kingdom of Bhutan",
+        "emote": "🇧🇹",
+        "regions": [
+            "4",
+            "45"
+        ],
+        "languages": []
+    },
+    "21": {
+        "id": "21",
+        "nameDisplay": "Bolivia",
+        "name": "Plurinational State of Bolivia",
+        "emote": "🇧🇴",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "22": {
+        "id": "22",
+        "nameDisplay": "Bosnia and Herzegovina",
+        "name": "Bosnia and Herzegovina",
+        "emote": "🇧🇦",
+        "regions": [
+            "3",
+            "40"
+        ],
+        "languages": [
+            "13"
+        ]
+    },
+    "23": {
+        "id": "23",
+        "nameDisplay": "Botswana",
+        "name": "Republic of Botswana",
+        "emote": "🇧🇼",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "24": {
+        "id": "24",
+        "nameDisplay": "Brazil",
+        "name": "Federative Republic of Brazil",
+        "emote": "🇧🇷",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "25": {
+        "id": "25",
+        "nameDisplay": "Brunei",
+        "name": "Brunei Darussalam",
+        "emote": "🇧🇳",
+        "regions": [
+            "4",
+            "19",
+            "37",
+            "41"
+        ],
+        "languages": []
+    },
+    "26": {
+        "id": "26",
+        "nameDisplay": "Bulgaria",
+        "name": "Republic of Bulgaria",
+        "emote": "🇧🇬",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": []
+    },
+    "27": {
+        "id": "27",
+        "nameDisplay": "Burkina Faso",
+        "name": "Burkina Faso",
+        "emote": "🇧🇫",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "28": {
+        "id": "28",
+        "nameDisplay": "Burundi",
+        "name": "Republic of Burundi",
+        "emote": "🇧🇮",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "29": {
+        "id": "29",
+        "nameDisplay": "Cambodia",
+        "name": "Kingdom of Cambodia",
+        "emote": "🇰🇭",
+        "regions": [
+            "4",
+            "41"
+        ],
+        "languages": []
+    },
+    "30": {
+        "id": "30",
+        "nameDisplay": "Cameroon",
+        "name": "Republic of Cameroon",
+        "emote": "🇨🇲",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "31": {
+        "id": "31",
+        "nameDisplay": "Canada",
+        "name": "Canada",
+        "emote": "🇨🇦",
+        "regions": [
+            "1",
+            "37",
+            "48"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "32": {
+        "id": "32",
+        "nameDisplay": "Cape Verde",
+        "name": "Republic of Cabo Verde",
+        "emote": "🇨🇻",
+        "regions": [
+            "5",
+            "19"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "33": {
+        "id": "33",
+        "nameDisplay": "Central African Republic",
+        "name": "Central African Republic",
+        "emote": "🇨🇫",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "34": {
+        "id": "34",
+        "nameDisplay": "Chad",
+        "name": "Republic of Chad",
+        "emote": "🇹🇩",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "35": {
+        "id": "35",
+        "nameDisplay": "Chile",
+        "name": "Republic of Chile",
+        "emote": "🇨🇱",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "36": {
+        "id": "36",
+        "nameDisplay": "China",
+        "name": "People's Republic of China",
+        "emote": "🇨🇳",
+        "regions": [
+            "4",
+            "42"
+        ],
+        "languages": [
+            "8"
+        ]
+    },
+    "37": {
+        "id": "37",
+        "nameDisplay": "Colombia",
+        "name": "Republic of Colombia",
+        "emote": "🇨🇴",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "38": {
+        "id": "38",
+        "nameDisplay": "Comoros",
+        "name": "Union of the Comoros",
+        "emote": "🇰🇲",
+        "regions": [
+            "5",
+            "19"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "39": {
+        "id": "39",
+        "nameDisplay": "Costa Rica",
+        "name": "Republic of Costa Rica",
+        "emote": "🇨🇷",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "40": {
+        "id": "40",
+        "nameDisplay": "Croatia",
+        "name": "Republic of Croatia",
+        "emote": "🇭🇷",
+        "regions": [
+            "3",
+            "39",
+            "40",
+            "48"
+        ],
+        "languages": [
+            "16"
+        ]
+    },
+    "41": {
+        "id": "41",
+        "nameDisplay": "Cuba",
+        "name": "Republic of Cuba",
+        "emote": "🇨🇺",
+        "regions": [
+            "1",
+            "19",
+            "35"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "42": {
+        "id": "42",
+        "nameDisplay": "Cyprus",
+        "name": "Republic of Cyprus",
+        "emote": "🇨🇾",
+        "regions": [
+            "3",
+            "19",
+            "37",
+            "39",
+            "44"
+        ],
+        "languages": [
+            "11"
+        ]
+    },
+    "43": {
+        "id": "43",
+        "nameDisplay": "Czech Republic",
+        "name": "Czech Republic",
+        "emote": "🇨🇿",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "16"
+        ]
+    },
+    "44": {
+        "id": "44",
+        "nameDisplay": "Democratic Republic of the Congo",
+        "name": "Democratic Republic of the Congo",
+        "emote": "🇨🇩",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "45": {
+        "id": "45",
+        "nameDisplay": "Denmark",
+        "name": "Kingdom of Denmark",
+        "emote": "🇩🇰",
+        "regions": [
+            "3",
+            "39",
+            "48",
+            "64",
+            "65"
+        ],
+        "languages": []
+    },
+    "46": {
+        "id": "46",
+        "nameDisplay": "Djibouti",
+        "name": "Republic of Djibouti",
+        "emote": "🇩🇯",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "47": {
+        "id": "47",
+        "nameDisplay": "Dominica",
+        "name": "Commonwealth of Dominica",
+        "emote": "🇩🇴",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "48": {
+        "id": "48",
+        "nameDisplay": "Dominican Republic",
+        "name": "Dominican Republic",
+        "emote": "🇩🇴",
+        "regions": [
+            "1",
+            "19",
+            "35"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "49": {
+        "id": "49",
+        "nameDisplay": "East Timor",
+        "name": "Democratic Republic of Timor-Leste",
+        "emote": "🇹🇱",
+        "regions": [
+            "4",
+            "19",
+            "41"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "50": {
+        "id": "50",
+        "nameDisplay": "Ecuador",
+        "name": "Republic of Ecuador",
+        "emote": "🇪🇨",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "51": {
+        "id": "51",
+        "nameDisplay": "Egypt",
+        "name": "Arab Republic of Egypt",
+        "emote": "🇪🇬",
+        "regions": [
+            "5",
+            "44",
+            "46"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "52": {
+        "id": "52",
+        "nameDisplay": "El Salvador",
+        "name": "Republic of El Salvador",
+        "emote": "🇸🇻",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "53": {
+        "id": "53",
+        "nameDisplay": "Equatorial Guinea",
+        "name": "Republic of Equatorial Guinea",
+        "emote": "🇬🇶",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "54": {
+        "id": "54",
+        "nameDisplay": "Eritrea",
+        "name": "State of Eritrea",
+        "emote": "🇪🇷",
+        "regions": [
+            "5"
+        ],
+        "languages": []
+    },
+    "55": {
+        "id": "55",
+        "nameDisplay": "Estonia",
+        "name": "Republic of Estonia",
+        "emote": "🇪🇪",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": []
+    },
+    "56": {
+        "id": "56",
+        "nameDisplay": "Eswatini",
+        "name": "Kingdom of Eswatini",
+        "emote": "🇸🇿",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "57": {
+        "id": "57",
+        "nameDisplay": "Ethiopia",
+        "name": "Federal Democratic Republic of Ethiopia",
+        "emote": "🇪🇹",
+        "regions": [
+            "5"
+        ],
+        "languages": []
+    },
+    "58": {
+        "id": "58",
+        "nameDisplay": "Fiji",
+        "name": "Republic of Fiji",
+        "emote": "🇫🇯",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "59": {
+        "id": "59",
+        "nameDisplay": "Finland",
+        "name": "Republic of Finland",
+        "emote": "🇫🇮",
+        "regions": [
+            "3",
+            "39",
+            "48",
+            "65"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "60": {
+        "id": "60",
+        "nameDisplay": "France",
+        "name": "French Republic",
+        "emote": "🇫🇷",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "61": {
+        "id": "61",
+        "nameDisplay": "Gabon",
+        "name": "Gabonese Republic",
+        "emote": "🇬🇦",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "62": {
+        "id": "62",
+        "nameDisplay": "Gambia",
+        "name": "The Gambia",
+        "emote": "🇬🇲",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "63": {
+        "id": "63",
+        "nameDisplay": "Georgia",
+        "name": "Georgia",
+        "emote": "🇬🇪",
+        "regions": [
+            "3"
+        ],
+        "languages": []
+    },
+    "64": {
+        "id": "64",
+        "nameDisplay": "Germany",
+        "name": "Federal Republic of Germany",
+        "emote": "🇩🇪",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "5"
+        ]
+    },
+    "65": {
+        "id": "65",
+        "nameDisplay": "Ghana",
+        "name": "Republic of Ghana",
+        "emote": "🇬🇭",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "66": {
+        "id": "66",
+        "nameDisplay": "Greece",
+        "name": "Hellenic Republic",
+        "emote": "🇬🇷",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "11"
+        ]
+    },
+    "67": {
+        "id": "67",
+        "nameDisplay": "Grenada",
+        "name": "Grenada",
+        "emote": "🇬🇩",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "68": {
+        "id": "68",
+        "nameDisplay": "Guatemala",
+        "name": "Republic of Guatemala",
+        "emote": "🇬🇹",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "69": {
+        "id": "69",
+        "nameDisplay": "Guinea",
+        "name": "Republic of Guinea",
+        "emote": "🇬🇶",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "70": {
+        "id": "70",
+        "nameDisplay": "Guinea-Bissau",
+        "name": "Republic of Guinea-Bissau",
+        "emote": "🇬🇼",
+        "regions": [
+            "5"
+        ],
+        "languages": []
+    },
+    "71": {
+        "id": "71",
+        "nameDisplay": "Guyana",
+        "name": "Co-operative Republic of Guyana",
+        "emote": "🇬🇾",
+        "regions": [
+            "2",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "72": {
+        "id": "72",
+        "nameDisplay": "Haiti",
+        "name": "Republic of Haiti",
+        "emote": "🇭🇹",
+        "regions": [
+            "1",
+            "19",
+            "35"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "73": {
+        "id": "73",
+        "nameDisplay": "Honduras",
+        "name": "Republic of Honduras",
+        "emote": "🇭🇳",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "74": {
+        "id": "74",
+        "nameDisplay": "Hungary",
+        "name": "Hungary",
+        "emote": "🇭🇺",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "19"
+        ]
+    },
+    "75": {
+        "id": "75",
+        "nameDisplay": "Iceland",
+        "name": "Iceland",
+        "emote": "🇮🇸",
+        "regions": [
+            "3",
+            "19",
+            "48",
+            "65"
+        ],
+        "languages": []
+    },
+    "76": {
+        "id": "76",
+        "nameDisplay": "India",
+        "name": "Republic of India",
+        "emote": "🇮🇳",
+        "regions": [
+            "3",
+            "37",
+            "45"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "77": {
+        "id": "77",
+        "nameDisplay": "Indonesia",
+        "name": "Republic of Indonesia",
+        "emote": "🇮🇩",
+        "regions": [
+            "4",
+            "19",
+            "41"
+        ],
+        "languages": [],
+        "server": "https://discord.gg/JaPQzFk"
+    },
+    "78": {
+        "id": "78",
+        "nameDisplay": "Iran",
+        "name": "Islamic Republic of Iran",
+        "emote": "🇮🇷",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": []
+    },
+    "79": {
+        "id": "79",
+        "nameDisplay": "Iraq",
+        "name": "Republic of Iraq",
+        "emote": "🇮🇶",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "80": {
+        "id": "80",
+        "nameDisplay": "Ireland",
+        "name": "Ireland",
+        "emote": "🇮🇪",
+        "regions": [
+            "3",
+            "19",
+            "39"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "81": {
+        "id": "81",
+        "nameDisplay": "Israel",
+        "name": "State of Israel",
+        "emote": "🇮🇱",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": []
+    },
+    "82": {
+        "id": "82",
+        "nameDisplay": "Italy",
+        "name": "Italian Republic",
+        "emote": "🇮🇹",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "12"
+        ]
+    },
+    "83": {
+        "id": "83",
+        "nameDisplay": "Ivory Coast",
+        "name": "Republic of Côte d'Ivoire",
+        "emote": "🇨🇮",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "84": {
+        "id": "84",
+        "nameDisplay": "Jamaica",
+        "name": "Jamaica",
+        "emote": "🇯🇲",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "85": {
+        "id": "85",
+        "nameDisplay": "Japan",
+        "name": "Japan",
+        "emote": "🇯🇵",
+        "regions": [
+            "4",
+            "19",
+            "42"
+        ],
+        "languages": [
+            "9"
+        ]
+    },
+    "86": {
+        "id": "86",
+        "nameDisplay": "Jordan",
+        "name": "Hashemite Kingdom of Jordan",
+        "emote": "🇯🇴",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "87": {
+        "id": "87",
+        "nameDisplay": "Kazakhstan",
+        "name": "Republic of Kazakhstan",
+        "emote": "🇰🇿",
+        "regions": [
+            "4",
+            "43",
+            "49"
+        ],
+        "languages": [
+            "15"
+        ]
+    },
+    "88": {
+        "id": "88",
+        "nameDisplay": "Kenya",
+        "name": "Republic of Kenya",
+        "emote": "🇰🇪",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "89": {
+        "id": "89",
+        "nameDisplay": "Kiribati",
+        "name": "Republic of Kiribati",
+        "emote": "🇰🇮",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "90": {
+        "id": "90",
+        "nameDisplay": "Kuwait",
+        "name": "State of Kuwait",
+        "emote": "🇰🇼",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "91": {
+        "id": "91",
+        "nameDisplay": "Kyrgyzstan",
+        "name": "Kyrgyz Republic",
+        "emote": "🇰🇬",
+        "regions": [
+            "4",
+            "43",
+            "49"
+        ],
+        "languages": [
+            "15"
+        ]
+    },
+    "92": {
+        "id": "92",
+        "nameDisplay": "Laos",
+        "name": "Lao People's Democratic Republic",
+        "emote": "🇱🇦",
+        "regions": [
+            "4",
+            "41"
+        ],
+        "languages": []
+    },
+    "93": {
+        "id": "93",
+        "nameDisplay": "Latvia",
+        "name": "Republic of Latvia",
+        "emote": "🇱🇻",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": []
+    },
+    "94": {
+        "id": "94",
+        "nameDisplay": "Lebanon",
+        "name": "Lebanese Republic",
+        "emote": "🇱🇧",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "95": {
+        "id": "95",
+        "nameDisplay": "Lesotho",
+        "name": "Kingdom of Lesotho",
+        "emote": "🇱🇸",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "96": {
+        "id": "96",
+        "nameDisplay": "Liberia",
+        "name": "Republic of Liberia",
+        "emote": "🇱🇷",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "97": {
+        "id": "97",
+        "nameDisplay": "Libya",
+        "name": "State of Libya",
+        "emote": "🇱🇾",
+        "regions": [
+            "5",
+            "46",
+            "47"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "98": {
+        "id": "98",
+        "nameDisplay": "Liechtenstein",
+        "name": "Principality of Liechtenstein",
+        "emote": "🇱🇮",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "5"
+        ]
+    },
+    "99": {
+        "id": "99",
+        "nameDisplay": "Lithuania",
+        "name": "Republic of Lithuania",
+        "emote": "🇱🇹",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "13"
+        ]
+    },
+    "100": {
+        "id": "100",
+        "nameDisplay": "Luxembourg",
+        "name": "Grand Duchy of Luxembourg",
+        "emote": "🇱🇺",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "5"
+        ]
+    },
+    "101": {
+        "id": "101",
+        "nameDisplay": "Madagascar",
+        "name": "Republic of Madagascar",
+        "emote": "🇲🇬",
+        "regions": [
+            "5",
+            "19"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "102": {
+        "id": "102",
+        "nameDisplay": "Malawi",
+        "name": "Republic of Malawi",
+        "emote": "🇲🇼",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "103": {
+        "id": "103",
+        "nameDisplay": "Malaysia",
+        "name": "Malaysia",
+        "emote": "🇲🇾",
+        "regions": [
+            "4",
+            "37",
+            "41"
+        ],
+        "languages": []
+    },
+    "104": {
+        "id": "104",
+        "nameDisplay": "Maldives",
+        "name": "Republic of Maldives",
+        "emote": "🇲🇻",
+        "regions": [
+            "4",
+            "19",
+            "37",
+            "45"
+        ],
+        "languages": []
+    },
+    "105": {
+        "id": "105",
+        "nameDisplay": "Mali",
+        "name": "Republic of Mali",
+        "emote": "🇸🇴",
+        "regions": [
+            "5"
+        ],
+        "languages": []
+    },
+    "106": {
+        "id": "106",
+        "nameDisplay": "Malta",
+        "name": "Republic of Malta",
+        "emote": "🇲🇹",
+        "regions": [
+            "3",
+            "19",
+            "37",
+            "39"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "107": {
+        "id": "107",
+        "nameDisplay": "Marshall Islands",
+        "name": "Republic of the Marshall Islands",
+        "emote": "🇲🇭",
+        "regions": [
+            "6",
+            "19"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "108": {
+        "id": "108",
+        "nameDisplay": "Mauritania",
+        "name": "Islamic Republic of Mauritania",
+        "emote": "🇲🇷",
+        "regions": [
+            "5",
+            "47"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "109": {
+        "id": "109",
+        "nameDisplay": "Mauritius",
+        "name": "Republic of Mauritius",
+        "emote": "🇲🇺",
+        "regions": [
+            "5",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "110": {
+        "id": "110",
+        "nameDisplay": "Mexico",
+        "name": "United Mexican States",
+        "emote": "🇲🇽",
+        "regions": [
+            "1"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "111": {
+        "id": "111",
+        "nameDisplay": "Micronesia",
+        "name": "Federated States of Micronesia",
+        "emote": "🇫🇲",
+        "regions": [
+            "6",
+            "19"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "112": {
+        "id": "112",
+        "nameDisplay": "Moldova",
+        "name": "Republic of Moldova",
+        "emote": "🇲🇩",
+        "regions": [
+            "3"
+        ],
+        "languages": []
+    },
+    "113": {
+        "id": "113",
+        "nameDisplay": "Monaco",
+        "name": "Principality of Monaco",
+        "emote": "🇲🇨",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "114": {
+        "id": "114",
+        "nameDisplay": "Mongolia",
+        "name": "Mongolia",
+        "emote": "🇲🇳",
+        "regions": [
+            "4",
+            "42"
+        ],
+        "languages": []
+    },
+    "115": {
+        "id": "115",
+        "nameDisplay": "Montenegro",
+        "name": "Montenegro",
+        "emote": "🇲🇪",
+        "regions": [
+            "3",
+            "40",
+            "48"
+        ],
+        "languages": []
+    },
+    "116": {
+        "id": "116",
+        "nameDisplay": "Morocco",
+        "name": "Kingdom of Morocco",
+        "emote": "🇲🇦",
+        "regions": [
+            "5",
+            "46",
+            "47"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "117": {
+        "id": "117",
+        "nameDisplay": "Mozambique",
+        "name": "Republic of Mozambique",
+        "emote": "🇲🇿",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "118": {
+        "id": "118",
+        "nameDisplay": "Myanmar",
+        "name": "Republic of the Union of Myanmar",
+        "emote": "🇲🇲",
+        "regions": [
+            "4",
+            "41"
+        ],
+        "languages": []
+    },
+    "119": {
+        "id": "119",
+        "nameDisplay": "Namibia",
+        "name": "Republic of Namibia",
+        "emote": "🇳🇦",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "120": {
+        "id": "120",
+        "nameDisplay": "Nauru",
+        "name": "Republic of Nauru",
+        "emote": "🇳🇷",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "121": {
+        "id": "121",
+        "nameDisplay": "Nepal",
+        "name": "Federal Democratic Republic of Nepal",
+        "emote": "🇳🇵",
+        "regions": [
+            "4",
+            "45"
+        ],
+        "languages": []
+    },
+    "122": {
+        "id": "122",
+        "nameDisplay": "Netherlands",
+        "name": "Kingdom of the Netherlands",
+        "emote": "🇳🇱",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "7"
+        ]
+    },
+    "123": {
+        "id": "123",
+        "nameDisplay": "New Zealand",
+        "name": "New Zealand",
+        "emote": "🇳🇿",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "124": {
+        "id": "124",
+        "nameDisplay": "Nicaragua",
+        "name": "Republic of Nicaragua",
+        "emote": "🇳🇮",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "125": {
+        "id": "125",
+        "nameDisplay": "Niger",
+        "name": "Republic of the Niger",
+        "emote": "🇳🇪",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "126": {
+        "id": "126",
+        "nameDisplay": "Nigeria",
+        "name": "Federal Republic of Nigeria",
+        "emote": "🇳🇬",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "127": {
+        "id": "127",
+        "nameDisplay": "North Korea",
+        "name": "Democratic People's Republic of Korea",
+        "emote": "🇰🇵",
+        "regions": [
+            "4",
+            "42"
+        ],
+        "languages": [
+            "10"
+        ]
+    },
+    "128": {
+        "id": "128",
+        "nameDisplay": "North Macedonia",
+        "name": "Republic of North Macedonia",
+        "emote": "🇲🇰",
+        "regions": [
+            "3",
+            "40",
+            "48"
+        ],
+        "languages": []
+    },
+    "129": {
+        "id": "129",
+        "nameDisplay": "Norway",
+        "name": "Kingdom of Norway",
+        "emote": "🇳🇴",
+        "regions": [
+            "3",
+            "48",
+            "64",
+            "65"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "130": {
+        "id": "130",
+        "nameDisplay": "Oman",
+        "name": "Sultanate of Oman",
+        "emote": "🇷🇴",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "131": {
+        "id": "131",
+        "nameDisplay": "Pakistan",
+        "name": "Islamic Republic of Pakistan",
+        "emote": "🇵🇰",
+        "regions": [
+            "4",
+            "37",
+            "45"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "132": {
+        "id": "132",
+        "nameDisplay": "Palau",
+        "name": "Republic of Palau",
+        "emote": "🇵🇼",
+        "regions": [
+            "6",
+            "19"
+        ],
+        "languages": [
+            "9"
+        ]
+    },
+    "133": {
+        "id": "133",
+        "nameDisplay": "Palestine",
+        "name": "State of Palestine",
+        "emote": "🇵🇸",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "134": {
+        "id": "134",
+        "nameDisplay": "Panama",
+        "name": "Republic of Panama",
+        "emote": "🇵🇦",
+        "regions": [
+            "1",
+            "8"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "135": {
+        "id": "135",
+        "nameDisplay": "Papua New Guinea",
+        "name": "Independent State of Papua New Guinea",
+        "emote": "🇵🇬",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "136": {
+        "id": "136",
+        "nameDisplay": "Paraguay",
+        "name": "Republic of Paraguay",
+        "emote": "🇵🇾",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "137": {
+        "id": "137",
+        "nameDisplay": "Peru",
+        "name": "Republic of Peru",
+        "emote": "🇵🇪",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "138": {
+        "id": "138",
+        "nameDisplay": "Philippines",
+        "name": "Republic of the Philippines",
+        "emote": "🇵🇭",
+        "regions": [
+            "4",
+            "19",
+            "41"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "139": {
+        "id": "139",
+        "nameDisplay": "Poland",
+        "name": "Republic of Poland",
+        "emote": "🇵🇱",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "13"
+        ]
+    },
+    "140": {
+        "id": "140",
+        "nameDisplay": "Portugal",
+        "name": "Portuguese Republic",
+        "emote": "🇵🇹",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "141": {
+        "id": "141",
+        "nameDisplay": "Qatar",
+        "name": "State of Qatar",
+        "emote": "🇶🇦",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "142": {
+        "id": "142",
+        "nameDisplay": "Republic of the Congo",
+        "name": "Republic of the Congo",
+        "emote": "🇨🇬",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "143": {
+        "id": "143",
+        "nameDisplay": "Romania",
+        "name": "Romania",
+        "emote": "🇷🇴",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "13"
+        ]
+    },
+    "144": {
+        "id": "144",
+        "nameDisplay": "Russia",
+        "name": "Russian Federation",
+        "emote": "🇷🇺",
+        "regions": [
+            "3",
+            "49"
+        ],
+        "languages": [
+            "15"
+        ]
+    },
+    "145": {
+        "id": "145",
+        "nameDisplay": "Rwanda",
+        "name": "Republic of Rwanda",
+        "emote": "🇷🇼",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "146": {
+        "id": "146",
+        "nameDisplay": "Saint Kitts and Nevis",
+        "name": "Federation of Saint Christopher and Nevis",
+        "emote": "🇰🇳",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "147": {
+        "id": "147",
+        "nameDisplay": "Saint Lucia",
+        "name": "Saint Lucia",
+        "emote": "🇱🇨",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "148": {
+        "id": "148",
+        "nameDisplay": "Saint Vincent and the Grenadines",
+        "name": "Saint Vincent and the Grenadines",
+        "emote": "🇻🇨",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "149": {
+        "id": "149",
+        "nameDisplay": "Samoa",
+        "name": "Independent State of Samoa",
+        "emote": "🇦🇸",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "150": {
+        "id": "150",
+        "nameDisplay": "San Marino",
+        "name": "Republic of San Marino",
+        "emote": "🇸🇲",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "12"
+        ]
+    },
+    "151": {
+        "id": "151",
+        "nameDisplay": "São Tomé and Príncipe",
+        "name": "Democratic Republic of São Tomé and Príncipe",
+        "emote": "🇸🇹",
+        "regions": [
+            "5",
+            "19"
+        ],
+        "languages": [
+            "4"
+        ]
+    },
+    "152": {
+        "id": "152",
+        "nameDisplay": "Saudi Arabia",
+        "name": "Kingdom of Saudi Arabia",
+        "emote": "🇸🇦",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "153": {
+        "id": "153",
+        "nameDisplay": "Senegal",
+        "name": "Republic of Senegal",
+        "emote": "🇸🇳",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "154": {
+        "id": "154",
+        "nameDisplay": "Serbia",
+        "name": "Republic of Serbia",
+        "emote": "🇷🇸",
+        "regions": [
+            "3",
+            "40"
+        ],
+        "languages": []
+    },
+    "155": {
+        "id": "155",
+        "nameDisplay": "Seychelles",
+        "name": "Republic of Seychelles",
+        "emote": "🇸🇨",
+        "regions": [
+            "5",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "156": {
+        "id": "156",
+        "nameDisplay": "Sierra Leone",
+        "name": "Republic of Sierra Leone",
+        "emote": "🇸🇱",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "157": {
+        "id": "157",
+        "nameDisplay": "Singapore",
+        "name": "Republic of Singapore",
+        "emote": "🇸🇬",
+        "regions": [
+            "4",
+            "19",
+            "37",
+            "41"
+        ],
+        "languages": [
+            "8"
+        ]
+    },
+    "158": {
+        "id": "158",
+        "nameDisplay": "Slovakia",
+        "name": "Slovak Republic",
+        "emote": "🇸🇰",
+        "regions": [
+            "3",
+            "48"
+        ],
+        "languages": [
+            "13"
+        ]
+    },
+    "159": {
+        "id": "159",
+        "nameDisplay": "Slovenia",
+        "name": "Republic of Slovenia",
+        "emote": "🇸🇮",
+        "regions": [
+            "3",
+            "39",
+            "40",
+            "48"
+        ],
+        "languages": []
+    },
+    "160": {
+        "id": "160",
+        "nameDisplay": "Solomon Islands",
+        "name": "Solomon Islands",
+        "emote": "🇸🇧",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "161": {
+        "id": "161",
+        "nameDisplay": "Somalia",
+        "name": "Federal Republic of Somalia",
+        "emote": "🇸🇴",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "162": {
+        "id": "162",
+        "nameDisplay": "South Africa",
+        "name": "Republic of South Africa",
+        "emote": "🇿🇦",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": []
+    },
+    "163": {
+        "id": "163",
+        "nameDisplay": "South Korea",
+        "name": "Republic of Korea",
+        "emote": "🇰🇷",
+        "regions": [
+            "4",
+            "42"
+        ],
+        "languages": [
+            "10"
+        ]
+    },
+    "164": {
+        "id": "164",
+        "nameDisplay": "South Sudan",
+        "name": "Republic of South Sudan",
+        "emote": "🇸🇸",
+        "regions": [
+            "5",
+            "46"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "165": {
+        "id": "165",
+        "nameDisplay": "Spain",
+        "name": "Kingdom of Spain",
+        "emote": "🇪🇸",
+        "regions": [
+            "3",
+            "39",
+            "48"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "166": {
+        "id": "166",
+        "nameDisplay": "Sri Lanka",
+        "name": "Democratic Socialist Republic of Sri Lanka",
+        "emote": "🇱🇰",
+        "regions": [
+            "4",
+            "19",
+            "37",
+            "45"
+        ],
+        "languages": []
+    },
+    "167": {
+        "id": "167",
+        "nameDisplay": "Sudan",
+        "name": "Republic of the Sudan",
+        "emote": "🇸🇸",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "168": {
+        "id": "168",
+        "nameDisplay": "Suriname",
+        "name": "Republic of Suriname",
+        "emote": "🇸🇷",
+        "regions": [
+            "2",
+            "35"
+        ],
+        "languages": [
+            "7"
+        ]
+    },
+    "169": {
+        "id": "169",
+        "nameDisplay": "Sweden",
+        "name": "Kingdom of Sweden",
+        "emote": "🇸🇪",
+        "regions": [
+            "3",
+            "39",
+            "64",
+            "65"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "170": {
+        "id": "170",
+        "nameDisplay": "Switzerland",
+        "name": "Swiss Confederation",
+        "emote": "🇨🇭",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "5"
+        ]
+    },
+    "171": {
+        "id": "171",
+        "nameDisplay": "Syria",
+        "name": "Syrian Arab Republic",
+        "emote": "🇸🇾",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "172": {
+        "id": "172",
+        "nameDisplay": "Tajikistan",
+        "name": "Republic of Tajikistan",
+        "emote": "🇹🇯",
+        "regions": [
+            "4",
+            "43",
+            "49"
+        ],
+        "languages": [
+            "15"
+        ]
+    },
+    "173": {
+        "id": "173",
+        "nameDisplay": "Tanzania",
+        "name": "United Republic of Tanzania",
+        "emote": "🇹🇿",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "174": {
+        "id": "174",
+        "nameDisplay": "Thailand",
+        "name": "Kingdom of Thailand",
+        "emote": "🇹🇭",
+        "regions": [
+            "4",
+            "41"
+        ],
+        "languages": []
+    },
+    "175": {
+        "id": "175",
+        "nameDisplay": "Togo",
+        "name": "Togolese Republic",
+        "emote": "🇹🇬",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "6"
+        ]
+    },
+    "176": {
+        "id": "176",
+        "nameDisplay": "Tonga",
+        "name": "Kingdom of Tonga",
+        "emote": "🇹🇴",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": []
+    },
+    "177": {
+        "id": "177",
+        "nameDisplay": "Trinidad and Tobago",
+        "name": "Republic of Trinidad and Tobago",
+        "emote": "🇹🇹",
+        "regions": [
+            "1",
+            "19",
+            "35",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "178": {
+        "id": "178",
+        "nameDisplay": "Tunisia",
+        "name": "Republic of Tunisia",
+        "emote": "🇹🇳",
+        "regions": [
+            "5",
+            "46",
+            "47"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "179": {
+        "id": "179",
+        "nameDisplay": "Turkey",
+        "name": "Republic of Türkiye",
+        "emote": "🇹🇷",
+        "regions": [
+            "4",
+            "44",
+            "48"
+        ],
+        "languages": []
+    },
+    "180": {
+        "id": "180",
+        "nameDisplay": "Turkmenistan",
+        "name": "Turkmenistan",
+        "emote": "🇹🇲",
+        "regions": [
+            "4",
+            "43"
+        ],
+        "languages": []
+    },
+    "181": {
+        "id": "181",
+        "nameDisplay": "Tuvalu",
+        "name": "Tuvalu",
+        "emote": "🇹🇻",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "182": {
+        "id": "182",
+        "nameDisplay": "Uganda",
+        "name": "Republic of Uganda",
+        "emote": "🇺🇬",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "183": {
+        "id": "183",
+        "nameDisplay": "Ukraine",
+        "name": "Ukraine",
+        "emote": "🇺🇦",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "17"
+        ]
+    },
+    "184": {
+        "id": "184",
+        "nameDisplay": "United Arab Emirates",
+        "name": "United Arab Emirates",
+        "emote": "🇦🇪",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "185": {
+        "id": "185",
+        "nameDisplay": "United Kingdom",
+        "name": "United Kingdom of Great Britain and Northern Ireland",
+        "emote": "🇬🇧",
+        "regions": [
+            "3",
+            "19",
+            "37",
+            "48",
+            "89"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "186": {
+        "id": "186",
+        "nameDisplay": "United States",
+        "name": "United States of America",
+        "emote": "🇺🇸",
+        "regions": [
+            "1",
+            "48"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "187": {
+        "id": "187",
+        "nameDisplay": "Uruguay",
+        "name": "Oriental Republic of Uruguay",
+        "emote": "🇺🇾",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "188": {
+        "id": "188",
+        "nameDisplay": "Uzbekistan",
+        "name": "Republic of Uzbekistan",
+        "emote": "🇺🇿",
+        "regions": [
+            "4",
+            "43"
+        ],
+        "languages": []
+    },
+    "189": {
+        "id": "189",
+        "nameDisplay": "Vanuatu",
+        "name": "Republic of Vanuatu",
+        "emote": "🇻🇺",
+        "regions": [
+            "6",
+            "19",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "190": {
+        "id": "190",
+        "nameDisplay": "Vatican City",
+        "name": "Vatican City State",
+        "emote": "🇻🇦",
+        "regions": [
+            "3"
+        ],
+        "languages": [
+            "12"
+        ]
+    },
+    "191": {
+        "id": "191",
+        "nameDisplay": "Venezuela",
+        "name": "Bolivarian Republic of Venezuela",
+        "emote": "🇻🇪",
+        "regions": [
+            "2"
+        ],
+        "languages": [
+            "2"
+        ]
+    },
+    "192": {
+        "id": "192",
+        "nameDisplay": "Vietnam",
+        "name": "Socialist Republic of Vietnam",
+        "emote": "🇻🇳",
+        "regions": [
+            "4",
+            "41"
+        ],
+        "languages": [
+            "14"
+        ]
+    },
+    "193": {
+        "id": "193",
+        "nameDisplay": "Yemen",
+        "name": "Republic of Yemen",
+        "emote": "🇾🇪",
+        "regions": [
+            "4",
+            "44"
+        ],
+        "languages": [
+            "3"
+        ]
+    },
+    "194": {
+        "id": "194",
+        "nameDisplay": "Zambia",
+        "name": "Republic of Zambia",
+        "emote": "🇿🇲",
+        "regions": [
+            "5",
+            "37"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "195": {
+        "id": "195",
+        "nameDisplay": "Zimbabwe",
+        "name": "Republic of Zimbabwe",
+        "emote": "🇿🇼",
+        "regions": [
+            "5"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "197": {
+        "id": "197",
+        "nameDisplay": "Taiwan",
+        "name": "Republic of China",
+        "emote": "🇹🇼",
+        "regions": [
+            "4",
+            "19",
+            "42"
+        ],
+        "languages": [
+            "8"
+        ]
+    },
+    "198": {
+        "id": "198",
+        "nameDisplay": "Guernsey",
+        "name": "Bailiwick of Guernsey",
+        "emote": "🇬🇬",
+        "regions": [
+            "3",
+            "19"
+        ],
+        "languages": [
+            "1"
+        ]
+    },
+    "199": {
+        "id": "199",
+        "nameDisplay": "Jersey",
+        "name": "Bailiwick of Jersey",
+        "emote": "🇯🇪",
+        "regions": [
+            "3",
+            "19",
+            "89"
+        ],
+        "languages": [
+            "1"
+        ]
+    }
+}

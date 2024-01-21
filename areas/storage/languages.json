@@ -1,0 +1,135 @@
+{
+    "1": {
+        "id": "1",
+        "nameDisplay": "English",
+        "name": "English",
+        "abbrev": "EN",
+        "server": null
+    },
+    "2": {
+        "id": "2",
+        "nameDisplay": "Español",
+        "name": "Spanish",
+        "abbrev": "ES",
+        "server": null
+    },
+    "3": {
+        "id": "3",
+        "nameDisplay": "اَلْعَرَبِيَّةُ",
+        "name": "Arabic",
+        "abbrev": "AR",
+        "server": null
+    },
+    "4": {
+        "id": "4",
+        "nameDisplay": "Português",
+        "name": "Portuguese",
+        "abbrev": "PT",
+        "server": null
+    },
+    "5": {
+        "id": "5",
+        "nameDisplay": "Deutsch",
+        "name": "German",
+        "abbrev": "DE",
+        "server": null
+    },
+    "6": {
+        "id": "6",
+        "nameDisplay": "Français",
+        "name": "French",
+        "abbrev": "FR",
+        "server": null
+    },
+    "7": {
+        "id": "7",
+        "nameDisplay": "Nederlands",
+        "name": "Dutch",
+        "abbrev": "NL",
+        "server": null
+    },
+    "8": {
+        "id": "8",
+        "nameDisplay": "中国人",
+        "name": "Chinese",
+        "abbrev": "ZH",
+        "server": null
+    },
+    "9": {
+        "id": "9",
+        "nameDisplay": "日本",
+        "name": "Japanese",
+        "abbrev": "JP",
+        "server": null
+    },
+    "10": {
+        "id": "10",
+        "nameDisplay": "한국어",
+        "name": "Korean",
+        "abbrev": "KR",
+        "server": null
+    },
+    "11": {
+        "id": "11",
+        "nameDisplay": "Ελληνικά",
+        "name": "Greek",
+        "abbrev": "EL",
+        "server": null
+    },
+    "12": {
+        "id": "12",
+        "nameDisplay": "Italiana",
+        "name": "Italian",
+        "abbrev": "IT",
+        "server": null
+    },
+    "13": {
+        "id": "13",
+        "nameDisplay": "Polski",
+        "name": "Polish",
+        "abbrev": "PL",
+        "server": null
+    },
+    "14": {
+        "id": "14",
+        "nameDisplay": "Tiếng Việt",
+        "name": "Vietnamese",
+        "abbrev": "VI",
+        "server": null
+    },
+    "15": {
+        "id": "15",
+        "nameDisplay": "Русский",
+        "name": "Russian",
+        "abbrev": "RU",
+        "server": null
+    },
+    "16": {
+        "id": "16",
+        "nameDisplay": "Čeština",
+        "name": "Czech",
+        "abbrev": "CS",
+        "server": null
+    },
+    "17": {
+        "id": "17",
+        "nameDisplay": "українська",
+        "name": "Ukrainian",
+        "abbrev": "UK",
+        "server": null
+    },
+    "18": {
+        "id": "18",
+        "nameDisplay": "Català",
+        "name": "Catalan",
+        "abbrev": "CA",
+        "server": null
+    },
+    "19": {
+        "id": "19",
+        "nameDisplay": "magyar nyelv",
+        "name": "Hungarian",
+        "abbrev": "HU",
+        "server": null
+    }
+}

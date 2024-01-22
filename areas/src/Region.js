@@ -67,6 +67,7 @@ class Region extends BaseTerritory {
     jsonEncoding(key, value) {
         switch (key) {
             default: { return super.jsonEncoding(key, value); }
+            case "featured": { return value ? 1 : 0; }
             case "regions":
                 case "languages": { return value?.join(",")?.split(",").filter(a => a) || []; }
         }
@@ -81,6 +82,7 @@ class Region extends BaseTerritory {
     jsonDecoding(key, value) {
         switch (key) {
             default: { return super.jsonDecoding(key, value); }
+            case "featured": { return value ? true : false }
             case "regions":
                 case "languages": { return value?.map(n => BigInt(n)) || []; }
         }

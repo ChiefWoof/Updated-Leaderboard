@@ -1,7 +1,7 @@
 "use strict";
 
 const BaseTerritory = require("./BaseTerritory");
-const Util = require("../util/Util");
+const Util = require("../../src/util/Util");
 const countries = require("../storage/countries.json");
 
 /**

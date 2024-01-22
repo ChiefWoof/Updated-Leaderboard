@@ -1,7 +1,7 @@
 "use strict";
 
 const Base = require("./Base");
-const Util = require("../util/Util");
+const Util = require("../../src/util/Util");
 const languages = require("../storage/languages.json");
 
 /**

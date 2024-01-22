@@ -107,4 +107,18 @@ Util.checkAreaInLanguage = function(target, { region, country, province, languag
     return false;
 }
 
+/**
+ * Checks if input is generally considered a standard true value in terms of the UL
+ * @param {BigInt|number|string|boolean} data 
+ * @returns {boolean}
+ */
+
+Util.isTrue = function(data) {
+    return data
+        ? /^\d{1,}$/i.test(data)
+            ? Number(data) > 0
+        : /^(true|o|yes|y)$/.test(data)
+    : false;
+}
+
 module.exports = Util;

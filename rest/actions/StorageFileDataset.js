@@ -39,7 +39,7 @@ StorageFileDatasetActions.datasetFromStrSeparators = (str, {
  */
 
 StorageFileDatasetActions.datasetToCSV = (data) => {
-    return data.map(row => row.toString(",")).join("\n");
+    return data.map(row => row.join(",")).join("\n");
 }
 
 /**
@@ -49,7 +49,7 @@ StorageFileDatasetActions.datasetToCSV = (data) => {
  */
 
 StorageFileDatasetActions.datasetToTSV = (data) => {
-    return data.map(row => row.toString("\t")).join("\n");
+    return data.map(row => row.join("\t")).join("\n");
 }
 
 /**

@@ -70,7 +70,7 @@ StorageFileDatasetActions.datasetToExcel = (data) => {
  * Converts a dataset to an Object based set.
  * By default, assumes first row is headers row.
  * Accepts custom headers by inputing an array into it.
- * When a column exceeds header boundaries, switches to 1-based index headers while exceeded
+ * When a column exceeds header boundaries or is null-like, switches to 1-based index headers while exceeded
  * @param {*[][]} data
  * @param {Object} options
  * @param {"ROW 0"|"0-INDEX BASED"|"1-INDEX BASED"} [options.headers = "ROW 0"]

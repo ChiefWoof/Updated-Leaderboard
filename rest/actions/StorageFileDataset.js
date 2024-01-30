@@ -19,17 +19,19 @@ class StorageFileDatasetActions extends StorageFile {}
  * @param {Object} options
  * @param {Object} [options.colSeparator] column separator
  * @param {Object} [options.rowSeparator = "\n"] row separator
- * @returns 
+ * @returns {string[][]}
  */
 
 StorageFileDatasetActions.datasetFromStrSeparators = (str, {
     colSeparator,
     rowSeparator = "\n"
 }) => {
-    return (colSeparator === rowSeparator
-    ? str.match(new RegExp(`[^${rowSeparator}]+${rowSeparator}([^${rowSeparator}]+)?`, "g"))
-    : str.split(rowSeparator))
-    .map(row => row.split(colSeparator));
+    return typeof str === "string" && str
+    ? (colSeparator === rowSeparator
+        ? str.match(new RegExp(`[^${rowSeparator}]+${rowSeparator}([^${rowSeparator}]+)?`, "g"))
+        : str.split(rowSeparator))
+        .map(row => row.split(colSeparator))
+    : [];
 }
 
 /**

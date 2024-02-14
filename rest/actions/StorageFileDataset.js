@@ -127,17 +127,21 @@ StorageFileDatasetActions.objectSetToDataset = (data, {
  * @param {Object} options
  * @param {(entry: *, i: number) => number} [options.entryToValue] retrieves the sorting value from an entry
  * @param {"ASCENDING"|"DESCENDING"} [options.order = "ASCENDING"]
+ * @param {*[]} [options.starter = []] the original data (assumes already sorted appropriately)
  * @param {...*} entries
  * @returns {Object[]}
  */
 
 StorageFileDatasetActions.binarySort = ({
     order = "ASCENDING",
-    entryToValue = (entry, i) => entry
+    entryToValue = (entry, i) => entry,
+    starter = []
 }, ...entries) => {
 
+    entries.unshift(...starter);
+    
     eval(`
-    for (let i = 1; i < entries.length; i++) {
+    for (let i = starter.length || 1; i < entries.length; i++) {
         let value = entryToValue(entries[i], i)
         let iInsert = -1;
         if (entryToValue(entries[0]) ${order === "DESCENDING" ? "<" : ">"}= value) iInsert = 0; // Places equal least or lesser values to beginning

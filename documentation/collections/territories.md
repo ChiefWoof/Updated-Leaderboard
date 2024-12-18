@@ -109,12 +109,12 @@ This is the full list of registered territories
 | 94 | Territory | Republic of Khakassia | Khakassia | RU-19 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 95 | Territory | Chechen Republic | Chechnya | RU-20 | <ul><li>`3` - Europe</li><li>`27` - Russia North Caucasian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 96 | Territory | Chuvashia Republic | Chuvashia | RU-21 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 97 | 5 | Altai | Altai | RU-22 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 98 | 5 | Krasnodar | Krasnodar | RU-23 | <ul><li>`3` - Europe</li><li>`28` - Russia Southern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 99 | 5 | Krasnoyarsk | Krasnoyarsk | RU-24 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 100 | 5 | Primorsky | Primorsky | RU-25 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 101 | 5 | Stavropol | Stavropol | RU-26 | <ul><li>`3` - Europe</li><li>`27` - Russia North Caucasian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 102 | 5 | Khabarovsk | Khabarovsk | RU-27 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 97 | Krai | Altai | Altai | RU-22 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 98 | Krai | Krasnodar | Krasnodar | RU-23 | <ul><li>`3` - Europe</li><li>`28` - Russia Southern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 99 | Krai | Krasnoyarsk | Krasnoyarsk | RU-24 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 100 | Krai | Primorsky | Primorsky | RU-25 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 101 | Krai | Stavropol | Stavropol | RU-26 | <ul><li>`3` - Europe</li><li>`27` - Russia North Caucasian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 102 | Krai | Khabarovsk | Khabarovsk | RU-27 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 103 | Oblast | Amur | Amur | RU-28 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 104 | Oblast | Arkhangelsk | Arkhangelsk | RU-29 | <ul><li>`3` - Europe</li><li>`30` - Russia Northwestern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 105 | Oblast | Astrakhan | Astrakhan | RU-30 | <ul><li>`3` - Europe</li><li>`28` - Russia Southern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
@@ -128,7 +128,7 @@ This is the full list of registered territories
 | 113 | Oblast | Irkutsk | Irkutsk | RU-38 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 114 | Oblast | Kaliningrad | Kaliningrad | RU-39 | <ul><li>`3` - Europe</li><li>`30` - Russia Northwestern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 115 | Oblast | Kaluga | Kaluga | RU-40 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 116 | 5 | Kamchatka | Kamchatka | RU-41 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 116 | Krai | Kamchatka | Kamchatka | RU-41 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 117 | Oblast | Kemerovo | Kemerovo | RU-42 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`33` - Russia Siberian Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 118 | Oblast | Kirov | Kirov | RU-43 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 119 | Oblast | Kostroma | Kostroma | RU-44 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
@@ -146,7 +146,7 @@ This is the full list of registered territories
 | 131 | Oblast | Orenburg | Orenburg | RU-56 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 132 | Oblast | Oryol | Oryol | RU-57 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 133 | Oblast | Penza | Penza | RU-58 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 134 | 5 | Perm | Perm | RU-59 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 134 | Krai | Perm | Perm | RU-59 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 135 | Oblast | Pskov | Pskov | RU-60 | <ul><li>`3` - Europe</li><li>`30` - Russia Northwestern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 136 | Oblast | Rostov | Rostov | RU-61 | <ul><li>`3` - Europe</li><li>`28` - Russia Southern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 137 | Oblast | Ryazan | Ryazan | RU-62 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
@@ -162,7 +162,7 @@ This is the full list of registered territories
 | 147 | Oblast | Tyumen | Tyumen | RU-72 | <ul><li>`3` - Europe</li><li>`26` - N/A</li><li>`32` - Russia Ural Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 148 | Oblast | Ulyanovsk | Ulyanovsk | RU-73 | <ul><li>`3` - Europe</li><li>`31` - Russia Volga Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 149 | Oblast | Chelyabinsk | Chelyabinsk | RU-74 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`32` - Russia Ural Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
-| 150 | 5 | Zabaykalsky | Zabaykalsky | RU-75 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
+| 150 | Krai | Zabaykalsky | Zabaykalsky | RU-75 | <ul><li>`4` - Asia</li><li>`26` - N/A</li><li>`34` - Russia Far Eastern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 151 | Oblast | Yaroslavl | Yaroslavl | RU-76 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 152 | Territory | Moscow Federal City | Moscow Federal City | RU-77 | <ul><li>`3` - Europe</li><li>`29` - Russia Central Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>
 | 153 | Territory | Saint Petersburg Federal City | Saint Petersburg Federal City | RU-78 | <ul><li>`3` - Europe</li><li>`30` - Russia Northwestern Federal District</li></ul> | <ul><li>`144` - Russia</li></ul>

@@ -17,7 +17,7 @@ N/A
 // Creating the object instance
 let c = new Country();
 
-// Passing object into "fromObject" function
+// Passing object into "fromJSON" function
 c.fromJSON({
     "id": "135",
     "nameDisplay": "Papua New Guinea",

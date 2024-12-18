@@ -14,7 +14,10 @@ N/A
 
 *Instance Example*
 ```js
+// Creating the object instance
 let l = new Language();
+
+// Passing object into "fromJSON" function
 l.fromJSON({
     "id": "2",
     "nameDisplay": "Español",
@@ -22,6 +25,7 @@ l.fromJSON({
     "abbrev": "ES"
 });
 
+// Results
 console.log(l.nameDisplayed); // prints "Español"
 console.log(l.nameDisplayedNormalized); // prints "Espanol"
 ```

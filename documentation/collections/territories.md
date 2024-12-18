@@ -464,7 +464,7 @@ This is the full list of registered territories
 | 453 | Territory | Los Ríos | Los Ríos | CL-LR | <ul><li>`2` - South America</li></ul> | <ul><li>`35` - Chile</li></ul>
 | 454 | Territory | Los Lagos | Los Lagos | CL-LL | <ul><li>`2` - South America</li></ul> | <ul><li>`35` - Chile</li></ul>
 | 455 | Territory | Región Aysén del General Carlos Ibáñez del Campo | Aysén | CL-AI | <ul><li>`2` - South America</li></ul> | <ul><li>`35` - Chile</li></ul>
-| 456 | Territory | Magallanes y de la Antártica Chilena | Magallanes | CL-MA | N/A | <ul><li>`35` - Chile</li></ul>
+| 456 | Territory | Magallanes y de la Antártica Chilena | Magallanes | CL-MA | <ul><li>`2` - South America</li></ul> | <ul><li>`35` - Chile</li></ul>
 | 457 | Territory | Department of Amazonas | Amazonas | PE-AMA | <ul><li>`2` - South America</li></ul> | <ul><li>`137` - Peru</li></ul>
 | 458 | Territory | Department of Ancash | Ancash | PE-ANC | <ul><li>`2` - South America</li></ul> | <ul><li>`137` - Peru</li></ul>
 | 459 | Territory | Department of Apurímac | Apurímac | PE-APU | <ul><li>`2` - South America</li></ul> | <ul><li>`137` - Peru</li></ul>

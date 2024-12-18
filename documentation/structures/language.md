@@ -51,7 +51,7 @@ N/A
 | Name | Parameters | Usage | Returns
 | - | - | - | - |
 | `fromJSON` | <ul><li>obj - JSON object of attributes</li></ul> | ADJUSTS attributes based on a JSON object<br><br>Coercions<ul><li>id - converts numbers and numerical strings to BigInt</li></ul> | *instance*
-| `toJSON` | N/A | CREATES a JSON object based on attributes | ADJUSTS attributes based on a JSON object | *instance* | Object
+| `toJSON` | N/A | CREATES a JSON object based on attributes | Object
 
 *Getters*
 

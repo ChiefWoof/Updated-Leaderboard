@@ -47,7 +47,7 @@ console.log(t.nameDisplay); // prints "Bangsamoro"
 | Name | Data Type | Usage
 | - | - | - |
 | id | BigInt | numerical identifier (Discontinuable)
-| name | string | the full legal name *(is used if applicable; province's legalities are used but not guaranteed)*
+| name | string | the full legal name *(is used if applicable; territory's legalities are used but not guaranteed)*
 | type | BigInt | the type of territory<br><ul><li>0 - Unspecified (DEFAULT)</li><li>1 - Territory</li><li>2 - US State</li><li>3 - Province</li><li>4 - Oblast</li><li>5 - Krai</li></ul>
 
 *Optional*

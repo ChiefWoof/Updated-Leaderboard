@@ -67,7 +67,7 @@ console.log(t.nameDisplay); // prints "Bangsamoro"
 | Name | Parameters | Usage | Returns
 | - | - | - | - |
 | `fromJSON` | <ul><li>obj - JSON object of attributes</li></ul> | ADJUSTS attributes based on a JSON object<br><br>Coercions<ul><li>id - converts numbers and numerical strings to BigInt</li><li>type - converts numbers and numerical strings to BigInt {EXTENSION: converts strings containing "ter" / "state" / "prov" / "obl" (not case sensitive) to their respective enum. This extension is intended for testing purposes only}</li><li>countries - converts a (and assumes) stringify-able list of POSITIVE INTEGERS and 0 to a BigInt array</li><li>regions - converts a (and assumes) stringify-able list of POSITIVE INTEGERS and 0 to a BigInt array</li></ul> | *instance*
-| `toJSON` | N/A | CREATES a JSON object based on attributes | ADJUSTS attributes based on a JSON object | *instance* | Object
+| `toJSON` | N/A | CREATES a JSON object based on attributes | Object
 
 *Getters*
 

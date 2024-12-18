@@ -17,6 +17,7 @@ N/A
 // Creating the object instance
 let r = new Region();
 
+// Passing object into "fromJSON" function
 r.fromJSON({
     id: 1n,
     name: "Nórth Améríca",

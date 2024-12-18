@@ -17,7 +17,7 @@ N/A
 // Creating the object instance
 let t = new Territory();
 
-// Creating the object instance
+// Passing object into "fromJSON" function
 t.fromJSON({
     "id": "632",
     "type": "state",

@@ -36,7 +36,7 @@ console.log(r.nameDisplayedNormalized) // prints "North America"
 ### Attributes
 
 > [!WARNING]
-> Setters are NOT used for attributes. Functions are the intended way to edit values:
+> Setters are NOT used for attributes. Functions are the intended way to edit values
 
 *Required*
 

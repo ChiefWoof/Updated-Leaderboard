@@ -58,7 +58,7 @@ console.log(t.nameDisplay); // prints "Bangsamoro"
 | flag | ?string | unicode string (if *empty* should not be displayed)
 | abbrev | ?string | a custom short-hand string representation. This should not be a duplicate of another region's abbrev _(this is not an identifier and is more of a decoration and can be changed at any time)_
 | regions | BigInt[] | array of ids, in no paticular order, of regions that contain this country
-| countries | BigInt[] | array of ids, in no paticular order, of countries that contain this province
+| countries | BigInt[] | array of ids, in no paticular order, of countries that contain this territory
 
 ### Methods
 

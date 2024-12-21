@@ -6,7 +6,7 @@
 > [!WARNING]
 > This is a beta document. Some features may be disabled or not included. Everything is subject to change including path to file and its name
 
-# List of Regions
+# Regions Registry
 
 <!-- PROGRAM: INSERT TABLE REGISTRY (featured: 📌, id: ID, name: Name, nameDisplay: Display Name, abbrev: Abbrev., flag: Flag) -->
 | 📌 | ID | Name | Display Name | Abbrev. | Fla |

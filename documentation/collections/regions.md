@@ -9,7 +9,7 @@
 # Regions Registry
 
 <!-- PROGRAM: INSERT TABLE REGISTRY (featured: 📌, id: ID, name: Name, nameDisplay: Display Name, abbrev: Abbrev., flag: Flag) -->
-| 📌 | ID | Name | Display Name | Abbrev. | Fla |
+| 📌 | ID | Name | Display Name | Abbrev. | Flag |
 |  -  |  -  |  -  |  -  |  -  |  -  |
 |   | 1 | North America | North America | NA |   |
 |   | 2 | South America | South America | SA |   |

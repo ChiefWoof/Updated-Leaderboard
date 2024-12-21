@@ -6,7 +6,7 @@
 > [!WARNING]
 > This is a beta document. Some features may be disabled or not included. Everything is subject to change including path to file and its name
 
-# Laanguages Registry
+# Languages Registry
 
 <!-- PROGRAM: INSERT TABLE REGISTRY (id: ID, name: Name, nameDisplay: Display Name, abbrev: Abbrev.) -->
 | ID | Name | Display Name | Abbrev. |

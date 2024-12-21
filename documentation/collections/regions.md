@@ -9,16 +9,16 @@
 # List of Regions
 
 <!-- PROGRAM: INSERT TABLE REGISTRY (featured: 📌, id: ID, name: Name, nameDisplay: Display Name, abbrev: Abbrev., flag: Flag) -->
-| 📌 | ID | Name | Display Name | Abbrev. | Flag |
+| 📌 | ID | Name | Display Name | Abbrev. | Fla |
 |  -  |  -  |  -  |  -  |  -  |  -  |
-|  | 1 | North America | North America | NA |  |
-|  | 2 | South America | South America | SA |  |
-|  | 3 | Europe | Europe | EU |  |
-|  | 4 | Asia | Asia | AS |  |
-|  | 5 | Africa | Africa | AF |  |
-|  | 6 | Oceania | Oceania | OC |  |
+|  | 1 | North America | North America | NA |   |
+|  | 2 | South America | South America | SA |   |
+|  | 3 | Europe | Europe | EU |   |
+|  | 4 | Asia | Asia | AS |   |
+|  | 5 | Africa | Africa | AF |   |
+|  | 6 | Oceania | Oceania | OC |   |
 |  | 7 | Antarctica | Antarctica | AT | 🇦🇶 |
-|  | 8 | Central America | Central America | CA |  |
+|  | 8 | Central America | Central America | CA |   |
 |  | 9 | North of Missouri Compromise | United States North of MO Compromise | US-North | 🇺🇸 |
 |  | 10 | South of Missouri Compromise | United States South of MO Compromise | US-South | 🇺🇸 |
 |  | 11 | East of the Mississippi River | United States East of MS River | US-East | 🇺🇸 |
@@ -29,13 +29,13 @@
 |  | 16 | Eastern Canada | Eastern Canada | CA-East | 🇨🇦 |
 |  | 17 | Canadian Maritimes | Canadian Maritimes | CA-Maritimes | 🇨🇦 |
 |  | 18 | Canadian Territories | Canadian Territories | CA-Territories | 🇨🇦 |
-| 📌 | 19 | Islands | Islands |  |  |
+| 📌 | 19 | Islands | Islands |   |   |
 |  | 20 | United States Northeast | United States Northeast | US-NE | 🇺🇸 |
 |  | 21 | United States South | United States South | US-S | 🇺🇸 |
 |  | 22 | United States Far West | United States Far West | US-W | 🇺🇸 |
 |  | 23 | United States Midwest | United States Midwest | US-MW | 🇺🇸 |
 | 📌 | 24 | MIMAL Fried Chicken | United States MIMAL Fried Chicken | US-MIMAL | 🇺🇸 |
-|  | 25 | New England | United States New England | US-England |  |
+|  | 25 | New England | United States New England | US-England |   |
 |  | 27 | Russia North Caucasian Federal District | Russia North Caucasian Federal District | RU-NCFD | 🇷🇺 |
 |  | 28 | Russia Southern Federal District | Russia Southern Federal District | RU-SFD | 🇷🇺 |
 |  | 29 | Russia Central Federal District | Russia Central Federal District | RU-CFD | 🇷🇺 |
@@ -44,21 +44,21 @@
 |  | 32 | Russia Ural Federal District | Russia Ural Federal District | RU-UFD | 🇷🇺 |
 |  | 33 | Russia Siberian Federal District | Russia Siberian Federal District | RU-SFD | 🇷🇺 |
 |  | 34 | Russia Far Eastern Federal District | Russia Far Eastern Federal District | RU-FEFD | 🇷🇺 |
-| 📌 | 35 | The Caribbean | The Caribbean | CB |  |
+| 📌 | 35 | The Caribbean | The Caribbean | CB |   |
 |  | 36 | United States Mid-Atlantic | United States Mid-Atlantic | US-MA | 🇺🇸 |
-|  | 37 | Commonwealth of Nations | Commonwealth of Nations | UK-CW |  |
-|  | 38 | Cascadia | Cascadia | US-CAS |  |
+|  | 37 | Commonwealth of Nations | Commonwealth of Nations | UK-CW |   |
+|  | 38 | Cascadia | Cascadia | US-CAS |   |
 |  | 39 | European Union | European Union | EU-2 | 🇪🇺 |
-|  | 40 | Balkan Peninsula | Balkans | EU-BP |  |
-|  | 41 | Southeast Asia | Southeast Asia | AS-SE |  |
-|  | 42 | East Asia | East Asia | AS-E |  |
-|  | 43 | Central Asia | Central Asia | AS-C |  |
-|  | 44 | Middle East | Middle East | AS-ME |  |
-|  | 45 | South Asia | South Asia | AS-S |  |
-|  | 46 | North Africa | North Africa | AF-N |  |
-|  | 47 | Maghreb | Maghreb | AF-M |  |
-|  | 48 | North Atlantic Treaty Organization | NATO | NATO |  |
-|  | 49 | Collective Security Treaty Organization | CSTO | CSTO |  |
+|  | 40 | Balkan Peninsula | Balkans | EU-BP |   |
+|  | 41 | Southeast Asia | Southeast Asia | AS-SE |   |
+|  | 42 | East Asia | East Asia | AS-E |   |
+|  | 43 | Central Asia | Central Asia | AS-C |   |
+|  | 44 | Middle East | Middle East | AS-ME |   |
+|  | 45 | South Asia | South Asia | AS-S |   |
+|  | 46 | North Africa | North Africa | AF-N |   |
+|  | 47 | Maghreb | Maghreb | AF-M |   |
+|  | 48 | North Atlantic Treaty Organization | NATO | NATO |   |
+|  | 49 | Collective Security Treaty Organization | CSTO | CSTO |   |
 |  | 50 | Argentine Northwest | Argentine Northwest | AR-NW | 🇦🇷 |
 |  | 51 | Gran Chaco | Gran Chaco | AR-NW | 🇦🇷 |
 |  | 52 | La Mesopotamia | La Mesopotamia | AR-NW | 🇦🇷 |
@@ -73,8 +73,8 @@
 |  | 61 | United States West South Central | United States West South Central | US-WSC | 🇺🇸 |
 |  | 62 | United States Mountain West | United States Mountain West | US-MTNW | 🇺🇸 |
 |  | 63 | United States Pacific West | United States Pacific West | US-PW | 🇺🇸 |
-|  | 64 | Scandinavia | Scandinavia | EU-SCO |  |
-|  | 65 | Nordic Countries | Nordic Countries | EU-NORDIC |  |
+|  | 64 | Scandinavia | Scandinavia | EU-SCO |   |
+|  | 65 | Nordic Countries | Nordic Countries | EU-NORDIC |   |
 |  | 66 | Região Norte | North Region of Brazil | BR-N | 🇧🇷 |
 |  | 67 | Região Nordeste | Northeast Region of Brazil | BR-NE | 🇧🇷 |
 |  | 68 | Região Centro-Oeste | Central-West Region of Brazil | BR-CW | 🇧🇷 |

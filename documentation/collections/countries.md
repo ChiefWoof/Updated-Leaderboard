@@ -9,7 +9,7 @@
 # Country Registry
 
 <!-- PROGRAM: INSERT TABLE REGISTRY (id: ID, name: Name, nameDisplay: Display Name, flag: Flag, regions: Regions) -->
-| ID | Name | Display Name | Flag | Region |
+| ID | Name | Display Name | Flag | Regions |
 |  -  |  -  |  -  |  -  |  -  |
 | 1 | Afghanistan | Afghanistan | 🇦🇫 | <ul><li>`4` - Asia</li> <li>`45` - South Asia</li></ul> |
 | 2 | Republic of Albania | Albania | 🇦🇱 | <ul><li>`3` - Europe</li> <li>`40` - Balkan Peninsula</li> <li>`48` - North Atlantic Treaty Organization</li></ul> |

@@ -65,7 +65,7 @@ However, stars already factors in the XP value (doubling the value). Because the
 * Demons/2 = +25xp
 
 <a id="derivation_cp"></a>
-<img src="../../assets/gd_stat_cp.png" alt="CP" width=24px height=24px> Creator points, in theory, take a long time and a lot of work to obtain. Therefore, they should be much more valuable than any other base stat in order to balance this stat out alongside the other stats. Additionally, creator points are completely independent to that of star count and is therefore not directly comparable to any of the base stats
+<img src="../../assets/gd_stat_cp.png" alt="creator points" width=24px height=24px> Creator points, in theory, take a long time and a lot of work to obtain. Therefore, they should be much more valuable than any other base stat in order to balance this stat out alongside the other stats. Additionally, creator points are completely independent to that of star count and is therefore not directly comparable to any of the base stats
 
 A feasible solution is to use a summation calculation to determine the total weight of the other base stats using a 10 star level (the reasonable maximum for a user created level) as a theoretical focal point. Then, proceed to make a manual adjustment to award creator points with more total weight to keep to the guidelines
 
@@ -112,7 +112,7 @@ Plugging in values is the derivation of the xp formula for demon difficulty is d
 
 Putting it all together, the amount of awarded xp per 1 of each stat is below. Using these ratios and a summation is the net score
 
-> |   | <img src="../../assets/gd_stat_stars.png" alt="stars" width=24px height=24px> | <img src="../../assets/gd_stat_diamonds.png" alt="diamonds" width=24px height=24px> | <img src="../../assets/gd_stat_scoins.png" alt="s-coins" width=24px height=24px> | <img src="../../assets/gd_stat_ucoins.png" alt="u-coins" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_easy.png" alt="demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_medium.png" alt="demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_hard.png" alt="demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_insane.png" alt="demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_extreme.png" alt="demons" width=24px height=24px> | <img src="../../assets/gd_stat_cp.png" alt="CP" width=24px height=24px> | <img src="../../assets/gd_stat_moons.png" alt="moons" width=24px height=24px> |
+> |   | <img src="../../assets/gd_stat_stars.png" alt="stars" width=24px height=24px> | <img src="../../assets/gd_stat_diamonds.png" alt="diamonds" width=24px height=24px> | <img src="../../assets/gd_stat_scoins.png" alt="s-coins" width=24px height=24px> | <img src="../../assets/gd_stat_ucoins.png" alt="u-coins" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_easy.png" alt="easy demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_medium.png" alt="medium demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_hard.png" alt="hard demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_insane.png" alt="insane demons" width=24px height=24px> | <img src="../../assets/gd_difficulty_demon_extreme.png" alt="extreme demons" width=24px height=24px> | <img src="../../assets/gd_stat_cp.png" alt="creator points" width=24px height=24px> | <img src="../../assets/gd_stat_moons.png" alt="moons" width=24px height=24px> |
 > | - | - | - | - | - | - | - | - | - | - | - | - |
 > | +XP\*1 | +5 | +2 | +15 | +10 | +25 | +78 | +247 | +778 | +2,450 | +1,000 | +5 |
 
@@ -139,16 +139,17 @@ Note: *each displayed entry is rounded down to the nearest whole number. However
 
 | Stat | +XP\*1 | Stat Value | +XP |
 | - | - | - | - |
-| <img src="../../assets/gd_stat_stars.png" alt="stars" width=24px height=24px> | +5 | +167,437 | +837,185 |
+| <img src="../../assets/gd_stat_stars.png" alt="stars" width=24px height=24px> | +5 | 167,437 | +837,185 |
 | <img src="../../assets/gd_stat_diamonds.png" alt="diamonds" width=24px height=24px> | +2 | 103,686 | +207,372 |
-| <img src="../../assets/gd_stat_scoins.png" alt="stars" width=24px height=24px> | +15 | 149 | +2,235 |
-| <img src="../../assets/gd_stat_ucoins.png" alt="stars" width=24px height=24px> | +10 | 12,369 | +123,690 |
-| <img src="../../assets/gd_difficulty_demon_easy.png" alt="stars" width=24px height=24px> | +25 | 1,041 | +26,025 |
-| <img src="../../assets/gd_difficulty_demon_medium.png" alt="stars" width=24px height=24px> | +78 | 1,277 | +100,447 |
-| <img src="../../assets/gd_difficulty_demon_hard.png" alt="stars" width=24px height=24px> | +247 | 715 | +176,953 |
-| <img src="../../assets/gd_difficulty_demon_insane.png" alt="stars" width=24px height=24px> | +778 | 132 | +102,785 |
-| <img src="../../assets/gd_difficulty_demon_extreme.png" alt="stars" width=24px height=24px> | +2,450 | 18 | +44,100 |
-| <img src="../../assets/gd_stat_cp.png" alt="stars" width=24px height=24px> | +1,000 | 6 | +6,000 |
+| <img src="../../assets/gd_stat_scoins.png" alt="s-coins" width=24px height=24px> | +15 | 149 | +2,235 |
+| <img src="../../assets/gd_stat_ucoins.png" alt="u-coins" width=24px height=24px> | +10 | 12,369 | +123,690 |
+| <img src="../../assets/gd_difficulty_demon_easy.png" alt="easy demons" width=24px height=24px> | +25 | 1,041 | +26,025 |
+| <img src="../../assets/gd_difficulty_demon_medium.png" alt="medium demons" width=24px height=24px> | +78 | 1,277 | +100,447 |
+| <img src="../../assets/gd_difficulty_demon_hard.png" alt="hard demons" width=24px height=24px> | +247 | 715 | +176,953 |
+| <img src="../../assets/gd_difficulty_demon_insane.png" alt="insane demons" width=24px height=24px> | +778 | 132 | +102,785 |
+| <img src="../../assets/gd_difficulty_demon_extreme.png" alt="extreme demons" width=24px height=24px> | +2,450 | 18 | +44,100 |
+| <img src="../../assets/gd_stat_cp.png" alt="creator points" width=24px height=24px> | +1,000 | 6 | +6,000 |
+| <img src="../../assets/gd_stat_moons.png" alt="moons" width=24px height=24px> | +5 | 248 | +1,240 |
 | total |   |   | 1,628,033 |
 
 Theorectical Net Score = 1,628,033

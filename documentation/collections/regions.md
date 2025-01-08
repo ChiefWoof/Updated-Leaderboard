@@ -35,7 +35,7 @@
 |   | 22 | United States Far West | United States Far West | US-W | 🇺🇸 |
 |   | 23 | United States Midwest | United States Midwest | US-MW | 🇺🇸 |
 | 📌 | 24 | MIMAL Fried Chicken | United States MIMAL Fried Chicken | US-MIMAL | 🇺🇸 |
-|   | 25 | New England | United States New England | US-England |   |
+|   | 25 | New England | United States New England | US-England | 🇺🇸 |
 |   | 27 | Russia North Caucasian Federal District | Russia North Caucasian Federal District | RU-NCFD | 🇷🇺 |
 |   | 28 | Russia Southern Federal District | Russia Southern Federal District | RU-SFD | 🇷🇺 |
 |   | 29 | Russia Central Federal District | Russia Central Federal District | RU-CFD | 🇷🇺 |

@@ -2,7 +2,7 @@
 Informally known as "GD Experience," net score is the equalization of stats and merge them into one numeric value
 
 > [!CAUTION]
-> For this purpose of simplicity in this document, some values in the formula are rounded down to the nearest whole number. For exact values, see the derivation calculations
+> For the purpose of simplicity, some values in the formula are rounded down to the nearest whole number. For exact values, see the derivation calculations
 
 ### Glossary
 * [How it's calculated](#how-its-calculated)

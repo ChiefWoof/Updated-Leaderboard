@@ -177,7 +177,7 @@
 | 164 | Republic of South Sudan | South Sudan | 🇸🇸 | <ul><li>`5` - Africa</li> <li>`46` - North Africa</li></ul> |
 | 165 | Kingdom of Spain | Spain | 🇪🇸 | <ul><li>`3` - Europe</li> <li>`39` - European Union</li> <li>`48` - North Atlantic Treaty Organization</li></ul> |
 | 166 | Democratic Socialist Republic of Sri Lanka | Sri Lanka | 🇱🇰 | <ul><li>`4` - Asia</li> <li>`19` - Islands</li> <li>`37` - Commonwealth of Nations</li> <li>`45` - South Asia</li></ul> |
-| 167 | Republic of the Sudan | Sudan | 🇸🇸 | <ul><li>`5` - Africa</li></ul> |
+| 167 | Republic of the Sudan | Sudan | 🇸🇩 | <ul><li>`5` - Africa</li></ul> |
 | 168 | Republic of Suriname | Suriname | 🇸🇷 | <ul><li>`2` - South America</li> <li>`35` - The Caribbean</li></ul> |
 | 169 | Kingdom of Sweden | Sweden | 🇸🇪 | <ul><li>`3` - Europe</li> <li>`39` - European Union</li> <li>`64` - Scandinavia</li> <li>`65` - Nordic Countries</li></ul> |
 | 170 | Swiss Confederation | Switzerland | 🇨🇭 | <ul><li>`3` - Europe</li></ul> |

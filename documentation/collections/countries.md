@@ -57,7 +57,7 @@
 | 44 | Democratic Republic of the Congo | Democratic Republic of the Congo | 🇨🇩 | <ul><li>`5` - Africa</li></ul> |
 | 45 | Kingdom of Denmark | Denmark | 🇩🇰 | <ul><li>`3` - Europe</li> <li>`39` - European Union</li> <li>`48` - North Atlantic Treaty Organization</li> <li>`64` - Scandinavia</li> <li>`65` - Nordic Countries</li></ul> |
 | 46 | Republic of Djibouti | Djibouti | 🇩🇯 | <ul><li>`5` - Africa</li></ul> |
-| 47 | Commonwealth of Dominica | Dominica | 🇩🇴 | <ul><li>`1` - North America</li> <li>`19` - Islands</li> <li>`35` - The Caribbean</li> <li>`37` - Commonwealth of Nations</li></ul> |
+| 47 | Commonwealth of Dominica | Dominica | 🇩🇲 | <ul><li>`1` - North America</li> <li>`19` - Islands</li> <li>`35` - The Caribbean</li> <li>`37` - Commonwealth of Nations</li></ul> |
 | 48 | Dominican Republic | Dominican Republic | 🇩🇴 | <ul><li>`1` - North America</li> <li>`19` - Islands</li> <li>`35` - The Caribbean</li></ul> |
 | 49 | Democratic Republic of Timor-Leste | East Timor | 🇹🇱 | <ul><li>`4` - Asia</li> <li>`19` - Islands</li> <li>`41` - Southeast Asia</li></ul> |
 | 50 | Republic of Ecuador | Ecuador | 🇪🇨 | <ul><li>`2` - South America</li></ul> |

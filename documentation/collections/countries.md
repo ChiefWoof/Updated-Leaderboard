@@ -115,7 +115,7 @@
 | 102 | Republic of Malawi | Malawi | 🇲🇼 | <ul><li>`5` - Africa</li> <li>`37` - Commonwealth of Nations</li></ul> |
 | 103 | Malaysia | Malaysia | 🇲🇾 | <ul><li>`4` - Asia</li> <li>`37` - Commonwealth of Nations</li> <li>`41` - Southeast Asia</li></ul> |
 | 104 | Republic of Maldives | Maldives | 🇲🇻 | <ul><li>`4` - Asia</li> <li>`19` - Islands</li> <li>`37` - Commonwealth of Nations</li> <li>`45` - South Asia</li></ul> |
-| 105 | Republic of Mali | Mali | 🇸🇴 | <ul><li>`5` - Africa</li></ul> |
+| 105 | Republic of Mali | Mali | 🇲🇱 | <ul><li>`5` - Africa</li></ul> |
 | 106 | Republic of Malta | Malta | 🇲🇹 | <ul><li>`3` - Europe</li> <li>`19` - Islands</li> <li>`37` - Commonwealth of Nations</li> <li>`39` - European Union</li></ul> |
 | 107 | Republic of the Marshall Islands | Marshall Islands | 🇲🇭 | <ul><li>`6` - Oceania</li> <li>`19` - Islands</li></ul> |
 | 108 | Islamic Republic of Mauritania | Mauritania | 🇲🇷 | <ul><li>`5` - Africa</li> <li>`47` - Maghreb</li></ul> |

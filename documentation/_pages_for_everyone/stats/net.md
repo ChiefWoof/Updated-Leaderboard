@@ -1,5 +1,5 @@
 # Net Score
-Informally known as "GD Experience," net score is the equalization of stats and merge them into one numeric value
+Informally known as "GD Experience," net score is the equalization of stats merged into one numerical value using mathematical fundamentals
 
 > [!CAUTION]
 > For the purpose of simplicity, some values in the formula are rounded down to the nearest whole number. For exact values, see the derivation calculations
